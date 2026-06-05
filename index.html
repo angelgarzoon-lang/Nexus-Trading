@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEXUS TRADING — NinjaTrader Futures Bot</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -399,7 +401,7 @@ body:not(.lang-en) .es-text{display:block;}
 .scan-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,106,.3),transparent);animation:scanMove 6s ease-in-out infinite;opacity:.4;pointer-events:none;}
 @keyframes scanMove{0%,100%{top:10%}50%{top:90%}}
 
-/* WhatsApp float */
+/* Discord float */
 .wa-float{
   position:fixed;bottom:30px;right:30px;z-index:800;
   width:60px;height:60px;border-radius:50%;
@@ -557,10 +559,10 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
 <div id="cur"></div>
 <div id="cur2"></div>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/610452523219" target="_blank" class="wa-float">
+<!-- DISCORD FLOAT -->
+<a href="https://discord.gg/REPLACE-ME" target="_blank" class="wa-float">
   💬
-  <div class="wa-tooltip">WhatsApp Directo</div>
+  <div class="wa-tooltip">Discord Directo</div>
 </a>
 
 <!-- COUNTDOWN BANNER -->
@@ -609,8 +611,8 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
         <input class="form-input" type="email" placeholder="juan@gmail.com" id="fi-email">
       </div>
       <div class="form-group">
-        <label class="form-label">WhatsApp</label>
-        <input class="form-input" placeholder="+57 300 000 0000" id="fi-phone">
+        <label class="form-label">Discord username</label>
+        <input class="form-input" placeholder="@nexus_user" id="fi-phone">
       </div>
       <div class="form-group">
         <label class="form-label"><span class="es-text">País / Country</span></label>
@@ -966,7 +968,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Necesito experiencia previa en trading de futuros?</span><span class="en-text">Do I need prior futures trading experience?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">No es indispensable, pero sí recomendamos tener una cuenta en NinjaTrader activa. Te guiamos en la instalación completa 1:1 por WhatsApp. Lo único que necesitas es tener NinjaTrader 8 instalado y una cuenta con un broker de futuros compatible (NinjaTrader Brokerage, Tradovate, Rithmic).</span><span class="en-text">Not required, but we do recommend having an active NinjaTrader account. We guide you through the full 1:1 installation via WhatsApp. You just need NinjaTrader 8 installed and an account with a compatible futures broker (NinjaTrader Brokerage, Tradovate, Rithmic).</span></div>
+      <div class="faq-a"><span class="es-text">No es indispensable, pero sí recomendamos tener una cuenta en NinjaTrader activa. Te guiamos en la instalación completa 1:1 por Discord. Lo único que necesitas es tener NinjaTrader 8 instalado y una cuenta con un broker de futuros compatible (NinjaTrader Brokerage, Tradovate, Rithmic).</span><span class="en-text">Not required, but we do recommend having an active NinjaTrader account. We guide you through the full 1:1 installation via Discord. You just need NinjaTrader 8 installed and an account with a compatible futures broker (NinjaTrader Brokerage, Tradovate, Rithmic).</span></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Solo funciona en NinjaTrader? ¿No en MetaTrader?</span><span class="en-text">Does it only work on NinjaTrader? Not MetaTrader?</span> <span class="faq-arrow">+</span></button>
@@ -1000,9 +1002,9 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
       <p class="footer-tagline en-text">Multi-algorithm bot for NinjaTrader 8, NQ/ES futures and funded evaluations with compatible prop firms.</p>
       <div class="footer-social">
         <a class="social-link" href="#precios">💳</a>
-        <a class="social-link" href="#">📷</a>
+        <a class="social-link" href="https://www.instagram.com/nexus_tradingbot/" target="_blank">📷</a>
         <a class="social-link" href="#">▶</a>
-        <a class="social-link" href="#">✉</a>
+        <a class="social-link" href="https://discord.gg/REPLACE-ME" target="_blank">💬</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1026,7 +1028,8 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
       <h4><span class="es-text">Contacto</span><span class="en-text">Contact</span></h4>
       <ul>
         <li><a href="#precios"><span class="es-text">Pago seguro</span><span class="en-text">Secure checkout</span></a></li>
-        <li><a href="#"><span class="es-text">Soporte</span><span class="en-text">Support</span></a></li>
+        <li><a href="https://discord.gg/REPLACE-ME" target="_blank"><span class="es-text">Soporte por Discord</span><span class="en-text">Discord Support</span></a></li>
+        <li><a href="https://www.instagram.com/nexus_tradingbot/" target="_blank">Instagram: @nexus_tradingbot</a></li>
       </ul>
     </div>
   </div>
@@ -1038,6 +1041,8 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
 </footer>
 
 <script>
+const DISCORD_INVITE_URL = 'https://discord.gg/REPLACE-ME';
+const INSTAGRAM_URL = 'https://www.instagram.com/nexus_tradingbot/';
 // ── CURSOR ──
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,rx=0,ry=0;
