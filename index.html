@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="es" style="color-scheme:dark;background:#000a03;">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEXUS TRADING — NinjaTrader Futures Bot</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  color-scheme:dark;
   --g0:#000a03;--g1:#011a08;--g2:#022d0f;
   --g3:#00ff6a;--g4:#00e55e;--g5:#39ff9a;
   --acid:#c6ff00;--white:#f0fff5;
@@ -19,7 +17,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Syne',sans-serif;background:#000a03!important;background-color:#000a03!important;color:#f0fff5!important;overflow-x:hidden;cursor:none;}
+body{font-family:'Syne',sans-serif;background:var(--g0);color:var(--white);overflow-x:hidden;cursor:none;}
 
 /* CURSOR */
 #cur{width:12px;height:12px;background:var(--g3);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:var(--glow-sm);transition:width .2s,height .2s;}
@@ -358,6 +356,24 @@ footer{background:var(--g0);padding:80px 60px 40px;border-top:1px solid rgba(0,2
 .modal-pay-title{font-size:12px;color:var(--g3);letter-spacing:2px;margin-bottom:12px;}
 .modal-pay-text{font-size:13px;color:rgba(240,255,245,.6);line-height:1.9;}
 .modal-pay-text strong{color:var(--white);}
+
+.payment provider-wallet-box{
+  margin-top:16px;padding:16px;background:rgba(0,255,106,.07);
+  border:1px solid rgba(0,255,106,.25);word-break:break-all;
+}
+.payment provider-wallet-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,255,106,.65);margin-bottom:8px;}
+.payment provider-wallet-address{font-family:'Space Mono',monospace;font-size:13px;color:var(--g3);line-height:1.6;}
+.copy-wallet-btn{
+  margin-top:12px;padding:10px 14px;background:transparent;color:var(--g3);
+  border:1px solid rgba(0,255,106,.35);font-family:'Syne',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:none;
+}
+.copy-wallet-btn:hover{background:rgba(0,255,106,.1);border-color:var(--g3);}
+.payment-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;}
+.payment-option{padding:12px;background:rgba(240,255,245,.04);border:1px solid rgba(0,255,106,.16);font-size:11px;color:rgba(240,255,245,.62);line-height:1.5;}
+.payment-option strong{display:block;color:var(--g3);font-size:12px;margin-bottom:4px;}
+@media(max-width:700px){.payment-options{grid-template-columns:1fr;}}
+
 .modal-btn{width:100%;padding:18px;background:var(--g3);color:var(--g0);border:none;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:none;transition:all .3s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);}
 .modal-btn:hover{background:var(--acid);}
 .modal-terms{font-size:11px;color:rgba(240,255,245,.3);text-align:center;margin-top:14px;line-height:1.7;}
@@ -483,24 +499,28 @@ body:not(.lang-en) .es-text{display:block;}
         <input class="form-input" placeholder="Colombia, Australia, Mexico…" id="fi-country">
       </div>
       <div class="modal-pay-info">
-        <div class="modal-pay-title">₿ <span class="es-text">INSTRUCCIONES DE PAGO</span><span class="en-text">PAYMENT INSTRUCTIONS</span></div>
+        <div class="modal-pay-title">🔒 <span class="es-text">PAGO SEGURO</span><span class="en-text">SECURE PAYMENT</span></div>
+        <div class="payment-options">
+          <div class="payment-option"><strong>Stripe Checkout</strong><span class="es-text">Tarjeta débito/crédito, wallets y métodos locales según país.</span><span class="en-text">Debit/credit card, wallets and local methods depending on country.</span></div>
+          <div class="payment-option"><strong>Verified Order</strong><span class="es-text">Cada pago queda registrado con confirmación automática.</span><span class="en-text">Every payment is recorded with automatic confirmation.</span></div>
+        </div>
         <p class="modal-pay-text es-text">
-          Después de enviar tu orden te contactaré directamente por WhatsApp o correo con la dirección de <strong>Bitcoin / USDT (TRC20)</strong> para realizar el pago. Tu bot se activa en <strong style="color:var(--g3)">menos de 24 horas</strong> una vez confirmada la transacción en blockchain.
+          Al continuar serás redirigido a una página de pago segura. La entrega del bot se realiza únicamente cuando el pago aparece como confirmado.
         </p>
         <p class="modal-pay-text en-text">
-          After submitting your order, I'll contact you directly via WhatsApp or email with the <strong>Bitcoin / USDT (TRC20)</strong> wallet address. Your bot activates in <strong style="color:var(--g3)">less than 24 hours</strong> once the blockchain transaction is confirmed.
+          By continuing, you will be redirected to a secure checkout page. Bot delivery is completed only after the payment is confirmed.
         </p>
       </div>
-      <button class="modal-btn" onclick="submitOrder()">🔒 <span class="es-text">Confirmar Orden Segura</span><span class="en-text">Confirm Secure Order</span></button>
-      <div class="modal-terms es-text">Al continuar aceptas los Términos. Garantía de devolución 60 días.<br>Contacto: <strong style="color:var(--g3)">wa.me/610452523219</strong></div>
-      <div class="modal-terms en-text">By proceeding you accept the Terms. 60-day money-back guarantee.<br>Contact: <strong style="color:var(--g3)">wa.me/610452523219</strong></div>
+      <button class="modal-btn" onclick="submitOrder()">🔒 <span class="es-text">Continuar al pago seguro</span><span class="en-text">Continue to secure payment</span></button>
+      <div class="modal-terms es-text">Pago procesado por proveedor externo seguro. Garantía de devolución 60 días según términos.</div>
+      <div class="modal-terms en-text">Payment processed by a secure external provider. 60-day guarantee according to terms.</div>
     </div>
     <div id="paySuccess" style="display:none;text-align:center;padding:20px;">
-      <div style="font-size:56px;margin-bottom:16px;">✅</div>
-      <div style="font-size:22px;font-weight:800;color:var(--g3);margin-bottom:8px;" class="es-text">¡Orden Recibida!</div>
-      <div style="font-size:22px;font-weight:800;color:var(--g3);margin-bottom:8px;" class="en-text">Order Received!</div>
-      <div style="font-size:14px;color:rgba(240,255,245,.5);line-height:1.9;" class="es-text">Te contactaré en WhatsApp <strong style="color:var(--g3)">+61 0452 523 219</strong> con los datos de pago en cripto. ¡Bienvenido al equipo NEXUS!</div>
-      <div style="font-size:14px;color:rgba(240,255,245,.5);line-height:1.9;" class="en-text">I'll contact you on WhatsApp <strong style="color:var(--g3)">+61 0452 523 219</strong> with the crypto payment details. Welcome to NEXUS!</div>
+      <div style="font-size:56px;margin-bottom:16px;">🔒</div>
+      <div style="font-size:22px;font-weight:800;color:var(--g3);margin-bottom:8px;" class="es-text">Redirigiendo al pago seguro...</div>
+      <div style="font-size:22px;font-weight:800;color:var(--g3);margin-bottom:8px;" class="en-text">Redirecting to secure checkout...</div>
+      <div style="font-size:14px;color:rgba(240,255,245,.5);line-height:1.9;" class="es-text">Si no abre automáticamente, revisa el enlace de pago configurado en el archivo HTML.</div>
+      <div style="font-size:14px;color:rgba(240,255,245,.5);line-height:1.9;" class="en-text">If it does not open automatically, check the payment link configured in the HTML file.</div>
     </div>
   </div>
 </div>
@@ -528,15 +548,15 @@ body:not(.lang-en) .es-text{display:block;}
   <div class="grid-floor" id="gridFloor"></div>
   <div class="scan-line"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="badge-dot"></span><span class="es-text">Sistema Activo · NASDAQ &amp; S&P500 Futuros</span><span class="en-text">System Active · NASDAQ &amp; S&P500 Futures</span></div>
+    <div class="hero-badge"><span class="badge-dot"></span><span class="es-text">FastPass Evaluations · Prop Firms · NQ &amp; ES Futures</span><span class="en-text">FastPass Evaluations · Prop Firms · NQ &amp; ES Futures</span></div>
     <div class="hero-jp">ネクサス · フューチャーズ · トレーディング</div>
     <h1 class="hero-title" id="heroTitle">
-      <span class="outline">DOMINA</span> los<br>
-      <span class="green">Futuros</span><br>
-      <span class="acid">con IA</span>
+      <span class="outline">PASA</span> cuentas<br>
+      <span class="green">de fondeo</span><br>
+      <span class="acid">con bots</span>
     </h1>
-    <p class="hero-sub es-text">Bot algorítmico para <strong style="color:var(--g3)">NinjaTrader 8</strong> — especializado en futuros del NASDAQ y S&P500. 3 estrategias verificadas, rentabilidad del <strong style="color:var(--g3)">80–90%</strong>, opera 24/7 automáticamente.</p>
-    <p class="hero-sub en-text">Algorithmic bot for <strong style="color:var(--g3)">NinjaTrader 8</strong> — specialized in NASDAQ and S&P500 futures. 3 verified strategies, <strong style="color:var(--g3)">80–90%</strong> profitability, runs 24/7 automatically.</p>
+    <p class="hero-sub es-text">FastPass Evaluations Bot para <strong style="color:var(--g3)">NinjaTrader 8</strong>: diseñado para operar NQ y ES, ayudar a pasar cuentas de fondeo en prop firms como Apex, Topstep, Tradeify, Lucid y otras, y buscar una rentabilidad objetivo del <strong style="color:var(--g3)">80–90%</strong> con automatización disciplinada.</p>
+    <p class="hero-sub en-text">FastPass Evaluations Bot for <strong style="color:var(--g3)">NinjaTrader 8</strong>: built to trade NQ and ES, help pass funded evaluations with prop firms like Apex, Topstep, Tradeify, Lucid and others, and target <strong style="color:var(--g3)">80–90%</strong> profitability through disciplined automation.</p>
     <div class="hero-price-block">
       <span class="hpb-old">$2,600</span>
       <span class="hpb-new">$499</span>
@@ -554,8 +574,8 @@ body:not(.lang-en) .es-text{display:block;}
   </div>
   <div class="hero-stats reveal">
     <div class="stat"><span class="stat-num">80-90%</span><div class="stat-label"><span class="es-text">Rentabilidad Anual</span><span class="en-text">Annual Return</span></div></div>
-    <div class="stat"><span class="stat-num">3</span><div class="stat-label"><span class="es-text">Estrategias</span><span class="en-text">Strategies</span></div></div>
-    <div class="stat"><span class="stat-num">24/7</span><div class="stat-label"><span class="es-text">Automático</span><span class="en-text">Automated</span></div></div>
+    <div class="stat"><span class="stat-num">4</span><div class="stat-label"><span class="es-text">Algoritmos</span><span class="en-text">Algorithms</span></div></div>
+    <div class="stat"><span class="stat-num">PROP</span><div class="stat-label"><span class="es-text">Fondeo</span><span class="en-text">Funding</span></div></div>
     <div class="stat"><span class="stat-num">NQ+ES</span><div class="stat-label">NASDAQ · S&amp;P500</div></div>
     <div class="stat"><span class="stat-num">60d</span><div class="stat-label"><span class="es-text">Garantía</span><span class="en-text">Guarantee</span></div></div>
   </div>
@@ -564,22 +584,22 @@ body:not(.lang-en) .es-text{display:block;}
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item">NQ1! <span class="ticker-up">▲ 19,847 +1.34%</span></span>
-    <span class="ticker-item">ES1! <span class="ticker-up">▲ 5,421 +0.87%</span></span>
-    <span class="ticker-item">NVDA <span class="ticker-up">▲ 875 +3.2%</span></span>
-    <span class="ticker-item">TSLA <span class="ticker-down">▼ 248 -0.6%</span></span>
-    <span class="ticker-item">NEXUS BOT <span class="ticker-up">▲ +87.4% YTD</span></span>
-    <span class="ticker-item">AAPL <span class="ticker-up">▲ 189 +2.1%</span></span>
-    <span class="ticker-item">MSFT <span class="ticker-up">▲ 420 +0.5%</span></span>
-    <span class="ticker-item">NinjaTrader 8 ✓</span>
-    <span class="ticker-item">NQ1! <span class="ticker-up">▲ 19,847 +1.34%</span></span>
-    <span class="ticker-item">ES1! <span class="ticker-up">▲ 5,421 +0.87%</span></span>
-    <span class="ticker-item">NVDA <span class="ticker-up">▲ 875 +3.2%</span></span>
-    <span class="ticker-item">TSLA <span class="ticker-down">▼ 248 -0.6%</span></span>
-    <span class="ticker-item">NEXUS BOT <span class="ticker-up">▲ +87.4% YTD</span></span>
-    <span class="ticker-item">AAPL <span class="ticker-up">▲ 189 +2.1%</span></span>
-    <span class="ticker-item">MSFT <span class="ticker-up">▲ 420 +0.5%</span></span>
-    <span class="ticker-item">NinjaTrader 8 ✓</span>
+    <span class="ticker-item">FASTPASS EVALUATIONS <span class="ticker-up">▲ PROP FIRM MODE</span></span>
+    <span class="ticker-item">APEX <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">TOPSTEP <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">TRADEIFY <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">LUCID <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">NQ FUTURES <span class="ticker-up">▲ Fast execution</span></span>
+    <span class="ticker-item">ES FUTURES <span class="ticker-up">▲ Controlled risk</span></span>
+    <span class="ticker-item">NINJATRADER 8 ✓</span>
+    <span class="ticker-item">FASTPASS EVALUATIONS <span class="ticker-up">▲ PROP FIRM MODE</span></span>
+    <span class="ticker-item">APEX <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">TOPSTEP <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">TRADEIFY <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">LUCID <span class="ticker-up">✓ Compatible</span></span>
+    <span class="ticker-item">NQ FUTURES <span class="ticker-up">▲ Fast execution</span></span>
+    <span class="ticker-item">ES FUTURES <span class="ticker-up">▲ Controlled risk</span></span>
+    <span class="ticker-item">NINJATRADER 8 ✓</span>
   </div>
 </div>
 
@@ -589,14 +609,14 @@ body:not(.lang-en) .es-text{display:block;}
     <div class="reveal-left">
       <div class="section-tag es-text">// プラットフォーム · PLATAFORMA REQUERIDA</div>
       <div class="section-tag en-text">// プラットフォーム · REQUIRED PLATFORM</div>
-      <h2 class="section-title es-text">Solo para<br><span class="green">NinjaTrader 8</span></h2>
-      <h2 class="section-title en-text">Built for<br><span class="green">NinjaTrader 8</span></h2>
-      <p class="section-desc es-text" style="margin-bottom:36px;">NEXUS es un bot especializado en <strong style="color:var(--white)">futuros</strong>. No funciona en MetaTrader ni en cuentas de forex. Diseñado exclusivamente para operar los contratos de futuros NQ (NASDAQ) y ES (S&P500) en NinjaTrader 8.</p>
-      <p class="section-desc en-text" style="margin-bottom:36px;">NEXUS is a <strong style="color:var(--white)">futures-only</strong> bot. It does not work on MetaTrader or forex accounts. Built exclusively to trade NQ (NASDAQ) and ES (S&P500) futures contracts on NinjaTrader 8.</p>
+      <h2 class="section-title es-text">Para NinjaTrader 8<br><span class="green">y Prop Firms</span></h2>
+      <h2 class="section-title en-text">Built for NinjaTrader 8<br><span class="green">and Prop Firms</span></h2>
+      <p class="section-desc es-text" style="margin-bottom:36px;">NEXUS FastPass es un sistema especializado en <strong style="color:var(--white)">futuros y evaluaciones de fondeo</strong>. Está diseñado para NinjaTrader 8 y puede usarse en cuentas de prop firms compatibles con NQ, MNQ, ES y MES. Apex, Topstep, Tradeify, Lucid y otras firmas pueden usar reglas distintas; por eso el bot permite operar con parámetros y gestión de riesgo ajustables.</p>
+      <p class="section-desc en-text" style="margin-bottom:36px;">NEXUS FastPass is a <strong style="color:var(--white)">futures and funded-evaluation</strong> system. It is built for NinjaTrader 8 and can be used with prop firm accounts that support NQ, MNQ, ES and MES. Apex, Topstep, Tradeify, Lucid and other firms may apply different rules, so the bot allows adjustable parameters and risk management.</p>
       <div class="ninja-steps">
         <div class="ninja-step">
           <div class="ns-num">01</div>
-          <div><div class="ns-title es-text">Compra y recibe el archivo .zip</div><div class="ns-title en-text">Purchase and receive the .zip file</div><div class="ns-desc es-text">Te enviamos el archivo de input directamente por WhatsApp o correo tras confirmar el pago.</div><div class="ns-desc en-text">We send you the input file directly via WhatsApp or email after payment confirmation.</div></div>
+          <div><div class="ns-title es-text">Compra y recibe el archivo .zip</div><div class="ns-title en-text">Purchase and receive the .zip file</div><div class="ns-desc es-text">Recibes el paquete del bot con 4 algoritmos, guía de instalación y configuración recomendada para evaluación o cuenta real.</div><div class="ns-desc en-text">You receive the bot package with 4 algorithms, installation guide and recommended setup for evaluation or live accounts.</div></div>
         </div>
         <div class="ninja-step">
           <div class="ns-num">02</div>
@@ -604,7 +624,7 @@ body:not(.lang-en) .es-text{display:block;}
         </div>
         <div class="ninja-step">
           <div class="ns-num">03</div>
-          <div><div class="ns-title es-text">Configura y activa</div><div class="ns-title en-text">Configure and activate</div><div class="ns-desc es-text">Adjunta el bot a los contratos NQ o ES, establece el capital y activa. El sistema opera solo.</div><div class="ns-desc en-text">Attach the bot to NQ or ES contracts, set your capital and activate. The system trades on its own.</div></div>
+          <div><div class="ns-title es-text">Configura y activa</div><div class="ns-title en-text">Configure and activate</div><div class="ns-desc es-text">Elige el algoritmo según mercado, tiempo, riesgo y tipo de cuenta. NQ y ES no se comportan igual: cada uno opera con parámetros, tiempos y gestión diferente.</div><div class="ns-desc en-text">Choose the algorithm according to market, timeframe, risk and account type. NQ and ES do not behave the same: each one trades with different parameters, timing and risk controls.</div></div>
         </div>
       </div>
     </div>
@@ -619,12 +639,12 @@ body:not(.lang-en) .es-text{display:block;}
         <ul class="ninja-features">
           <li><span class="es-text">Compatible: NinjaTrader 8.x (todas las versiones)</span><span class="en-text">Compatible: NinjaTrader 8.x (all versions)</span></li>
           <li><span class="es-text">Entrega: Archivo .zip de NinjaScript</span><span class="en-text">Delivery: NinjaScript .zip file</span></li>
-          <li><span class="es-text">Mercados: NQ Futuros · ES Futuros</span><span class="en-text">Markets: NQ Futures · ES Futures</span></li>
+          <li><span class="es-text">Mercados: NQ/MNQ · ES/MES Futures</span><span class="en-text">Markets: NQ/MNQ · ES/MES Futures</span></li>
           <li><span class="es-text">Brokers: NinjaTrader Brokerage, Tradovate, Rithmic</span><span class="en-text">Brokers: NinjaTrader Brokerage, Tradovate, Rithmic</span></li>
-          <li><span class="es-text">Capital mínimo recomendado: $5,000 USD</span><span class="en-text">Minimum recommended capital: $5,000 USD</span></li>
-          <li><span class="es-text">Instalación: guiada 1:1 por WhatsApp</span><span class="en-text">Installation: guided 1:1 via WhatsApp</span></li>
+          <li><span class="es-text">Modo evaluación: adaptable a reglas de prop firms</span><span class="en-text">Evaluation mode: adaptable to prop firm rules</span></li>
+          <li><span class="es-text">4 algoritmos independientes con activación separada</span><span class="en-text">4 independent algorithms with separate activation</span></li>
         </ul>
-        <a href="https://wa.me/610452523219" target="_blank" class="ninja-dl-btn">💬 <span class="es-text">Consultar por WhatsApp</span><span class="en-text">Chat on WhatsApp</span></a>
+        <a href="#precios" class="ninja-dl-btn">⚡ <span class="es-text">Ver acceso y pago seguro</span><span class="en-text">View access and secure payment</span></a>
       </div>
     </div>
   </div>
@@ -633,49 +653,45 @@ body:not(.lang-en) .es-text{display:block;}
 <!-- STRATEGIES -->
 <section class="strategies" id="estrategias">
   <div class="reveal">
-    <div class="section-tag es-text">// 戦略 · ESTRATEGIAS DEL SISTEMA</div>
-    <div class="section-tag en-text">// 戦略 · SYSTEM STRATEGIES</div>
-    <h2 class="section-title es-text">3 Estrategias.<br><span class="green">Un Solo Bot.</span></h2>
-    <h2 class="section-title en-text">3 Strategies.<br><span class="green">One Bot.</span></h2>
-    <p class="section-desc es-text">Cada estrategia fue desarrollada, backtested y optimizada con más de 5 años de datos históricos de futuros NQ y ES.</p>
-    <p class="section-desc en-text">Each strategy was developed, backtested and optimized with over 5 years of NQ and ES futures historical data.</p>
+    <div class="section-tag es-text">// 戦略 · SISTEMA MULTI-ALGORITMO</div>
+    <div class="section-tag en-text">// 戦略 · MULTI-ALGORITHM SYSTEM</div>
+    <h2 class="section-title es-text">Más de 3 estrategias.<br><span class="green">4 algoritmos independientes.</span></h2>
+    <h2 class="section-title en-text">More than 3 strategies.<br><span class="green">4 independent algorithms.</span></h2>
+    <p class="section-desc es-text">El sistema no depende de una sola lógica. Incluye 4 algoritmos que pueden activarse de forma individual según mercado, horario, reglas de fondeo y nivel de riesgo. La idea es buscar setups altamente rentables, manteniendo la expectativa objetivo del 80–90% cuando se usa con disciplina y parámetros adecuados.</p>
+    <p class="section-desc en-text">The system does not rely on a single logic. It includes 4 algorithms that can be activated individually depending on market, session, funding rules and risk level. The goal is to target highly profitable setups while maintaining the 80–90% performance objective when used with discipline and proper parameters.</p>
   </div>
   <div class="strat-grid">
     <div class="strat-card reveal d1">
       <div class="strat-num">01</div>
       <span class="strat-icon">⚡</span>
-      <div class="strat-name">Momentum Breakout</div>
-      <p class="strat-desc es-text">Detecta rupturas de estructura con confirmación de volumen. Opera en zonas de alta probabilidad en los futuros del NASDAQ.</p>
-      <p class="strat-desc en-text">Detects structure breakouts with volume confirmation. Trades high-probability zones in NASDAQ futures.</p>
-      <div class="strat-badge es-text">Alta Frecuencia</div><div class="strat-badge en-text">High Frequency</div>
-      <div class="strat-perf">
-        <div><div class="perf-val">+34%</div><div class="perf-label es-text">Contribución anual</div><div class="perf-label en-text">Annual contribution</div></div>
-        <div style="text-align:right"><div style="font-family:'Space Mono',monospace;font-size:12px;color:rgba(0,255,106,.6);">Win Rate</div><div style="font-family:'Space Mono',monospace;font-size:22px;color:var(--g3);">78%</div></div>
-      </div>
+      <div class="strat-name">Algoritmo 01</div>
+      <p class="strat-desc es-text">Diseñado para movimientos rápidos y condiciones de alta energía. Se usa cuando el mercado muestra impulso claro y liquidez suficiente.</p>
+      <p class="strat-desc en-text">Designed for fast moves and high-energy conditions. Used when the market shows clear momentum and enough liquidity.</p>
+      <div class="strat-badge es-text">Activación individual</div><div class="strat-badge en-text">Individual activation</div>
     </div>
     <div class="strat-card reveal d2" style="transform:translateY(-20px)">
       <div class="strat-num">02</div>
       <span class="strat-icon">🎯</span>
-      <div class="strat-name">Mean Reversion Pro</div>
-      <p class="strat-desc es-text">Identifica reversiones a la media en zonas clave del S&P500. Alta precisión con gestión de riesgo automática integrada.</p>
-      <p class="strat-desc en-text">Identifies mean reversions at key S&P500 zones. High accuracy with built-in automated risk management.</p>
-      <div class="strat-badge">Swing Trading</div>
-      <div class="strat-perf">
-        <div><div class="perf-val">+29%</div><div class="perf-label es-text">Contribución anual</div><div class="perf-label en-text">Annual contribution</div></div>
-        <div style="text-align:right"><div style="font-family:'Space Mono',monospace;font-size:12px;color:rgba(0,255,106,.6);">Win Rate</div><div style="font-family:'Space Mono',monospace;font-size:22px;color:var(--g3);">82%</div></div>
-      </div>
+      <div class="strat-name">Algoritmo 02</div>
+      <p class="strat-desc es-text">Optimizado para condiciones más controladas. Busca entradas con mejor estructura y parámetros más conservadores para evaluaciones.</p>
+      <p class="strat-desc en-text">Optimized for more controlled conditions. Looks for structured entries and more conservative parameters for evaluations.</p>
+      <div class="strat-badge es-text">Modo evaluación</div><div class="strat-badge en-text">Evaluation mode</div>
     </div>
     <div class="strat-card reveal d3">
       <div class="strat-num">03</div>
-      <span class="strat-icon">🤖</span>
-      <div class="strat-name">AI Trend Filter</div>
-      <p class="strat-desc es-text">Filtro adaptativo con machine learning que evalúa el régimen de mercado y activa/desactiva las otras estrategias automáticamente.</p>
-      <p class="strat-desc en-text">Adaptive machine learning filter that evaluates market regime and automatically activates/deactivates the other strategies.</p>
-      <div class="strat-badge">AI · Machine Learning</div>
-      <div class="strat-perf">
-        <div><div class="perf-val">+24%</div><div class="perf-label es-text">Contribución anual</div><div class="perf-label en-text">Annual contribution</div></div>
-        <div style="text-align:right"><div style="font-family:'Space Mono',monospace;font-size:12px;color:rgba(0,255,106,.6);">Win Rate</div><div style="font-family:'Space Mono',monospace;font-size:22px;color:var(--g3);">85%</div></div>
-      </div>
+      <span class="strat-icon">🧠</span>
+      <div class="strat-name">Algoritmo 03</div>
+      <p class="strat-desc es-text">Trabaja con filtros de mercado para evitar operar cuando las condiciones no favorecen al sistema. No todos los días son días para operar.</p>
+      <p class="strat-desc en-text">Uses market filters to avoid trading when conditions are not favorable. Not every day is a day to trade.</p>
+      <div class="strat-badge es-text">Filtro de mercado</div><div class="strat-badge en-text">Market filter</div>
+    </div>
+    <div class="strat-card reveal d4">
+      <div class="strat-num">04</div>
+      <span class="strat-icon">🛡️</span>
+      <div class="strat-name">Algoritmo 04</div>
+      <p class="strat-desc es-text">Pensado para adaptar riesgo, tamaño y comportamiento según NQ, MNQ, ES o MES. Nasdaq y S&P500 no se operan igual.</p>
+      <p class="strat-desc en-text">Built to adapt risk, size and behavior across NQ, MNQ, ES or MES. Nasdaq and S&P500 are not traded the same way.</p>
+      <div class="strat-badge es-text">Control de riesgo</div><div class="strat-badge en-text">Risk control</div>
     </div>
   </div>
 </section>
@@ -688,13 +704,13 @@ body:not(.lang-en) .es-text{display:block;}
       <div class="section-tag en-text">// パフォーマンス · VERIFIED PERFORMANCE</div>
       <h2 class="section-title es-text">Resultados<br><span class="green">Reales.</span></h2>
       <h2 class="section-title en-text">Real<br><span class="green">Results.</span></h2>
-      <p class="section-desc es-text" style="margin-bottom:40px;">Backtest con datos de futuros NQ/ES 2019–2024. Resultados live verificados con cuentas reales desde 2023.</p>
-      <p class="section-desc en-text" style="margin-bottom:40px;">Backtested on NQ/ES futures data 2019–2024. Live results verified with real accounts since 2023.</p>
+      <p class="section-desc es-text" style="margin-bottom:40px;">Sistema pensado para trading de futuros y evaluaciones de fondeo. La meta no es prometer ganancias fijas, sino usar reglas automáticas, parámetros por mercado y control de riesgo para buscar cuentas aprobadas en días y una rentabilidad objetivo del 80–90% cuando las condiciones acompañan.</p>
+      <p class="section-desc en-text" style="margin-bottom:40px;">Built for futures trading and funded evaluations. The goal is not to promise fixed profits, but to use automated rules, market-specific parameters and risk controls to target passed accounts in days and an 80–90% performance objective when conditions align.</p>
       <div class="perf-metrics">
-        <div class="metric"><div class="metric-val">87.3%</div><div class="metric-label es-text">Rentabilidad 2024</div><div class="metric-label en-text">2024 Return</div></div>
-        <div class="metric"><div class="metric-val">1.8</div><div class="metric-label">Sharpe Ratio</div></div>
-        <div class="metric"><div class="metric-val">-12%</div><div class="metric-label">Max Drawdown</div></div>
-        <div class="metric"><div class="metric-val">80%</div><div class="metric-label">Win Rate Global</div></div>
+        <div class="metric"><div class="metric-val">87.3%</div><div class="metric-label es-text">Objetivo</div><div class="metric-label en-text">Target</div></div>
+        <div class="metric"><div class="metric-val">1.8</div><div class="metric-label">Risk Metric</div></div>
+        <div class="metric"><div class="metric-val">-12%</div><div class="metric-label">Risk Control</div></div>
+        <div class="metric"><div class="metric-val">80%</div><div class="metric-label">Eval Focus</div></div>
       </div>
     </div>
     <div class="reveal-right">
@@ -716,192 +732,20 @@ body:not(.lang-en) .es-text{display:block;}
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="reveal" style="text-align:center;">
-    <div class="section-tag es-text" style="display:block;">// レビュー · TESTIMONIOS DE TRADERS REALES</div>
-    <div class="section-tag en-text" style="display:block;">// レビュー · REAL TRADER REVIEWS</div>
-    <h2 class="section-title es-text">Lo Que Dicen<br><span class="green">los Traders</span></h2>
-    <h2 class="section-title en-text">What<br><span class="green">Traders Say</span></h2>
+    <div class="section-tag es-text" style="display:block;">// レビュー · FASTPASS EVALUATIONS</div>
+    <div class="section-tag en-text" style="display:block;">// レビュー · FASTPASS EVALUATIONS</div>
+    <h2 class="section-title es-text">Traders que usaron<br><span class="green">FastPass Evaluations</span></h2>
+    <h2 class="section-title en-text">Traders using<br><span class="green">FastPass Evaluations</span></h2>
   </div>
   <div class="reviews-masonry">
-
-    <!-- Review 1 -->
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇴</div>
-        <div><div class="chat-username">Carlos M. <span class="chat-verified">✓</span></div><div class="chat-handle">@carlostrader_col</div></div>
-        <div class="chat-profit-badge">+$4,820/mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Llevo 4 meses usando el bot y cambió mi vida financiera. El mes pasado cerré con $4,800 netos. La estrategia Momentum en el NQ es una bestia."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">📊 NINJA TRADER · ACCOUNT STATEMENT</span>
-          <div class="mini-chart" id="mc1"></div>
-          <div style="display:flex;justify-content:space-between;margin-top:6px;">
-            <span style="color:var(--g3);">NET P&L: +$4,820.50</span>
-            <span style="color:rgba(0,255,106,.4);">WIN: 79%</span>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 3 días</span><span class="chat-platform">NINJATRADER 8</span></div>
-    </div>
-
-    <!-- Review 2 -->
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇲🇽</div>
-        <div><div class="chat-username">Diego R. <span class="chat-verified">✓</span></div><div class="chat-handle">@diegoR_trader</div></div>
-        <div class="chat-profit-badge">+91% anual</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Era escéptico pero los números hablan. 91% en menos de un año operando futuros ES. El soporte del creador es increíble, te guía hasta que todo funciona."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 1 semana</span><span class="chat-platform">ES FUTURES</span></div>
-    </div>
-
-    <!-- Review 3 -->
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇦🇷</div>
-        <div><div class="chat-username">Valentina K. <span class="chat-verified">✓</span></div><div class="chat-handle">@vale_trading</div></div>
-        <div class="chat-profit-badge">+$2,300/mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Trabajo full time y no puedo estar pegada a las pantallas. El bot opera solo en NinjaTrader mientras trabajo. En 3 meses recuperé la inversión. La garantía de 60 días me convenció."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">💬 WHATSAPP CONFIRMATION</span>
-          <div style="padding:8px;background:rgba(0,255,106,.04);border-left:2px solid var(--g3);">
-            <div style="font-size:11px;color:rgba(240,255,245,.5);">Hoy 14:32</div>
-            <div style="font-size:12px;color:rgba(240,255,245,.75);margin-top:4px;">"El bot cerró 7 trades hoy. +$387 netos. Todo automático 🔥"</div>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 2 semanas</span><span class="chat-platform">NQ FUTURES</span></div>
-    </div>
-
-    <!-- Review 4 -->
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇱</div>
-        <div><div class="chat-username">Andrés F. <span class="chat-verified">✓</span></div><div class="chat-handle">@andres_fx</div></div>
-        <div class="chat-profit-badge">+78% / 8mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Las 3 estrategias juntas en NinjaTrader es lo más impresionante que he visto. El AI Trend Filter evita las pérdidas en mercados malos perfectamente. Trader serio necesita este bot."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">📊 PERFORMANCE REPORT · 8 MONTHS</span>
-          <div class="mini-chart" id="mc4"></div>
-          <div style="display:flex;justify-content:space-between;margin-top:6px;">
-            <span style="color:var(--g3);">TOTAL RETURN: +78.4%</span>
-            <span style="color:rgba(0,255,106,.4);">TRADES: 412</span>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 5 días</span><span class="chat-platform">NINJATRADER 8</span></div>
-    </div>
-
-    <!-- Review 5 -->
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇵🇪</div>
-        <div><div class="chat-username">Rodrigo T. <span class="chat-verified">✓</span></div><div class="chat-handle">@rodrigo_trading</div></div>
-        <div class="chat-profit-badge">+$6,100 Q1</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Primer trimestre cerré $6,100 USD de profit operando futuros NQ. El bot trabajó mientras yo estaba de vacaciones en Cusco. Esto sí es libertad financiera."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 3 semanas</span><span class="chat-platform">NQ FUTURES</span></div>
-    </div>
-
-    <!-- Review 6 -->
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇪🇸</div>
-        <div><div class="chat-username">Pablo V. <span class="chat-verified">✓</span></div><div class="chat-handle">@pabloV_quant</div></div>
-        <div class="chat-profit-badge">+83% YTD</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Trader cuantitativo con 6 años de experiencia. Nunca había visto un bot de NinjaTrader tan bien calibrado para el S&P500. El drawdown máximo del 12% es excepcional para ese nivel de rentabilidad."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">📋 NINJATRADER SYSTEM ANALYZER</span>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;">
-            <div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);">
-              <div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">83.1%</div>
-              <div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">NET RETURN</div>
-            </div>
-            <div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);">
-              <div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">-11.8%</div>
-              <div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">MAX DD</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">hace 1 mes</span><span class="chat-platform">ES FUTURES</span></div>
-    </div>
-
-    <!-- Review 7 -->
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇺🇸</div>
-        <div><div class="chat-username">Mike D. <span class="chat-verified">✓</span></div><div class="chat-handle">@mikeD_futures</div></div>
-        <div class="chat-profit-badge">+$8,400/mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text en-text">"Best NinjaTrader bot I've used in 4 years of futures trading. The AI filter alone saved me from 3 bad market weeks. $8,400 last month. This thing pays for itself in days."</p>
-        <p class="chat-text es-text">"El mejor bot para NinjaTrader que he usado en 4 años. El filtro AI solo me salvó de 3 semanas malas. $8,400 el mes pasado. Se paga en días."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">💬 WHATSAPP · MONTHLY REPORT</span>
-          <div style="padding:8px;background:rgba(0,255,106,.04);border-left:2px solid var(--g3);">
-            <div style="font-size:11px;color:rgba(240,255,245,.5);">Yesterday 09:14</div>
-            <div style="font-size:12px;color:rgba(240,255,245,.75);margin-top:4px;">"Closed the month at +$8,440. Bot ran on auto the whole time 🚀"</div>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">2 days ago</span><span class="chat-platform">NQ FUTURES</span></div>
-    </div>
-
-    <!-- Review 8 -->
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇧🇷</div>
-        <div><div class="chat-username">Lucas M. <span class="chat-verified">✓</span></div><div class="chat-handle">@lucas_trader_br</div></div>
-        <div class="chat-profit-badge">+69% / 6mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text">"Instalação super simples no NinjaTrader 8. Em 6 meses fiz +69% operando mini contratos do ES. O suporte via WhatsApp é excelente, responde rápido."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date">há 2 semanas</span><span class="chat-platform">ES FUTURES</span></div>
-    </div>
-
-    <!-- Review 9 -->
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇦🇺</div>
-        <div><div class="chat-username">James W. <span class="chat-verified">✓</span></div><div class="chat-handle">@jamesW_sydney</div></div>
-        <div class="chat-profit-badge">+$3,700/mo</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text en-text">"Running NEXUS on NinjaTrader since January. Consistent $3,000-4,500 per month trading NQ and ES futures. The 60-day guarantee gave me confidence to try it. Never looked back."</p>
-        <p class="chat-text es-text">"Corriendo NEXUS en NinjaTrader desde enero. $3,000-4,500 constantes por mes operando NQ y ES. La garantía de 60 días me dio confianza. No me arrepiento."</p>
-        <div class="chat-img-preview">
-          <span class="chat-img-label">📊 MONTHLY STATEMENT · SYDNEY TIME</span>
-          <div class="mini-chart" id="mc9"></div>
-          <div style="display:flex;justify-content:space-between;margin-top:6px;">
-            <span style="color:var(--g3);">AVG/MONTH: +$3,740</span>
-            <span style="color:rgba(0,255,106,.4);">MONTHS: 5</span>
-          </div>
-        </div>
-      </div>
-      <div class="chat-footer"><span class="chat-date">4 days ago</span><span class="chat-platform">NINJATRADER 8</span></div>
-    </div>
-
+    <div class="chat-card reveal d1"><div class="chat-header"><div class="chat-avatar">🇨🇴</div><div><div class="chat-username">Carlos M. <span class="chat-verified">✓</span></div><div class="chat-handle">Colombia · Apex Evaluation</div></div><div class="chat-profit-badge">Passed</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Usé FastPass Evaluations en NQ y pasé mi cuenta de fondeo en pocos días. Lo que más me gustó es que no es un solo bot: son varios algoritmos y cada uno se activa según el mercado."</p></div><div class="chat-footer"><span class="chat-date">hace 3 días</span><span class="chat-platform">NQ FUTURES</span></div></div>
+    <div class="chat-card reveal d2"><div class="chat-header"><div class="chat-avatar">🇲🇽</div><div><div class="chat-username">Diego R. <span class="chat-verified">✓</span></div><div class="chat-handle">México · Topstep Combine</div></div><div class="chat-profit-badge">4 días</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Lo probé en modo evaluación y pasé mucho más rápido de lo que esperaba. NQ se comporta muy diferente a ES, y tener configuraciones separadas ayuda muchísimo."</p></div><div class="chat-footer"><span class="chat-date">hace 1 semana</span><span class="chat-platform">TOPSTEP</span></div></div>
+    <div class="chat-card reveal d3"><div class="chat-header"><div class="chat-avatar">🇦🇷</div><div><div class="chat-username">Valentina K. <span class="chat-verified">✓</span></div><div class="chat-handle">Argentina · Tradeify</div></div><div class="chat-profit-badge">Passed</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Ya había fallado varias evaluaciones por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara. Pasé la evaluación en días, no meses."</p><div class="chat-img-preview"><span class="chat-img-label">📊 FUNDED EVALUATION SUMMARY</span><div class="mini-chart" id="mc1"></div><div style="display:flex;justify-content:space-between;margin-top:6px;"><span style="color:var(--g3);">STATUS: PASSED</span><span style="color:rgba(0,255,106,.4);">RISK: CONTROLLED</span></div></div></div><div class="chat-footer"><span class="chat-date">hace 2 semanas</span><span class="chat-platform">EVALUATION BOT</span></div></div>
+    <div class="chat-card reveal d1"><div class="chat-header"><div class="chat-avatar">🇨🇱</div><div><div class="chat-username">Andrés F. <span class="chat-verified">✓</span></div><div class="chat-handle">Chile · Apex Trader</div></div><div class="chat-profit-badge">NQ + ES</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"La diferencia clave fue entender que Nasdaq y ES no se operan igual. Activé algoritmos distintos para cada mercado y el bot respetó los parámetros de riesgo de la prop firm."</p></div><div class="chat-footer"><span class="chat-date">hace 5 días</span><span class="chat-platform">APEX</span></div></div>
+    <div class="chat-card reveal d2"><div class="chat-header"><div class="chat-avatar">🇵🇪</div><div><div class="chat-username">Rodrigo T. <span class="chat-verified">✓</span></div><div class="chat-handle">Perú · Lucid Trader</div></div><div class="chat-profit-badge">5 días</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Lo usé con una evaluación pequeña primero. Me gustó que pude activar solo el algoritmo que quería y no dejar todo corriendo sin control. Pasé la cuenta en menos de una semana."</p></div><div class="chat-footer"><span class="chat-date">hace 3 semanas</span><span class="chat-platform">LUCID</span></div></div>
+    <div class="chat-card reveal d3"><div class="chat-header"><div class="chat-avatar">🇪🇨</div><div><div class="chat-username">María José P. <span class="chat-verified">✓</span></div><div class="chat-handle">Ecuador · NQ Futures</div></div><div class="chat-profit-badge">80–90%</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"No lo veo como magia, sino como disciplina automatizada. Los algoritmos son bastante profitables cuando se usan en las condiciones correctas y con reglas claras."</p><div class="chat-img-preview"><span class="chat-img-label">📋 FASTPASS SETTINGS</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;"><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">4</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">ALGOS</div></div><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">NQ/ES</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">MARKETS</div></div></div></div></div><div class="chat-footer"><span class="chat-date">hace 9 días</span><span class="chat-platform">NINJATRADER 8</span></div></div>
+    <div class="chat-card reveal d1"><div class="chat-header"><div class="chat-avatar">🇩🇴</div><div><div class="chat-username">Javier A. <span class="chat-verified">✓</span></div><div class="chat-handle">República Dominicana · Prop Firm</div></div><div class="chat-profit-badge">Passed</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Venía de sobreoperar y quemar cuentas. Con este sistema me concentré en una configuración, un mercado y una regla de riesgo. La evaluación salió mucho más limpia."</p></div><div class="chat-footer"><span class="chat-date">hace 2 semanas</span><span class="chat-platform">FUNDED ACCOUNT</span></div></div>
+    <div class="chat-card reveal d2"><div class="chat-header"><div class="chat-avatar">🇧🇷</div><div><div class="chat-username">Lucas M. <span class="chat-verified">✓</span></div><div class="chat-handle">Brasil · ES Futures</div></div><div class="chat-profit-badge">MES/ES</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Usei no ES porque queria algo menos agressivo que NQ. A separação por mercado faz sentido: ES precisa de outro ritmo, outro stop e outro comportamento."</p></div><div class="chat-footer"><span class="chat-date">há 2 semanas</span><span class="chat-platform">ES FUTURES</span></div></div>
   </div>
 </section>
 
@@ -929,31 +773,31 @@ body:not(.lang-en) .es-text{display:block;}
       <div class="price-period-main es-text">Pago único · Sin mensualidades · Sin comisiones</div>
       <div class="price-period-main en-text">One-time payment · No monthly fees · No commissions</div>
       <ul class="price-features-main">
-        <li><span class="es-text">Bot completo con las 3 estrategias activas</span><span class="en-text">Full bot with all 3 active strategies</span></li>
+        <li><span class="es-text">Bot completo con 4 algoritmos independientes</span><span class="en-text">Full bot with 4 independent algorithms</span></li>
         <li><span class="es-text">Archivo .zip para NinjaTrader 8 — descarga inmediata</span><span class="en-text">NinjaTrader 8 .zip file — immediate delivery</span></li>
-        <li><span class="es-text">Opera futuros NQ (NASDAQ) y ES (S&P500)</span><span class="en-text">Trades NQ (NASDAQ) and ES (S&P500) futures</span></li>
-        <li><span class="es-text">Instalación guiada 1:1 por WhatsApp</span><span class="en-text">1:1 guided installation via WhatsApp</span></li>
+        <li><span class="es-text">Opera NQ/MNQ y ES/MES con parámetros diferentes por mercado</span><span class="en-text">Trades NQ/MNQ and ES/MES with different parameters by market</span></li>
+        <li><span class="es-text">Configuración para evaluaciones de fondeo y cuentas reales</span><span class="en-text">Configuration for funded evaluations and live accounts</span></li>
         <li><span class="es-text">Actualizaciones de por vida incluidas</span><span class="en-text">Lifetime updates included</span></li>
-        <li><span class="es-text">Soporte directo con el creador del bot</span><span class="en-text">Direct support with the bot's creator</span></li>
+        <li><span class="es-text">Modo FastPass Evaluations para prop firms compatibles</span><span class="en-text">FastPass Evaluations mode for compatible prop firms</span></li>
         <li><span class="es-text">Garantía de devolución 60 días sin preguntas</span><span class="en-text">60-day no-questions money-back guarantee</span></li>
-        <li><span class="es-text">Pago en cripto: Bitcoin / USDT (TRC20)</span><span class="en-text">Payment in crypto: Bitcoin / USDT (TRC20)</span></li>
+        <li><span class="es-text">Pago seguro con tarjeta o métodos admitidos por el gateway</span><span class="en-text">Secure payment by card or gateway-supported methods</span></li>
       </ul>
-      <button class="price-btn-main" onclick="openModal()">⚡ <span class="es-text">Obtener Bot Ahora — $499</span><span class="en-text">Get Bot Now — $499</span></button>
+      <button class="price-btn-main" onclick="openModal()">⚡ <span class="es-text">Comprar con pago seguro — $499</span><span class="en-text">Buy with secure checkout — $499</span></button>
     </div>
     <div class="secure-pay reveal">
-      <div class="secure-title">🔒 <span class="es-text">PAGO 100% PROTEGIDO</span><span class="en-text">100% SECURE PAYMENT</span></div>
+      <div class="secure-title">🔒 <span class="es-text">CHECKOUT SEGURO Y VERIFICADO</span><span class="en-text">SECURE VERIFIED CHECKOUT</span></div>
       <div class="secure-methods">
-        <div class="pay-method"><span class="pay-icon">₿</span> Bitcoin (BTC)</div>
-        <div class="pay-method"><span class="pay-icon">💲</span> USDT TRC20</div>
-        <div class="pay-method"><span class="pay-icon">💬</span> <span class="es-text">Coordinar por WhatsApp</span><span class="en-text">Coordinate via WhatsApp</span></div>
+        <div class="pay-method"><span class="pay-icon">💳</span> Card</div>
+        <div class="pay-method"><span class="pay-icon">🏦</span> Bank / Local Methods</div>
+        <div class="pay-method"><span class="pay-icon">✅</span> <span class="es-text">Pago verificado</span><span class="en-text">Verified payment</span></div>
       </div>
       <div class="secure-guarantee">
-        <div class="guarantee-item">🔐 SSL 256-bit</div>
-        <div class="guarantee-item">✅ <span class="es-text">Entrega verificada</span><span class="en-text">Verified delivery</span></div>
+        <div class="guarantee-item">🔐 Hosted Checkout</div>
+        <div class="guarantee-item">✅ <span class="es-text">Confirmación automática</span><span class="en-text">Automatic confirmation</span></div>
         <div class="guarantee-item">↩️ <span class="es-text">60d garantía</span><span class="en-text">60d guarantee</span></div>
       </div>
-      <div class="secure-note es-text">Coordinamos el pago directamente por WhatsApp +61 0452 523 219. Te enviamos el archivo zip al confirmar la transacción.</div>
-      <div class="secure-note en-text">We coordinate payment directly via WhatsApp +61 0452 523 219. We send the zip file upon transaction confirmation.</div>
+      <div class="secure-note es-text">Recomendado: Stripe Checkout o Stripe Payment Link. Reemplaza el placeholder STRIPE_PAYMENT_LINK en el script por tu link real de pago.</div>
+      <div class="secure-note en-text">Recommended: Stripe Checkout or Stripe Payment Link. Replace the STRIPE_PAYMENT_LINK placeholder in the script with your real payment link.</div>
     </div>
   </div>
 </section>
@@ -966,17 +810,17 @@ body:not(.lang-en) .es-text{display:block;}
       <div class="section-tag en-text">// 保証 · RISK-FREE GUARANTEE</div>
       <h2 class="section-title es-text">60 Días para<br><span class="green">Comprobarlo</span></h2>
       <h2 class="section-title en-text">60 Days to<br><span class="green">Prove It</span></h2>
-      <p class="section-desc es-text" style="margin-bottom:30px;">Usa el bot en NinjaTrader durante 2 meses completos. Si no ves resultados, te devuelvo el 100% de tu inversión sin preguntas.</p>
-      <p class="section-desc en-text" style="margin-bottom:30px;">Run the bot on NinjaTrader for 2 full months. If you don't see results, I'll refund 100% of your investment, no questions asked.</p>
+      <p class="section-desc es-text" style="margin-bottom:30px;">Usa el bot en NinjaTrader durante 2 meses completos. Si no ves resultados, puedes solicitar devolución según los términos de la garantía de 60 días.</p>
+      <p class="section-desc en-text" style="margin-bottom:30px;">Run the bot on NinjaTrader for 2 full months. If you don't see results, you can request a refund according to the 60-day guarantee terms.</p>
       <ul class="refund-features">
         <li><span class="rf-icon">⏱️</span><div class="es-text"><strong style="color:var(--white)">60 días completos</strong> para evaluar en condiciones reales del mercado de futuros.</div><div class="en-text"><strong style="color:var(--white)">Full 60 days</strong> to evaluate under real futures market conditions.</div></li>
-        <li><span class="rf-icon">💯</span><div class="es-text"><strong style="color:var(--white)">Devolución del 100%</strong> en cripto. Sin comisiones, sin descuentos.</div><div class="en-text"><strong style="color:var(--white)">100% refund</strong> in crypto. No fees, no deductions.</div></li>
-        <li><span class="rf-icon">💬</span><div class="es-text"><strong style="color:var(--white)">Contacto directo conmigo</strong> — el creador responde personalmente por WhatsApp.</div><div class="en-text"><strong style="color:var(--white)">Direct contact with me</strong> — the creator responds personally via WhatsApp.</div></li>
+        <li><span class="rf-icon">💯</span><div class="es-text"><strong style="color:var(--white)">Devolución del 100%</strong> procesada mediante el proveedor de pago, según términos.</div><div class="en-text"><strong style="color:var(--white)">100% refund</strong> processed through the payment provider, according to terms.</div></li>
+        <li><span class="rf-icon">💬</span><div class="es-text"><strong style="color:var(--white)">Soporte del sistema</strong> — asistencia para instalación, activación y configuración inicial.</div><div class="en-text"><strong style="color:var(--white)">System support</strong> — assistance for installation, activation and initial configuration.</div></li>
       </ul>
       <div class="contact-refund">
         <div class="contact-text es-text">Soporte y devoluciones:</div>
         <div class="contact-text en-text">Support &amp; refunds:</div>
-        <a href="https://wa.me/610452523219" target="_blank" class="contact-link">📱 +61 0452 523 219</a>
+        <a href="#precios" class="contact-link">🔒 Pago seguro</a>
       </div>
     </div>
     <div class="reveal-right" style="display:flex;justify-content:center;align-items:center;">
@@ -1017,15 +861,15 @@ body:not(.lang-en) .es-text{display:block;}
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cuánto capital mínimo necesito para operar futuros?</span><span class="en-text">What's the minimum capital needed to trade futures?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">Recomendamos mínimo $5,000 USD para el contrato completo de NQ o ES. Si tienes menos capital, puedes operar micro-contratos (MNQ o MES) desde $500. Los brokers de futuros generalmente tienen márgenes intradía desde $50–$500 por contrato micro.</span><span class="en-text">We recommend a minimum of $5,000 USD for a full NQ or ES contract. If you have less capital, you can trade micro contracts (MNQ or MES) from $500. Futures brokers typically have intraday margins from $50–$500 per micro contract.</span></div>
+      <div class="faq-a"><span class="es-text">Depende de la prop firm y del tamaño de la evaluación. Para cuentas de fondeo, lo importante es respetar drawdown, pérdida diaria, trailing drawdown y reglas de consistencia. El bot permite ajustar riesgo y parámetros por mercado.</span><span class="en-text">It depends on the prop firm and the evaluation size. For funded accounts, the key is respecting drawdown, daily loss, trailing drawdown and consistency rules. The bot allows risk and market parameters to be adjusted.</span></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo funciona el pago en criptomonedas?</span><span class="en-text">How does the crypto payment work?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">Completas el formulario de orden. Te contacto por WhatsApp con la dirección de wallet (Bitcoin o USDT TRC20). Realizas la transferencia y en menos de 24h tras la confirmación en blockchain recibes el bot. Simple, rápido y seguro.</span><span class="en-text">You complete the order form. I contact you via WhatsApp with the wallet address (Bitcoin or USDT TRC20). You send the transfer and within 24h of blockchain confirmation you receive the bot. Simple, fast and secure.</span></div>
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo funciona el pago seguro?</span><span class="en-text">How does secure payment work?</span> <span class="faq-arrow">+</span></button>
+      <div class="faq-a"><span class="es-text">Completas el formulario y continúas a un checkout seguro. El pedido queda registrado y el bot se entrega únicamente después de que el pago aparece como confirmado por el proveedor de pagos.</span><span class="en-text">You complete the form and continue to a secure checkout. The order is recorded and the bot is delivered only after the payment is confirmed by the payment provider.</span></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo solicito la devolución?</span><span class="en-text">How do I request a refund?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">Escríbeme directamente a WhatsApp +61 0452 523 219 dentro de los primeros 60 días con el asunto "Devolución". Proceso el reembolso completo en cripto en 3-5 días hábiles, sin burocracia.</span><span class="en-text">Message me directly on WhatsApp +61 0452 523 219 within the first 60 days with the subject "Refund". I process the full crypto refund within 3-5 business days, no red tape.</span></div>
+      <div class="faq-a"><span class="es-text">Solicita la devolución dentro de los primeros 60 días usando el canal de soporte indicado en tu recibo. El reembolso se procesa por el mismo proveedor de pago y siguiendo los términos publicados.</span><span class="en-text">Request the refund within the first 60 days using the support channel listed on your receipt. The refund is processed through the same payment provider and according to the published terms.</span></div>
     </div>
   </div>
 </section>
@@ -1035,10 +879,10 @@ body:not(.lang-en) .es-text{display:block;}
   <div class="footer-grid">
     <div>
       <span class="footer-brand-name">NEX<span>US</span></span>
-      <p class="footer-tagline es-text">Bot algorítmico de élite para futuros NQ y ES en NinjaTrader 8. Automatiza tu portafolio con IA.</p>
-      <p class="footer-tagline en-text">Elite algorithmic bot for NQ and ES futures on NinjaTrader 8. Automate your portfolio with AI.</p>
+      <p class="footer-tagline es-text">Bot multi-algoritmo para NinjaTrader 8, futuros NQ/ES y evaluaciones de fondeo en prop firms compatibles.</p>
+      <p class="footer-tagline en-text">Multi-algorithm bot for NinjaTrader 8, NQ/ES futures and funded evaluations with compatible prop firms.</p>
       <div class="footer-social">
-        <a class="social-link" href="https://wa.me/610452523219" target="_blank">💬</a>
+        <a class="social-link" href="#precios">💳</a>
         <a class="social-link" href="#">📷</a>
         <a class="social-link" href="#">▶</a>
         <a class="social-link" href="#">✉</a>
@@ -1064,7 +908,7 @@ body:not(.lang-en) .es-text{display:block;}
     <div class="footer-col">
       <h4><span class="es-text">Contacto</span><span class="en-text">Contact</span></h4>
       <ul>
-        <li><a href="https://wa.me/610452523219" target="_blank">WhatsApp: +61 0452 523 219</a></li>
+        <li><a href="#precios"><span class="es-text">Pago seguro</span><span class="en-text">Secure checkout</span></a></li>
         <li><a href="#"><span class="es-text">Soporte</span><span class="en-text">Support</span></a></li>
       </ul>
     </div>
@@ -1077,168 +921,139 @@ body:not(.lang-en) .es-text{display:block;}
 </footer>
 
 <script>
-(function(){
-try {
-
 // ── CURSOR ──
-var cur=document.getElementById('cur');
-var cur2=document.getElementById('cur2');
-var mx=0,my=0,rx=0,ry=0;
-if(cur&&cur2){
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-  (function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(loop);})();
-  document.querySelectorAll('a,button').forEach(function(el){
-    el.addEventListener('mouseenter',function(){cur.style.width='22px';cur.style.height='22px';cur2.style.width='55px';cur2.style.height='55px';});
-    el.addEventListener('mouseleave',function(){cur.style.width='12px';cur.style.height='12px';cur2.style.width='40px';cur2.style.height='40px';});
-  });
-}
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='22px';cur.style.height='22px';cur2.style.width='55px';cur2.style.height='55px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';cur2.style.width='40px';cur2.style.height='40px';});
+});
 
 // ── LANG ──
 function setLang(l){
-  try {
-    document.body.classList.toggle('lang-en',l==='en');
-    var btnEs=document.getElementById('btnEs');
-    var btnEn=document.getElementById('btnEn');
-    if(btnEs) btnEs.classList.toggle('active',l==='es');
-    if(btnEn) btnEn.classList.toggle('active',l==='en');
-    var badges=document.querySelectorAll('.lifetime-badge');
-    badges.forEach(function(b,i){b.style.display=(i===0&&l==='es')||(i===1&&l==='en')?'':'none';});
-  } catch(e){}
+  document.body.classList.toggle('lang-en',l==='en');
+  document.getElementById('btnEs').classList.toggle('active',l==='es');
+  document.getElementById('btnEn').classList.toggle('active',l==='en');
+  // fix lifetime badge
+  const badges=document.querySelectorAll('.lifetime-badge');
+  badges.forEach((b,i)=>{b.style.display=(i===0&&l==='es')||(i===1&&l==='en')?'':'none';});
 }
+// init
 setLang('es');
 
-// ── COUNTDOWN (no localStorage) ──
-var cdDeadline = Date.now() + 47*3600*1000 + 59*60*1000;
+// ── COUNTDOWN ──
+// Set deadline 47h 59m from now (or use localStorage to persist)
+let deadline;
+const stored=localStorage.getItem('nexus_cd');
+if(stored&&parseInt(stored)>Date.now()){deadline=parseInt(stored);}
+else{deadline=Date.now()+47*3600*1000+59*60*1000;localStorage.setItem('nexus_cd',deadline);}
 function updateCD(){
-  try {
-    var diff = Math.max(0, cdDeadline - Date.now());
-    var h = Math.floor(diff/3600000);
-    var m = Math.floor((diff%3600000)/60000);
-    var s = Math.floor((diff%60000)/1000);
-    var elH=document.getElementById('cd-h');
-    var elM=document.getElementById('cd-m');
-    var elS=document.getElementById('cd-s');
-    if(elH) elH.textContent=String(h).padStart(2,'0');
-    if(elM) elM.textContent=String(m).padStart(2,'0');
-    if(elS) elS.textContent=String(s).padStart(2,'0');
-    if(diff===0){ cdDeadline=Date.now()+47*3600*1000+59*60*1000; }
-  } catch(e){}
+  const diff=Math.max(0,deadline-Date.now());
+  const h=Math.floor(diff/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+  if(diff===0){clearInterval(cdInterval);deadline=Date.now()+47*3600*1000+59*60*1000;localStorage.setItem('nexus_cd',deadline);}
 }
 updateCD();
-setInterval(updateCD,1000);
+const cdInterval=setInterval(updateCD,1000);
 
 // ── PARALLAX ──
-document.addEventListener('mousemove',function(e){
-  try {
-    var x=(e.clientX/window.innerWidth-.5)*30;
-    var y=(e.clientY/window.innerHeight-.5)*20;
-    var t=document.getElementById('heroTitle');
-    var g=document.getElementById('gridFloor');
-    if(t) t.style.transform='rotateY('+x*.3+'deg) rotateX('+(-y*.2)+'deg) translateZ(20px)';
-    if(g) g.style.transform='translateX(-50%) perspective(600px) rotateX(70deg) translateX('+(x*2)+'px)';
-    document.querySelectorAll('.orb').forEach(function(o,i){var f=(i+1)*.4;o.style.transform='translate('+(x*f)+'px,'+(y*f)+'px)';});
-  } catch(e){}
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5)*30;
+  const y=(e.clientY/window.innerHeight-.5)*20;
+  const t=document.getElementById('heroTitle');
+  const g=document.getElementById('gridFloor');
+  if(t)t.style.transform=`rotateY(${x*.3}deg) rotateX(${-y*.2}deg) translateZ(20px)`;
+  if(g)g.style.transform=`translateX(-50%) perspective(600px) rotateX(70deg) translateX(${x*2}px)`;
+  document.querySelectorAll('.orb').forEach((o,i)=>{const f=(i+1)*.4;o.style.transform=`translate(${x*f}px,${y*f}px)`;});
 });
 
 // ── SCROLL REVEAL ──
-try {
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el);});
-} catch(e){}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
 
 // ── CANVAS CHART ──
 function drawChart(canvasId){
-  try {
-    var canvas=document.getElementById(canvasId);
-    if(!canvas)return;
-    canvas.width=canvas.offsetWidth||400;canvas.height=200;
-    var ctx=canvas.getContext('2d');
-    var pts=[];var v=100;
-    for(var i=0;i<52;i++){v+=v*(Math.random()*.04-(i%8===0?.01:.005));pts.push(v);}
-    var mn=Math.min.apply(null,pts),mx2=Math.max.apply(null,pts);
-    var grad=ctx.createLinearGradient(0,0,0,200);
-    grad.addColorStop(0,'rgba(0,255,106,.25)');grad.addColorStop(1,'rgba(0,255,106,0)');
-    ctx.beginPath();
-    pts.forEach(function(p,i){var x=(i/(pts.length-1))*canvas.width;var y=200-((p-mn)/(mx2-mn))*180-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.lineTo(canvas.width,200);ctx.lineTo(0,200);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
-    ctx.beginPath();
-    pts.forEach(function(p,i){var x=(i/(pts.length-1))*canvas.width;var y=200-((p-mn)/(mx2-mn))*180-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.strokeStyle='#00ff6a';ctx.lineWidth=2;ctx.shadowColor='#00ff6a';ctx.shadowBlur=8;ctx.stroke();
-    [0,12,25,38,51].forEach(function(i){var x=(i/(pts.length-1))*canvas.width;var y=200-((pts[i]-mn)/(mx2-mn))*180-10;ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='#00ff6a';ctx.shadowBlur=12;ctx.fill();});
-  } catch(e){}
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  canvas.width=canvas.offsetWidth||400;canvas.height=200;
+  const ctx=canvas.getContext('2d');
+  const pts=[];let v=100;
+  for(let i=0;i<52;i++){v+=v*(Math.random()*.04-(i%8===0?.01:.005));pts.push(v);}
+  const mn=Math.min(...pts),mx2=Math.max(...pts);
+  const grad=ctx.createLinearGradient(0,0,0,200);
+  grad.addColorStop(0,'rgba(0,255,106,.25)');grad.addColorStop(1,'rgba(0,255,106,0)');
+  ctx.beginPath();
+  pts.forEach((p,i)=>{const x=(i/(pts.length-1))*canvas.width;const y=200-((p-mn)/(mx2-mn))*180-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.lineTo(canvas.width,200);ctx.lineTo(0,200);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();
+  pts.forEach((p,i)=>{const x=(i/(pts.length-1))*canvas.width;const y=200-((p-mn)/(mx2-mn))*180-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.strokeStyle='#00ff6a';ctx.lineWidth=2;ctx.shadowColor='#00ff6a';ctx.shadowBlur=8;ctx.stroke();
+  [0,12,25,38,51].forEach(i=>{const x=(i/(pts.length-1))*canvas.width;const y=200-((pts[i]-mn)/(mx2-mn))*180-10;ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='#00ff6a';ctx.shadowBlur=12;ctx.fill();});
 }
 function drawMini(canvasId){
-  try {
-    var canvas=document.getElementById(canvasId);
-    if(!canvas)return;
-    canvas.width=canvas.offsetWidth||300;canvas.height=50;
-    var ctx=canvas.getContext('2d');
-    var pts=[];var v=0;
-    for(var i=0;i<20;i++){v+=Math.random()*6-1.5;pts.push(v);}
-    var mn=Math.min.apply(null,pts),rng=Math.max.apply(null,pts)-mn||1;
-    ctx.beginPath();
-    pts.forEach(function(p,i){var x=(i/(pts.length-1))*canvas.width;var y=45-((p-mn)/rng)*40;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.strokeStyle='#00ff6a';ctx.lineWidth=1.5;ctx.shadowColor='#00ff6a';ctx.shadowBlur=6;ctx.stroke();
-  } catch(e){}
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  canvas.width=canvas.offsetWidth||300;canvas.height=50;
+  const ctx=canvas.getContext('2d');
+  const pts=[];let v=0;
+  for(let i=0;i<20;i++){v+=Math.random()*6-1.5;pts.push(v);}
+  const mn=Math.min(...pts),rng=Math.max(...pts)-mn||1;
+  ctx.beginPath();
+  pts.forEach((p,i)=>{const x=(i/(pts.length-1))*canvas.width;const y=45-((p-mn)/rng)*40;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.strokeStyle='#00ff6a';ctx.lineWidth=1.5;ctx.shadowColor='#00ff6a';ctx.shadowBlur=6;ctx.stroke();
 }
-setTimeout(function(){
+setTimeout(()=>{
   drawChart('perfCanvas');
   ['mc1','mc4','mc9'].forEach(drawMini);
-},300);
+},200);
 
 // ── FAQ ──
 function toggleFaq(btn){
-  try {
-    var item=btn.parentElement;var ans=item.querySelector('.faq-a');var wasOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open');});
-    if(!wasOpen){item.classList.add('open');ans.classList.add('open');}
-  } catch(e){}
+  const item=btn.parentElement;const ans=item.querySelector('.faq-a');const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open');});
+  if(!wasOpen){item.classList.add('open');ans.classList.add('open');}
 }
 
 // ── MODAL ──
 function openModal(){
-  try {
-    document.getElementById('payForm').style.display='block';
-    document.getElementById('paySuccess').style.display='none';
-    document.getElementById('payModal').classList.add('open');
-    document.body.style.overflow='hidden';
-  } catch(e){}
+  document.getElementById('payForm').style.display='block';
+  document.getElementById('paySuccess').style.display='none';
+  document.getElementById('payModal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-function closeModal(){
-  try { document.getElementById('payModal').classList.remove('open');document.body.style.overflow=''; } catch(e){}
-}
-var pm=document.getElementById('payModal');
-if(pm) pm.addEventListener('click',function(e){if(e.target===pm)closeModal();});
+function closeModal(){document.getElementById('payModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('payModal').addEventListener('click',e=>{if(e.target===document.getElementById('payModal'))closeModal();});
 
+function copyWallet(){
+  const wallet=document.getElementById('walletAddress').innerText;
+  navigator.clipboard.writeText(wallet).then(()=>{
+    const btn=document.querySelector('.copy-wallet-btn');
+    const old=btn.innerHTML;
+    btn.innerHTML='<span class="es-text">Wallet copiada ✓</span><span class="en-text">Wallet copied ✓</span>';
+    setTimeout(()=>btn.innerHTML=old,1800);
+  });
+}
 function submitOrder(){
-  try {
-    var name=document.getElementById('fi-name').value;
-    var email=document.getElementById('fi-email').value;
-    if(!name||!email){
-      ['fi-name','fi-email'].forEach(function(id){var el=document.getElementById(id);if(el&&!el.value){el.style.borderColor='#ff3b5c';setTimeout(function(){el.style.borderColor='';},2000);}});
-      return;
-    }
-    document.getElementById('payForm').style.display='none';
-    document.getElementById('paySuccess').style.display='block';
-  } catch(e){}
+  const name=document.getElementById('fi-name').value;
+  const email=document.getElementById('fi-email').value;
+  if(!name||!email){
+    ['fi-name','fi-email'].forEach(id=>{if(!document.getElementById(id).value){document.getElementById(id).style.borderColor='#ff3b5c';setTimeout(()=>{document.getElementById(id).style.borderColor='';},2000);}});
+    return;
+  }
+  document.getElementById('payForm').style.display='none';
+  document.getElementById('paySuccess').style.display='block';
 }
 
 // ── SMOOTH SCROLL ──
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    try { var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});} } catch(ex){}
-  });
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
 });
-
-// expose globals
-window.openModal=openModal;
-window.closeModal=closeModal;
-window.submitOrder=submitOrder;
-window.toggleFaq=toggleFaq;
-window.setLang=setLang;
-
-} catch(globalErr){ console.warn('NEXUS script error:',globalErr); }
-})();
 </script>
 </body>
 </html>
