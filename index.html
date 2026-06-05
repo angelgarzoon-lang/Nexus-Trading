@@ -17,7 +17,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Syne',sans-serif;background:var(--g0);color:var(--white);overflow-x:hidden;cursor:none;}
+body{font-family:'Syne',sans-serif;background:var(--g0);color:var(--white);overflow-x:hidden;cursor:auto;position:relative;}
 
 /* CURSOR */
 #cur{width:12px;height:12px;background:var(--g3);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:var(--glow-sm);transition:width .2s,height .2s;}
@@ -431,6 +431,114 @@ body:not(.lang-en) .es-text{display:block;}
   .price-card-main{padding:40px 24px;}
   .price-main-amount{font-size:60px;}
 }
+
+/* ===== NEXUS FINAL UX FIXES ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,255,106,.14), transparent 28%),
+    radial-gradient(circle at 85% 35%, rgba(57,255,154,.10), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(198,255,0,.08), transparent 32%),
+    linear-gradient(135deg, rgba(0,30,10,.65), rgba(0,10,3,.95) 45%, rgba(0,45,18,.65));
+  filter: blur(2px);
+  animation:nexusBgDrift 18s ease-in-out infinite alternate;
+}
+body > *{position:relative;z-index:1;}
+#cur,#cur2{display:none!important;}
+a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-main,.cd-cta{cursor:pointer!important;}
+@keyframes nexusBgDrift{
+  0%{transform:translate3d(-2%,-1%,0) scale(1);filter:hue-rotate(0deg) blur(2px);}
+  50%{transform:translate3d(2%,1.5%,0) scale(1.04);filter:hue-rotate(12deg) blur(2px);}
+  100%{transform:translate3d(-1%,2%,0) scale(1.07);filter:hue-rotate(-8deg) blur(2px);}
+}
+.hero,.performance,.reviews,.refund{
+  background-attachment:fixed;
+}
+.hero::after,.performance::after,.reviews::after,.ninja-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(115deg, transparent 0 35%, rgba(0,255,106,.06) 45%, transparent 55% 100%),
+    repeating-linear-gradient(90deg, rgba(0,255,106,.025) 0 1px, transparent 1px 90px);
+  mix-blend-mode:screen;
+  opacity:.55;
+  animation:nexusScan 12s linear infinite;
+}
+@keyframes nexusScan{
+  from{background-position:-250px 0,0 0;}
+  to{background-position:250px 0,180px 0;}
+}
+.hero-jp,.section-tag{
+  color:rgba(120,255,180,.88)!important;
+  text-shadow:0 0 12px rgba(0,255,106,.75),0 0 28px rgba(0,255,106,.35);
+  letter-spacing:7px;
+}
+.title-white{
+  color:#f7fff9;
+  text-shadow:0 0 18px rgba(240,255,245,.28);
+}
+.hero-title .outline{
+  color:#f7fff9;
+  -webkit-text-stroke:0;
+  text-shadow:0 0 18px rgba(240,255,245,.25);
+}
+.hero-sub,.section-desc,.strat-desc,.ns-desc,.ninja-card-sub,.chat-text,.faq-a,.footer-tagline,.modal-pay-text,.secure-note,.refund-features li,.footer-disclaimer,.price-features-main li,.ninja-features li,.metric-label,.perf-label,.contact-text{
+  color:rgba(240,255,245,.78)!important;
+}
+.chat-handle,.chat-date,.chat-platform,.price-period-main,.footer-copy{
+  color:rgba(240,255,245,.52)!important;
+}
+.ninja-compat{display:none!important;}
+.price-usd-note{
+  text-align:center;
+  font-family:'Space Mono',monospace;
+  font-size:13px;
+  letter-spacing:4px;
+  color:rgba(0,255,106,.75);
+  margin-top:6px;
+  margin-bottom:28px;
+}
+.strat-grid{grid-template-columns:repeat(4,1fr);}
+.strat-card:nth-child(2){transform:none!important;}
+.strat-card{
+  background:linear-gradient(145deg, rgba(1,26,8,.96), rgba(0,10,3,.92));
+}
+.chat-card,.ninja-card,.price-card-main,.chart-bg,.secure-pay{
+  backdrop-filter:blur(10px);
+}
+@media(max-width:1200px){
+  .strat-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:700px){
+  body{cursor:auto!important;}
+  .countdown-banner{position:relative;gap:10px;padding:14px 12px;}
+  nav{position:sticky;top:0;padding:14px 18px;background:rgba(0,10,3,.96);}
+  .nav-logo{font-size:18px;letter-spacing:3px;}
+  .nav-right{gap:8px;}
+  .nav-cta{padding:10px 14px;font-size:10px;}
+  .hero{padding:70px 18px 50px;min-height:auto;}
+  .hero-title{font-size:clamp(40px,15vw,62px);line-height:1.02;letter-spacing:-1px;overflow-wrap:normal;word-break:normal;}
+  .hero-sub{font-size:14px;line-height:1.75;max-width:100%;}
+  .hero-price-block{display:flex;flex-direction:column;gap:8px;padding:16px 22px;width:100%;max-width:330px;}
+  .hero-btns a{width:100%;max-width:340px;text-align:center;padding:16px 20px;}
+  .hero-stats{width:100%;margin-top:40px;}
+  .section-title{font-size:clamp(32px,10vw,46px);line-height:1.1;}
+  .strat-grid,.perf-metrics{grid-template-columns:1fr;}
+  .reviews-masonry{columns:1;}
+  .modal{padding:34px 22px;}
+  .price-main-amount{font-size:58px;}
+  .footer-bottom{text-align:left;}
+  .footer-disclaimer{text-align:left;}
+  .cd-label{width:100%;text-align:center;line-height:1.4;}
+  .cd-price-new{font-size:16px;}
+}
+
 </style>
 </head>
 <body>
@@ -447,7 +555,7 @@ body:not(.lang-en) .es-text{display:block;}
 
 <!-- COUNTDOWN BANNER -->
 <div class="countdown-banner">
-  <div class="cd-label"><span class="es-text">⚡ OFERTA ESPECIAL — PRECIO SUBE EN:</span><span class="en-text">⚡ SPECIAL OFFER — PRICE GOES UP IN:</span></div>
+  <div class="cd-label"><span class="es-text">⚡ OFERTA LIMITADA — SOLO 1 DÍA Y MEDIO:</span><span class="en-text">⚡ LIMITED OFFER — ONLY 1.5 DAYS LEFT:</span></div>
   <div class="cd-blocks">
     <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-unit"><span class="es-text">Hrs</span><span class="en-text">Hrs</span></div></div>
     <div class="cd-sep">:</div>
@@ -456,8 +564,8 @@ body:not(.lang-en) .es-text{display:block;}
     <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-unit"><span class="es-text">Seg</span><span class="en-text">Sec</span></div></div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <span class="cd-price-old">$2,600</span>
-    <span class="cd-price-new">$499</span>
+    <span class="cd-price-old">$2,499</span>
+    <span class="cd-price-new">$499 USD</span>
   </div>
   <button class="cd-cta" onclick="openModal()"><span class="es-text">OBTENER AHORA</span><span class="en-text">GET NOW</span></button>
 </div>
@@ -478,8 +586,8 @@ body:not(.lang-en) .es-text{display:block;}
           <div style="font-size:11px;color:rgba(240,255,245,.4);margin-top:4px;">NinjaTrader 8 · NASDAQ &amp; S&amp;P500 Futures</div>
         </div>
         <div>
-          <div style="font-family:'Space Mono',monospace;font-size:13px;color:rgba(240,255,245,.25);text-decoration:line-through;">$2,600</div>
-          <div class="modal-plan-price">$499</div>
+          <div style="font-family:'Space Mono',monospace;font-size:13px;color:rgba(240,255,245,.25);text-decoration:line-through;">$2,499</div>
+          <div class="modal-plan-price">$499 USD</div>
         </div>
       </div>
       <div class="form-group">
@@ -512,8 +620,8 @@ body:not(.lang-en) .es-text{display:block;}
         </p>
       </div>
       <button class="modal-btn" onclick="submitOrder()">🔒 <span class="es-text">Continuar al pago seguro</span><span class="en-text">Continue to secure payment</span></button>
-      <div class="modal-terms es-text">Pago procesado por proveedor externo seguro. Garantía de devolución 60 días según términos.</div>
-      <div class="modal-terms en-text">Payment processed by a secure external provider. 60-day guarantee according to terms.</div>
+      <div class="modal-terms es-text">Pago seguro procesado por Stripe. El cobro se realiza por 499 USD. Garantía de devolución 60 días según términos.</div>
+      <div class="modal-terms en-text">Secure payment processed by Stripe. The charge is 499 USD. 60-day guarantee according to terms.</div>
     </div>
     <div id="paySuccess" style="display:none;text-align:center;padding:20px;">
       <div style="font-size:56px;margin-bottom:16px;">🔒</div>
@@ -551,25 +659,21 @@ body:not(.lang-en) .es-text{display:block;}
     <div class="hero-badge"><span class="badge-dot"></span><span class="es-text">FastPass Evaluations · Prop Firms · NQ &amp; ES Futures</span><span class="en-text">FastPass Evaluations · Prop Firms · NQ &amp; ES Futures</span></div>
     <div class="hero-jp">ネクサス · フューチャーズ · トレーディング</div>
     <h1 class="hero-title" id="heroTitle">
-      <span class="outline">PASA</span> cuentas<br>
+      <span class="title-white">PASA cuentas</span><br>
       <span class="green">de fondeo</span><br>
       <span class="acid">con bots</span>
     </h1>
     <p class="hero-sub es-text">FastPass Evaluations Bot para <strong style="color:var(--g3)">NinjaTrader 8</strong>: diseñado para operar NQ y ES, ayudar a pasar cuentas de fondeo en prop firms como Apex, Topstep, Tradeify, Lucid y otras, y buscar una rentabilidad objetivo del <strong style="color:var(--g3)">80–90%</strong> con automatización disciplinada.</p>
     <p class="hero-sub en-text">FastPass Evaluations Bot for <strong style="color:var(--g3)">NinjaTrader 8</strong>: built to trade NQ and ES, help pass funded evaluations with prop firms like Apex, Topstep, Tradeify, Lucid and others, and target <strong style="color:var(--g3)">80–90%</strong> profitability through disciplined automation.</p>
     <div class="hero-price-block">
-      <span class="hpb-old">$2,600</span>
-      <span class="hpb-new">$499</span>
-      <span class="hpb-save es-text">AHORRAS $2,101</span>
-      <span class="hpb-save en-text">SAVE $2,101</span>
+      <span class="hpb-old">$2,499</span>
+      <span class="hpb-new">$499 USD</span>
+      <span class="hpb-save es-text">AHORRAS $2,000</span>
+      <span class="hpb-save en-text">SAVE $2,000</span>
     </div>
     <div class="hero-btns">
       <a href="#precios" class="btn-primary" onclick="event.preventDefault();openModal()">⚡ <span class="es-text">Obtener Bot Ahora</span><span class="en-text">Get Bot Now</span></a>
       <a href="#rendimiento" class="btn-secondary"><span class="es-text">Ver Rendimiento →</span><span class="en-text">View Performance →</span></a>
-    </div>
-    <div class="ninja-compat">
-      <div class="ninja-pill">🥷 NinjaTrader 8 <span style="color:var(--g3)">✓ Compatible</span></div>
-      <div class="ninja-pill">📁 <span class="es-text">Archivo .zip — Descarga Directa</span><span class="en-text">.zip File — Direct Download</span></div>
     </div>
   </div>
   <div class="hero-stats reveal">
@@ -746,6 +850,10 @@ body:not(.lang-en) .es-text{display:block;}
     <div class="chat-card reveal d3"><div class="chat-header"><div class="chat-avatar">🇪🇨</div><div><div class="chat-username">María José P. <span class="chat-verified">✓</span></div><div class="chat-handle">Ecuador · NQ Futures</div></div><div class="chat-profit-badge">80–90%</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"No lo veo como magia, sino como disciplina automatizada. Los algoritmos son bastante profitables cuando se usan en las condiciones correctas y con reglas claras."</p><div class="chat-img-preview"><span class="chat-img-label">📋 FASTPASS SETTINGS</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;"><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">4</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">ALGOS</div></div><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">NQ/ES</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">MARKETS</div></div></div></div></div><div class="chat-footer"><span class="chat-date">hace 9 días</span><span class="chat-platform">NINJATRADER 8</span></div></div>
     <div class="chat-card reveal d1"><div class="chat-header"><div class="chat-avatar">🇩🇴</div><div><div class="chat-username">Javier A. <span class="chat-verified">✓</span></div><div class="chat-handle">República Dominicana · Prop Firm</div></div><div class="chat-profit-badge">Passed</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Venía de sobreoperar y quemar cuentas. Con este sistema me concentré en una configuración, un mercado y una regla de riesgo. La evaluación salió mucho más limpia."</p></div><div class="chat-footer"><span class="chat-date">hace 2 semanas</span><span class="chat-platform">FUNDED ACCOUNT</span></div></div>
     <div class="chat-card reveal d2"><div class="chat-header"><div class="chat-avatar">🇧🇷</div><div><div class="chat-username">Lucas M. <span class="chat-verified">✓</span></div><div class="chat-handle">Brasil · ES Futures</div></div><div class="chat-profit-badge">MES/ES</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Usei no ES porque queria algo menos agressivo que NQ. A separação por mercado faz sentido: ES precisa de outro ritmo, outro stop e outro comportamento."</p></div><div class="chat-footer"><span class="chat-date">há 2 semanas</span><span class="chat-platform">ES FUTURES</span></div></div>
+
+    <div class="chat-card reveal d1"><div class="chat-header"><div class="chat-avatar">🇨🇴</div><div><div class="chat-username">Daniel R. <span class="chat-verified">✓</span></div><div class="chat-handle">Colombia · Apex 50K</div></div><div class="chat-profit-badge">8 días</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"No confiaba mucho porque hoy hay demasiados gurús vendiendo humo. Probé FastPass en una cuenta pequeña primero y me sorprendió que el sistema fuera claro, medible y sin promesas raras. Pasé la evaluación en 8 días."</p></div><div class="chat-footer"><span class="chat-date">hace 4 días</span><span class="chat-platform">APEX</span></div></div>
+    <div class="chat-card reveal d2"><div class="chat-header"><div class="chat-avatar">🇲🇽</div><div><div class="chat-username">Sebastián L. <span class="chat-verified">✓</span></div><div class="chat-handle">México · Topstep</div></div><div class="chat-profit-badge">Passed</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Al principio pensé que era otro bot más de internet. Lo que me hizo confiar fue ver que no intentaba operar todo el día: espera condiciones específicas, respeta el riesgo y trabaja diferente NQ y ES."</p></div><div class="chat-footer"><span class="chat-date">hace 6 días</span><span class="chat-platform">TOPSTEP</span></div></div>
+    <div class="chat-card reveal d3"><div class="chat-header"><div class="chat-avatar">🇨🇱</div><div><div class="chat-username">Mateo G. <span class="chat-verified">✓</span></div><div class="chat-handle">Chile · Funded Evaluation</div></div><div class="chat-profit-badge">6 días</div></div><div class="chat-body"><div class="chat-stars">★★★★★</div><p class="chat-text">"Venía muy desconfiado por tantas promesas falsas en trading. Este sistema me hizo volver a confiar porque es simple: parámetros, disciplina y ejecución. No es magia, pero sí me ayudó a pasar una cuenta en días."</p></div><div class="chat-footer"><span class="chat-date">hace 1 semana</span><span class="chat-platform">PROP FIRM</span></div></div>
   </div>
 </section>
 
@@ -765,11 +873,11 @@ body:not(.lang-en) .es-text{display:block;}
       <div class="lifetime-badge en-text" style="display:none;">✦ LIFETIME ACCESS · ONE-TIME PAYMENT ✦</div>
       <div class="price-name-main">NEXUS Trading Bot — NinjaTrader 8</div>
       <div class="price-old-wrap">
-        <span class="price-old-amt">$2,600</span>
-        <span class="price-save es-text">AHORRAS $2,101</span>
-        <span class="price-save en-text">SAVE $2,101</span>
+        <span class="price-old-amt">$2,499</span>
+        <span class="price-save es-text">AHORRAS $2,000</span>
+        <span class="price-save en-text">SAVE $2,000</span>
       </div>
-      <span class="price-main-amount"><sup>$</sup>499</span>
+      <span class="price-main-amount"><sup>$</sup>499</span><div class="price-usd-note">USD</div>
       <div class="price-period-main es-text">Pago único · Sin mensualidades · Sin comisiones</div>
       <div class="price-period-main en-text">One-time payment · No monthly fees · No commissions</div>
       <ul class="price-features-main">
@@ -832,7 +940,6 @@ body:not(.lang-en) .es-text{display:block;}
             <div class="refund-days-label en-text">DAY GUARANTEE</div>
           </div>
         </div>
-        <div style="position:absolute;font-size:56px;pointer-events:none;">🛡️</div>
       </div>
     </div>
   </div>
@@ -857,7 +964,7 @@ body:not(.lang-en) .es-text{display:block;}
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo recibo el bot después de pagar?</span><span class="en-text">How do I receive the bot after payment?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">Te enviamos el archivo .zip de NinjaScript directamente por WhatsApp en menos de 24 horas tras confirmar la transacción en blockchain. Incluye el bot, el manual de instalación en PDF y acceso al canal de soporte.</span><span class="en-text">We send the NinjaScript .zip file directly via WhatsApp within 24 hours of confirming the blockchain transaction. Includes the bot, PDF installation manual, and access to the support channel.</span></div>
+      <div class="faq-a"><span class="es-text">Después del pago aprobado por Stripe, recibes el archivo .zip de NinjaScript, el manual de instalación y las instrucciones de configuración. La entrega se realiza únicamente cuando el pago aparece como confirmado.</span><span class="en-text">After Stripe confirms the payment, you receive the NinjaScript .zip file, installation manual and setup instructions. Delivery is completed only when the payment appears as confirmed.</span></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cuánto capital mínimo necesito para operar futuros?</span><span class="en-text">What's the minimum capital needed to trade futures?</span> <span class="faq-arrow">+</span></button>
@@ -865,7 +972,7 @@ body:not(.lang-en) .es-text{display:block;}
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo funciona el pago seguro?</span><span class="en-text">How does secure payment work?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">Completas el formulario y continúas a un checkout seguro. El pedido queda registrado y el bot se entrega únicamente después de que el pago aparece como confirmado por el proveedor de pagos.</span><span class="en-text">You complete the form and continue to a secure checkout. The order is recorded and the bot is delivered only after the payment is confirmed by the payment provider.</span></div>
+      <div class="faq-a"><span class="es-text">El pago se procesa de forma normal mediante Stripe Checkout con tarjeta débito/crédito y métodos disponibles según tu país. El cobro es de 499 USD y el pedido queda registrado automáticamente antes de entregar el bot.</span><span class="en-text">You complete the form and continue to a secure checkout. The order is recorded and the bot is delivered only after the payment is confirmed by the payment provider.</span></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Cómo solicito la devolución?</span><span class="en-text">How do I request a refund?</span> <span class="faq-arrow">+</span></button>
@@ -944,11 +1051,11 @@ function setLang(l){
 setLang('es');
 
 // ── COUNTDOWN ──
-// Set deadline 47h 59m from now (or use localStorage to persist)
+// Set deadline 36h from now (1.5 days, persisted in localStorage)
 let deadline;
-const stored=localStorage.getItem('nexus_cd');
+const stored=localStorage.getItem('nexus_cd_36h');
 if(stored&&parseInt(stored)>Date.now()){deadline=parseInt(stored);}
-else{deadline=Date.now()+47*3600*1000+59*60*1000;localStorage.setItem('nexus_cd',deadline);}
+else{deadline=Date.now()+36*3600*1000;localStorage.setItem('nexus_cd_36h',deadline);}
 function updateCD(){
   const diff=Math.max(0,deadline-Date.now());
   const h=Math.floor(diff/3600000);
@@ -957,7 +1064,7 @@ function updateCD(){
   document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
   document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
   document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
-  if(diff===0){clearInterval(cdInterval);deadline=Date.now()+47*3600*1000+59*60*1000;localStorage.setItem('nexus_cd',deadline);}
+  if(diff===0){clearInterval(cdInterval);deadline=Date.now()+36*3600*1000;localStorage.setItem('nexus_cd_36h',deadline);}
 }
 updateCD();
 const cdInterval=setInterval(updateCD,1000);
