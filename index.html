@@ -412,7 +412,7 @@ body:not(.lang-en) .es-text{display:block;}
 .scan-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,106,.3),transparent);animation:scanMove 6s ease-in-out infinite;opacity:.4;pointer-events:none;}
 @keyframes scanMove{0%,100%{top:10%}50%{top:90%}}
 
-/* Discord float */
+/* Telegram float */
 .wa-float{
   position:fixed;bottom:30px;right:30px;z-index:800;
   width:60px;height:60px;border-radius:50%;
@@ -552,6 +552,511 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
   .cd-price-new{font-size:16px;}
 }
 
+
+/* === MOBILE ROBUST FIXES — NEXUS === */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+img, canvas, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+section, footer, .ticker, .countdown-banner {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.hero-content,
+.ninja-layout,
+.perf-layout,
+.refund-layout,
+.footer-grid,
+.price-center,
+.faq-list,
+.reviews-masonry {
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  top: 0 !important;
+  z-index: 1800 !important;
+  background: rgba(0,10,3,.96) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,255,106,.22);
+}
+
+.countdown-banner {
+  top: 65px !important;
+  z-index: 1700 !important;
+  min-height: 42px;
+}
+
+.hero {
+  padding-top: 185px !important;
+}
+
+.nav-logo,
+.nav-links a,
+.nav-cta,
+.cd-label,
+.cd-cta,
+.section-title,
+.hero-title,
+.chat-text,
+.section-desc,
+.price-features-main li,
+.ninja-features li {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.ninja-logo-big {
+  display: block;
+  width: min(170px, 56vw);
+  height: auto;
+  object-fit: contain;
+  background: rgba(255,255,255,.96);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0 0 22px 0;
+  box-shadow: 0 0 28px rgba(0,255,106,.14);
+}
+
+.wa-float {
+  background: #24A1DE !important;
+  box-shadow: 0 4px 20px rgba(36,161,222,.48) !important;
+}
+
+.tg-icon {
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  display: block;
+  transform: translateX(-1px);
+}
+
+.btn-primary,
+.price-btn-main,
+.cd-cta {
+  text-align: center;
+  white-space: normal;
+}
+
+@media (max-width: 1000px) {
+  body {
+    cursor: auto !important;
+  }
+
+  #cur,
+  #cur2 {
+    display: none !important;
+  }
+
+  nav {
+    height: 58px;
+    padding: 10px 14px !important;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-size: 17px !important;
+    letter-spacing: 2px !important;
+    flex-shrink: 0;
+    max-width: 38vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-right {
+    gap: 7px !important;
+    margin-left: auto;
+  }
+
+  .nav-lang {
+    padding: 5px 8px !important;
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .nav-cta {
+    padding: 9px 13px !important;
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
+    clip-path: none !important;
+    border-radius: 2px;
+  }
+
+  .countdown-banner {
+    top: 58px !important;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+  }
+
+  .countdown-banner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cd-label {
+    flex: 0 0 auto;
+    font-size: 9px !important;
+    letter-spacing: 2px !important;
+    white-space: nowrap;
+  }
+
+  .cd-blocks {
+    flex: 0 0 auto;
+    gap: 4px !important;
+  }
+
+  .cd-block {
+    min-width: 42px !important;
+    padding: 5px 7px !important;
+  }
+
+  .cd-num {
+    font-size: 16px !important;
+  }
+
+  .cd-price-old,
+  .cd-price-new,
+  .cd-cta {
+    flex: 0 0 auto;
+  }
+
+  .hero {
+    padding: 155px 18px 58px !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 15vw, 66px) !important;
+    line-height: .96 !important;
+    letter-spacing: -1px !important;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-sub {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero-price-block {
+    width: 100%;
+    justify-content: center;
+    gap: 12px !important;
+    padding: 14px 10px !important;
+    flex-wrap: wrap;
+  }
+
+  .hpb-new {
+    font-size: clamp(32px, 13vw, 50px) !important;
+  }
+
+  .hero-btns {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 17px 18px !important;
+    font-size: 12px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .hero-stats {
+    width: 100%;
+    margin-top: 38px !important;
+  }
+
+  .grid-floor {
+    width: 1100px !important;
+    left: 50%;
+  }
+
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  .ninja-section,
+  footer {
+    padding: 72px 18px !important;
+  }
+
+  .ninja-layout,
+  .perf-layout,
+  .refund-layout,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 42px !important;
+  }
+
+  .section-title {
+    font-size: clamp(34px, 11vw, 50px) !important;
+    line-height: 1.06 !important;
+  }
+
+  .section-desc {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    max-width: 100% !important;
+  }
+
+  .strat-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .strat-card {
+    padding: 34px 22px !important;
+    transform: none !important;
+  }
+
+  .price-card-main {
+    padding: 42px 22px !important;
+  }
+
+  .price-main-amount {
+    font-size: clamp(52px, 17vw, 76px) !important;
+  }
+
+  .secure-methods,
+  .secure-guarantee {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pay-method {
+    justify-content: center;
+  }
+
+  .wa-float {
+    width: 58px !important;
+    height: 58px !important;
+    right: 18px !important;
+    bottom: 88px !important;
+  }
+
+  .wa-tooltip {
+    display: none !important;
+  }
+
+  .chat-profit-badge {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+  }
+
+  .footer-disclaimer {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-logo {
+    font-size: 15px !important;
+    max-width: 34vw;
+  }
+
+  .nav-cta {
+    padding: 8px 10px !important;
+    font-size: 9px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 14vw, 58px) !important;
+  }
+
+  .section-tag {
+    letter-spacing: 4px !important;
+    font-size: 9px !important;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 10vw, 44px) !important;
+  }
+}
+
+
+/* === FINAL MOBILE CENTERING FIX — PRICE/HERO === */
+@media (max-width: 768px) {
+  body,
+  main,
+  .hero,
+  .hero-content,
+  .price-center,
+  .price-card-main,
+  .hero-price-block,
+  .hero-btns,
+  .hero-stats,
+  .stat,
+  .ninja-section,
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  footer {
+    box-sizing: border-box;
+  }
+
+  .hero,
+  .ninja-section,
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  footer {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-price-block {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hero-btns {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 560px !important;
+  }
+
+  .hero-stats {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+  }
+
+  .hero-title,
+  .hero-sub,
+  .hero-badge,
+  .hero-jp {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .price-center,
+  .price-card-main,
+  .secure-pay {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .grid-floor,
+  .hero::before {
+    left: 50% !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero,
+  .ninja-section,
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  footer {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .hero-price-block,
+  .hero-btns,
+  .hero-stats,
+  .price-center,
+  .price-card-main,
+  .secure-pay {
+    max-width: calc(100vw - 28px) !important;
+  }
+
+  .hpb-new {
+    font-size: clamp(38px, 13vw, 54px) !important;
+  }
+}
+
 </style>
 
 <style>
@@ -570,15 +1075,15 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
 <div id="cur"></div>
 <div id="cur2"></div>
 
-<!-- DISCORD FLOAT -->
-<a href="https://discord.gg/REPLACE-ME" target="_blank" class="wa-float">
-  💬
-  <div class="wa-tooltip">Discord Directo</div>
+<!-- TELEGRAM FLOAT -->
+<a href="https://t.me/nexus_tradingbott" target="_blank" class="wa-float" aria-label="Contactar por Telegram">
+  <span class="tg-icon">✈</span>
+  <div class="wa-tooltip">Telegram @nexus_tradingbott</div>
 </a>
 
 <!-- COUNTDOWN BANNER -->
 <div class="countdown-banner">
-  <div class="cd-label"><span class="es-text">⚡ OFERTA LIMITADA — SOLO 1 DÍA Y MEDIO:</span><span class="en-text">⚡ LIMITED OFFER — ONLY 1.5 DAYS LEFT:</span></div>
+  <div class="cd-label"><span class="es-text"> OFERTA LIMITADA — SOLO 1 DÍA Y MEDIO:</span><span class="en-text"> LIMITED OFFER — ONLY 1.5 DAYS LEFT:</span></div>
   <div class="cd-blocks">
     <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-unit"><span class="es-text">Hrs</span><span class="en-text">Hrs</span></div></div>
     <div class="cd-sep">:</div>
@@ -622,7 +1127,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
         <input class="form-input" type="email" placeholder="juan@gmail.com" id="fi-email">
       </div>
       <div class="form-group">
-        <label class="form-label">Discord username</label>
+        <label class="form-label">Telegram username</label>
         <input class="form-input" placeholder="@nexus_user" id="fi-phone">
       </div>
       <div class="form-group">
@@ -669,7 +1174,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
   <div class="nav-right">
     <button class="nav-lang active" id="btnEs" onclick="setLang('es')">ES</button>
     <button class="nav-lang" id="btnEn" onclick="setLang('en')">EN</button>
-    <a href="#precios" class="nav-cta" onclick="event.preventDefault();openModal()"><span class="es-text">Comprar</span><span class="en-text">Buy Now</span> →</a>
+    <a href="#precios" class="nav-cta" onclick="event.preventDefault();openModal()"><span class="es-text">Obtener ahora</span><span class="en-text">Get now</span></a>
   </div>
 </nav>
 
@@ -695,7 +1200,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
       <span class="hpb-save en-text">SAVE $2,000</span>
     </div>
     <div class="hero-btns">
-      <a href="#precios" class="btn-primary" onclick="event.preventDefault();openModal()">⚡ <span class="es-text">Obtener Bot Ahora</span><span class="en-text">Get Bot Now</span></a>
+      <a href="#precios" class="btn-primary" onclick="event.preventDefault();openModal()"><span class="es-text">Obtener ahora</span><span class="en-text">Get now</span></a>
       <a href="#rendimiento" class="btn-secondary"><span class="es-text">Ver Rendimiento →</span><span class="en-text">View Performance →</span></a>
     </div>
   </div>
@@ -759,7 +1264,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
       <div class="ninja-card">
         <div class="corner-deco corner-tl"></div><div class="corner-deco corner-tr"></div>
         <div class="corner-deco corner-bl"></div><div class="corner-deco corner-br"></div>
-        <div class="ninja-logo-big">🥷</div>
+        <img class="ninja-logo-big" src="/ninjatrader-logo.png" alt="NinjaTrader logo">
         <div class="ninja-card-title">NinjaTrader 8</div>
         <div class="ninja-card-sub es-text">Plataforma líder mundial para trading de futuros. Descarga gratuita en ninjatrader.com</div>
         <div class="ninja-card-sub en-text">The world's leading platform for futures trading. Free download at ninjatrader.com</div>
@@ -771,7 +1276,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
           <li><span class="es-text">Modo evaluación: adaptable a reglas de prop firms</span><span class="en-text">Evaluation mode: adaptable to prop firm rules</span></li>
           <li><span class="es-text">4 algoritmos independientes con activación separada</span><span class="en-text">4 independent algorithms with separate activation</span></li>
         </ul>
-        <a href="#precios" class="ninja-dl-btn">⚡ <span class="es-text">Ver acceso y pago seguro</span><span class="en-text">View access and secure payment</span></a>
+        <a href="#precios" class="ninja-dl-btn"> <span class="es-text">Ver acceso y pago seguro</span><span class="en-text">View access and secure payment</span></a>
       </div>
     </div>
   </div>
@@ -790,7 +1295,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
   <div class="strat-grid">
     <div class="strat-card reveal d1">
       <div class="strat-num">01</div>
-      <span class="strat-icon">⚡</span>
+      <span class="strat-icon"></span>
       <div class="strat-name">Algoritmo 01</div>
       <p class="strat-desc es-text">Diseñado para movimientos rápidos y condiciones de alta energía. Se usa cuando el mercado muestra impulso claro y liquidez suficiente.</p>
       <p class="strat-desc en-text">Designed for fast moves and high-energy conditions. Used when the market shows clear momentum and enough liquidity.</p>
@@ -913,7 +1418,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
         <li><span class="es-text">Garantía de devolución 60 días sin preguntas</span><span class="en-text">60-day no-questions money-back guarantee</span></li>
         <li><span class="es-text">Pago seguro con tarjeta o métodos admitidos por el gateway</span><span class="en-text">Secure payment by card or gateway-supported methods</span></li>
       </ul>
-      <button class="price-btn-main" onclick="openModal()">⚡ <span class="es-text">Comprar con pago seguro — $499</span><span class="en-text">Buy with secure checkout — $499</span></button>
+      <button class="price-btn-main" onclick="openModal()"> <span class="es-text">Comprar con pago seguro — $499</span><span class="en-text">Buy with secure checkout — $499</span></button>
     </div>
     <div class="secure-pay reveal">
       <div class="secure-title">🔒 <span class="es-text">CHECKOUT SEGURO Y VERIFICADO</span><span class="en-text">SECURE VERIFIED CHECKOUT</span></div>
@@ -979,7 +1484,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Necesito experiencia previa en trading de futuros?</span><span class="en-text">Do I need prior futures trading experience?</span> <span class="faq-arrow">+</span></button>
-      <div class="faq-a"><span class="es-text">No es indispensable, pero sí recomendamos tener una cuenta en NinjaTrader activa. Te guiamos en la instalación completa 1:1 por Discord. Lo único que necesitas es tener NinjaTrader 8 instalado y una cuenta con un broker de futuros compatible (NinjaTrader Brokerage, Tradovate, Rithmic).</span><span class="en-text">Not required, but we do recommend having an active NinjaTrader account. We guide you through the full 1:1 installation via Discord. You just need NinjaTrader 8 installed and an account with a compatible futures broker (NinjaTrader Brokerage, Tradovate, Rithmic).</span></div>
+      <div class="faq-a"><span class="es-text">No es indispensable, pero sí recomendamos tener una cuenta en NinjaTrader activa. Te guiamos en la instalación completa 1:1 por Telegram. Lo único que necesitas es tener NinjaTrader 8 instalado y una cuenta con un broker de futuros compatible (NinjaTrader Brokerage, Tradovate, Rithmic).</span><span class="en-text">Not required, but we do recommend having an active NinjaTrader account. We guide you through the full 1:1 installation via Telegram. You just need NinjaTrader 8 installed and an account with a compatible futures broker (NinjaTrader Brokerage, Tradovate, Rithmic).</span></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="es-text">¿Solo funciona en NinjaTrader? ¿No en MetaTrader?</span><span class="en-text">Does it only work on NinjaTrader? Not MetaTrader?</span> <span class="faq-arrow">+</span></button>
@@ -1015,7 +1520,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
         <a class="social-link" href="#precios">💳</a>
         <a class="social-link" href="https://www.instagram.com/nexus_tradingbot/" target="_blank">📷</a>
         <a class="social-link" href="#">▶</a>
-        <a class="social-link" href="https://discord.gg/REPLACE-ME" target="_blank">💬</a>
+        <a class="social-link" href="https://t.me/nexus_tradingbott" target="_blank">💬</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1039,7 +1544,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
       <h4><span class="es-text">Contacto</span><span class="en-text">Contact</span></h4>
       <ul>
         <li><a href="#precios"><span class="es-text">Pago seguro</span><span class="en-text">Secure checkout</span></a></li>
-        <li><a href="https://discord.gg/REPLACE-ME" target="_blank"><span class="es-text">Soporte por Discord</span><span class="en-text">Discord Support</span></a></li>
+        <li><a href="https://t.me/nexus_tradingbott" target="_blank"><span class="es-text">Soporte por Telegram @nexus_tradingbott</span><span class="en-text">Telegram Support</span></a></li>
         <li><a href="https://www.instagram.com/nexus_tradingbot/" target="_blank">Instagram: @nexus_tradingbot</a></li>
       </ul>
     </div>
@@ -1052,7 +1557,7 @@ a,button,.strat-card,.chat-card,.nav-lang,.modal-close,.modal-btn,.price-btn-mai
 </footer>
 
 <script>
-const DISCORD_INVITE_URL = 'https://discord.gg/REPLACE-ME';
+const DISCORD_INVITE_URL = 'https://t.me/nexus_tradingbott';
 const INSTAGRAM_URL = 'https://www.instagram.com/nexus_tradingbot/';
 // ── CURSOR ──
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
