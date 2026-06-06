@@ -1634,6 +1634,317 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   .countdown-banner .cd-num{font-size:12px!important;}
 }
 
+
+/* === NEXUS REFINEMENT PATCH: sizing, flags, compact cards === */
+
+/* Language buttons with flags */
+.lang-btn{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  min-width:54px!important;
+  height:42px!important;
+  padding:0 10px!important;
+}
+.lang-btn .flag{
+  font-size:15px!important;
+  line-height:1!important;
+}
+.lang-btn .lang-code{
+  font-size:10px!important;
+  letter-spacing:1.4px!important;
+  opacity:.72;
+}
+
+/* Hero title: much smaller, same font family and three colours */
+.hero-title{
+  font-family:'Syne', sans-serif!important;
+  font-size:clamp(42px, 5.2vw, 68px)!important;
+  line-height:1.04!important;
+  letter-spacing:-1.2px!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.hero-title .title-white,
+.hero-title .green,
+.hero-title .acid{
+  font-family:'Syne', sans-serif!important;
+  font-weight:800!important;
+}
+
+/* NinjaTrader card compact + centered */
+.ninja-layout{
+  align-items:center!important;
+}
+.ninja-card{
+  width:min(100%, 520px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding:34px 32px 32px!important;
+  border-width:2px!important;
+  border-color:rgba(112,255,139,.34)!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+}
+.ninja-card::before{
+  left:14%!important;
+  right:14%!important;
+  height:3px!important;
+  background:linear-gradient(90deg, transparent, rgba(120,255,150,.9), transparent)!important;
+}
+.ninja-transparent-logo,
+.ninja-logo-big{
+  width:min(310px, 76vw)!important;
+  margin:0 auto 20px!important;
+  display:block!important;
+}
+.ninja-card-title{
+  text-align:center!important;
+  font-size:clamp(32px, 6vw, 46px)!important;
+  line-height:1.04!important;
+  margin-bottom:14px!important;
+}
+.ninja-card-sub{
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  max-width:380px!important;
+}
+
+/* Bot cards: shorter, no bottom button, soft thicker glowing borders */
+.bot-slide{
+  min-height:0!important;
+  height:auto!important;
+  padding:30px 26px 34px!important;
+  border-width:2px!important;
+  border-color:rgba(120,255,150,.34)!important;
+  border-radius:30px!important;
+  box-shadow:
+    inset 0 -38px 70px rgba(0,255,106,.11),
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    0 22px 70px rgba(0,0,0,.35),
+    0 16px 42px rgba(0,255,106,.10)!important;
+}
+.bot-slide::before{
+  content:""!important;
+  position:absolute!important;
+  left:10%!important;
+  right:10%!important;
+  bottom:-1px!important;
+  height:3px!important;
+  background:linear-gradient(90deg, transparent, rgba(128,255,150,.92), transparent)!important;
+  filter:blur(.4px)!important;
+  pointer-events:none!important;
+}
+.bot-visual{
+  width:62px!important;
+  height:62px!important;
+  margin-bottom:24px!important;
+}
+.bot-card-icon-svg{
+  width:62px!important;
+  height:62px!important;
+}
+.bot-kicker{
+  font-size:9.5px!important;
+  letter-spacing:2.6px!important;
+  margin-bottom:14px!important;
+  color:rgba(245,255,247,.72)!important;
+}
+.bot-title{
+  font-size:clamp(32px, 5.6vw, 48px)!important;
+  line-height:1.04!important;
+  margin-bottom:20px!important;
+}
+.bot-copy{
+  font-size:14px!important;
+  line-height:1.65!important;
+  max-width:430px!important;
+  padding-bottom:0!important;
+  color:rgba(246,255,248,.83)!important;
+}
+.bot-pill{
+  display:none!important;
+}
+
+/* Performance cards: compact, thicker soft glow */
+.metric-slide{
+  min-height:0!important;
+  height:auto!important;
+  padding:54px 28px!important;
+  border-width:2px!important;
+  border-color:rgba(120,255,150,.34)!important;
+  border-radius:30px!important;
+  box-shadow:
+    inset 0 -38px 70px rgba(0,255,106,.11),
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    0 22px 70px rgba(0,0,0,.35),
+    0 16px 42px rgba(0,255,106,.10)!important;
+}
+.metric-slide::before{
+  content:""!important;
+  position:absolute!important;
+  left:12%!important;
+  right:12%!important;
+  bottom:-1px!important;
+  height:3px!important;
+  background:linear-gradient(90deg, transparent, rgba(128,255,150,.92), transparent)!important;
+  filter:blur(.4px)!important;
+}
+.metric-big{
+  font-size:clamp(50px, 9vw, 82px)!important;
+}
+.metric-small{
+  color:rgba(245,255,247,.78)!important;
+  letter-spacing:4px!important;
+}
+.metric-copy{
+  max-width:420px!important;
+  font-size:14px!important;
+  line-height:1.65!important;
+  color:rgba(245,255,247,.82)!important;
+}
+
+/* Review cards get the same soft border treatment */
+.review-slide{
+  border-width:2px!important;
+  border-color:rgba(120,255,150,.34)!important;
+  box-shadow:
+    inset 0 -38px 70px rgba(0,255,106,.10),
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    0 22px 70px rgba(0,0,0,.35),
+    0 16px 42px rgba(0,255,106,.10)!important;
+}
+.review-slide::before{
+  content:""!important;
+  position:absolute!important;
+  left:12%!important;
+  right:12%!important;
+  bottom:-1px!important;
+  height:3px!important;
+  background:linear-gradient(90deg, transparent, rgba(128,255,150,.85), transparent)!important;
+  filter:blur(.4px)!important;
+}
+
+/* Mobile refinements */
+@media(max-width:700px){
+  .nav-right{
+    gap:6px!important;
+  }
+  .lang-btn{
+    min-width:42px!important;
+    height:38px!important;
+    padding:0 6px!important;
+    gap:3px!important;
+  }
+  .lang-btn .flag{
+    font-size:13px!important;
+  }
+  .lang-btn .lang-code{
+    font-size:8px!important;
+    letter-spacing:.8px!important;
+  }
+  .nav-cta{
+    max-width:39vw!important;
+    height:40px!important;
+    font-size:8.5px!important;
+    letter-spacing:1.6px!important;
+    padding:0 12px!important;
+  }
+  .hero-title{
+    font-size:clamp(32px, 8.8vw, 44px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.4px!important;
+    max-width:92vw!important;
+  }
+  .hero-jp{
+    font-size:14px!important;
+    letter-spacing:7px!important;
+    line-height:1.65!important;
+  }
+  .ninja-card{
+    width:calc(100vw - 34px)!important;
+    padding:28px 22px 28px!important;
+    border-radius:26px!important;
+  }
+  .ninja-transparent-logo,
+  .ninja-logo-big{
+    width:min(250px, 70vw)!important;
+  }
+  .ninja-card-title{
+    font-size:clamp(28px, 8vw, 36px)!important;
+  }
+  .bot-slide{
+    flex-basis:84vw!important;
+    padding:28px 22px 30px!important;
+    border-radius:28px!important;
+  }
+  .bot-title{
+    font-size:clamp(29px, 8.3vw, 38px)!important;
+  }
+  .bot-copy{
+    font-size:13.3px!important;
+    line-height:1.58!important;
+  }
+  .metric-slide{
+    flex-basis:84vw!important;
+    padding:46px 22px!important;
+    border-radius:28px!important;
+  }
+  .metric-big{
+    font-size:clamp(46px, 13vw, 66px)!important;
+  }
+  .metric-copy{
+    font-size:13.3px!important;
+  }
+}
+
+@media(max-width:420px){
+  .nav-logo{
+    max-width:29vw!important;
+    font-size:14px!important;
+  }
+  .hero-title{
+    font-size:clamp(30px, 8.2vw, 40px)!important;
+  }
+  .bot-slide,.metric-slide,.review-track .apple-card{
+    flex-basis:82vw!important;
+  }
+}
+
+
+/* === NAV FLAG LANGUAGE BUTTON FIX === */
+.nav-lang{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  min-width:54px!important;
+  height:42px!important;
+  padding:0 10px!important;
+}
+.nav-lang .flag{
+  font-size:15px!important;
+  line-height:1!important;
+}
+.nav-lang .lang-code{
+  font-size:10px!important;
+  letter-spacing:1.4px!important;
+  opacity:.72;
+}
+@media(max-width:700px){
+  .nav-lang{
+    min-width:42px!important;
+    height:38px!important;
+    padding:0 6px!important;
+    gap:3px!important;
+  }
+  .nav-lang .flag{font-size:13px!important;}
+  .nav-lang .lang-code{font-size:8px!important;letter-spacing:.8px!important;}
+}
+
 </style>
 
 <style>
@@ -1752,8 +2063,8 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
     <li><a href="#garantia"><span class="es-text">Garantía</span><span class="en-text">Guarantee</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="nav-lang active" id="btnEs" onclick="setLang('es')">ES</button>
-    <button class="nav-lang" id="btnEn" onclick="setLang('en')">EN</button>
+    <button class="nav-lang active" id="btnEs" onclick="setLang('es')"><span class="flag">🇪🇸</span><span class="lang-code">ES</span></button>
+    <button class="nav-lang" id="btnEn" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="lang-code">EN</span></button>
     <a href="#precios" class="nav-cta" onclick="event.preventDefault();openModal()"><span class="es-text">Obtener ahora</span><span class="en-text">Get now</span></a>
   </div>
 </nav>
@@ -1910,7 +2221,6 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
         <h3 class="bot-title en-text">Bot 1<br><span>Fast evaluation pass</span></h3>
         <p class="bot-copy es-text">Diseñado para intentar pasar cuentas de fondeo en aproximadamente 2 días. Tiene una probabilidad estimada del 78%, dependiendo del tamaño de cuenta, límites permitidos por la prop firm y configuración de riesgo.</p>
         <p class="bot-copy en-text">Designed to target funded evaluation completion in around 2 days. It has an estimated 78% probability, depending on account size, prop firm limits and risk configuration.</p>
-        <span class="bot-pill">BOT 1</span>
       </article>
 
       <article class="apple-card bot-slide bot-two">
@@ -1940,7 +2250,6 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
         <h3 class="bot-title en-text">Bot 2<br><span>One trade per day</span></h3>
         <p class="bot-copy es-text">Opera NQ/MNQ en temporalidad de 30 segundos, una vez al día, tomando como referencia la sesión de New York. Es el modelo más preciso para aceleración controlada, con una probabilidad estimada del 85–95% cuando las condiciones acompañan.</p>
         <p class="bot-copy en-text">Trades NQ/MNQ on a 30-second model, once per day, based around the New York session. It is the most precise acceleration model, with an estimated 85–95% probability when conditions align.</p>
-        <span class="bot-pill">BOT 2</span>
       </article>
 
       <article class="apple-card bot-slide bot-three">
@@ -1970,7 +2279,6 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
         <h3 class="bot-title en-text">Bot 3<br><span>Best-day filter</span></h3>
         <p class="bot-copy es-text">También opera NQ/MNQ, pero en 3 minutos. No fuerza operaciones todos los días: durante la semana busca seleccionar los mejores días de mercado para ejecutar con mayor claridad.</p>
         <p class="bot-copy en-text">Also trades NQ/MNQ, but on a 3-minute model. It does not force trades every day: during the week it looks for the highest-quality market days to execute with more clarity.</p>
-        <span class="bot-pill">BOT 3</span>
       </article>
 
       <article class="apple-card bot-slide bot-four">
@@ -2000,7 +2308,6 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
         <h3 class="bot-title en-text">Bot 4<br><span>For larger accounts</span></h3>
         <p class="bot-copy es-text">Incluye dos variantes: una de 1 minuto y otra de 3 minutos. Está pensado para cuentas más grandes, con capacidad de operar múltiples veces. Es principalmente para después de pasar evaluaciones y trabajar con dinero real/live.</p>
         <p class="bot-copy en-text">Includes two variants: one on 1 minute and one on 3 minutes. It is intended for larger accounts with multiple execution opportunities, mainly after passing evaluations and moving into real/live capital.</p>
-        <span class="bot-pill">BOT 4</span>
       </article>
     </div>
     <div class="apple-dots" data-dots="bots" aria-label="Bot carousel navigation"></div>
