@@ -1945,6 +1945,169 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   .nav-lang .lang-code{font-size:8px!important;letter-spacing:.8px!important;}
 }
 
+
+/* === NEXUS FINAL HEADER, REVIEWS, TEXT, MODAL PATCH === */
+
+/* Header: sharper logo + professional CTA */
+.nav-logo{
+  font-size:clamp(21px, 3vw, 30px)!important;
+  letter-spacing:3.4px!important;
+  font-weight:900!important;
+  text-shadow:0 0 12px rgba(0,255,106,.28)!important;
+  filter:none!important;
+  transform:translateZ(0);
+}
+.nav-right{
+  align-items:center!important;
+}
+.nav-cta{
+  height:44px!important;
+  min-width:156px!important;
+  max-width:none!important;
+  padding:0 22px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  line-height:1!important;
+  border-radius:8px!important;
+  clip-path:none!important;
+  font-size:11px!important;
+  letter-spacing:2px!important;
+  box-shadow:0 0 18px rgba(0,255,106,.32)!important;
+}
+
+/* Text readability: descriptions only, titles unchanged */
+p, li, .section-desc, .hero-sub, .bot-copy, .metric-copy, .review-slide p,
+.ninja-card-sub, .ninja-features li, .price-features-main li, .refund-features li,
+.faq-a, .step-copy, .secure-pay p, .footer-text{
+  color:rgba(250,255,250,.84)!important;
+}
+
+/* Hero title first word now title case and slightly cleaner */
+.hero-title{
+  text-transform:none!important;
+}
+
+/* More compact reviews */
+.review-track .apple-card,
+.review-slide{
+  flex-basis:min(76vw,360px)!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:26px 22px 34px!important;
+  border-radius:26px!important;
+}
+.review-slide h3{
+  font-size:24px!important;
+  margin-bottom:5px!important;
+}
+.review-slide span{
+  font-size:11.5px!important;
+  margin-bottom:14px!important;
+  color:rgba(250,255,250,.64)!important;
+}
+.review-slide p{
+  font-size:13.2px!important;
+  line-height:1.55!important;
+}
+.review-flag{
+  width:44px!important;
+  height:44px!important;
+  font-size:24px!important;
+  margin-bottom:16px!important;
+}
+.review-proof{
+  width:100%;
+  margin:10px 0 14px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(120,255,150,.18);
+  background:rgba(0,0,0,.18);
+  box-shadow:inset 0 -20px 38px rgba(0,255,106,.06);
+}
+.review-proof img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+  opacity:.92;
+}
+
+/* Floating offer hides while checkout modal is open */
+body.modal-open .countdown-banner{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translateX(-50%) translateY(18px) scale(.85)!important;
+}
+body.modal-open .wa-float{
+  bottom:28px!important;
+}
+
+/* Stronger readable old price across site */
+.old-price, .price-old, .hpb-old, .cd-price-old, del, s{
+  color:rgba(250,255,250,.76)!important;
+  opacity:1!important;
+  text-decoration-color:rgba(255,76,86,.95)!important;
+  text-decoration-thickness:2.2px!important;
+}
+
+/* Mobile header CTA fix */
+@media(max-width:700px){
+  .nav-logo{
+    font-size:20px!important;
+    letter-spacing:2.5px!important;
+    max-width:30vw!important;
+  }
+  .nav-right{
+    gap:6px!important;
+  }
+  .nav-lang{
+    min-width:41px!important;
+    width:41px!important;
+    height:38px!important;
+    padding:0 4px!important;
+  }
+  .nav-lang .flag{font-size:13px!important;}
+  .nav-lang .lang-code{font-size:7.5px!important;letter-spacing:.7px!important;}
+  .nav-cta{
+    min-width:0!important;
+    width:auto!important;
+    max-width:34vw!important;
+    height:38px!important;
+    padding:0 10px!important;
+    font-size:8.2px!important;
+    letter-spacing:1.2px!important;
+    border-radius:7px!important;
+  }
+  .review-track .apple-card,
+  .review-slide{
+    flex-basis:78vw!important;
+    padding:24px 20px 32px!important;
+  }
+  .review-proof img{
+    height:128px!important;
+  }
+}
+@media(max-width:420px){
+  .nav-logo{
+    font-size:18px!important;
+    max-width:28vw!important;
+  }
+  .nav-cta{
+    max-width:32vw!important;
+    font-size:7.6px!important;
+    letter-spacing:1px!important;
+    padding:0 8px!important;
+  }
+  .nav-lang{
+    min-width:38px!important;
+    width:38px!important;
+  }
+}
+
 </style>
 
 <style>
@@ -2079,7 +2242,7 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
     <div class="hero-jp">ネクサス · フューチャーズ · トレーディング</div>
     <h1 class="hero-title" id="heroTitle">
       <span class="es-text">
-        <span class="title-white">PASA cuentas</span><br>
+        <span class="title-white">Pasa cuentas</span><br>
         <span class="green">de fondeo</span><br>
         <span class="acid">con bots</span>
       </span>
@@ -2367,94 +2530,95 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   <div class="apple-carousel review-carousel" data-carousel="reviews">
     <div class="apple-track review-track">
       <article class="apple-card review-slide">
-        <div class="review-flag">🇨🇴</div>
-        <h3>Carlos M.</h3>
-        <span>Colombia · Apex 50K</span>
-        <p class="es-text">"No confiaba mucho porque hay demasiados gurús vendiendo humo. Lo probé en una cuenta pequeña primero y terminó siendo la compra más seria que he hecho para mi operativa."</p>
-        <p class="en-text">"I did not trust it much because there are too many fake gurus selling hype. I tried it first on a small account and it ended up being the most serious purchase I have made for my trading."</p>
-        <button class="stream-pill">Review 1</button>
+        <div class="review-flag">🇱🇹</div>
+        <h3>Kornelija L.</h3>
+        <span>Apex · 50K Tradovate Intraday</span>
+        <div class="review-proof"><img src="./review_kornelija_apex.jpeg?v=3" alt="Kornelija L. proof"></div>
+        <p class="es-text">"Pensé que podía ser otra promesa más de trading, pero pasar la cuenta cambió mi opinión. Por 499 USD sentí que estaba pagando muy poco por una herramienta que me ayudó a recuperar confianza."</p>
+        <p class="en-text">"I thought it could be just another trading promise, but passing the account changed my mind. For $499, I felt I was paying very little for a tool that helped me regain confidence."</p>
       </article><article class="apple-card review-slide">
-        <div class="review-flag">🇲🇽</div>
-        <h3>Diego R.</h3>
-        <span>México · Topstep</span>
-        <p class="es-text">"Pensé que podía ser otra estafa, pero el sistema fue claro desde el primer día. Pagar 499 USD me pareció barato comparado con lo que pude recuperar después."</p>
-        <p class="en-text">"I thought it could be another scam, but the system was clear from day one. Paying $499 felt cheap compared with what I was able to recover later."</p>
-        <button class="stream-pill">Review 2</button>
+        <div class="review-flag">🇵🇷</div>
+        <h3>Ariel C.</h3>
+        <span>Lucid Trading · Payout $512</span>
+        <div class="review-proof"><img src="./review_ariel_lucid.jpeg?v=3" alt="Ariel C. proof"></div>
+        <p class="es-text">"Lo compré con dudas, pero cuando llegó el primer payout entendí el valor. Me pareció barato comparado con lo que el sistema puede ayudar a generar."</p>
+        <p class="en-text">"I bought it with doubts, but when the first payout arrived I understood the value. It felt cheap compared with what the system can help generate."</p>
       </article><article class="apple-card review-slide">
-        <div class="review-flag">🇨🇱</div>
-        <h3>Mateo G.</h3>
-        <span>Chile · Prop Firm</span>
-        <p class="es-text">"No es magia, es disciplina automatizada. Me hizo volver a confiar porque trabaja con reglas claras y no con promesas exageradas."</p>
-        <p class="en-text">"It is not magic; it is automated discipline. It made me trust again because it works with clear rules, not exaggerated promises."</p>
-        <button class="stream-pill">Review 3</button>
-      </article><article class="apple-card review-slide">
-        <div class="review-flag">🇦🇷</div>
-        <h3>Valentina K.</h3>
-        <span>Argentina · Tradeify</span>
-        <p class="es-text">"Ya había fallado por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara. La diferencia se notó rápido."</p>
-        <p class="en-text">"I had failed before because I traded emotionally. With FastPass I used conservative parameters and let the bot execute. The difference showed quickly."</p>
-        <button class="stream-pill">Review 4</button>
-      </article><article class="apple-card review-slide">
-        <div class="review-flag">🇵🇪</div>
-        <h3>Rodrigo T.</h3>
-        <span>Perú · Lucid</span>
-        <p class="es-text">"Lo que más me gustó es que no fuerza operaciones. Espera condiciones y eso me ayudó a no entrar por ansiedad."</p>
-        <p class="en-text">"What I liked most is that it does not force trades. It waits for conditions, and that helped me stop entering out of anxiety."</p>
-        <button class="stream-pill">Review 5</button>
-      </article><article class="apple-card review-slide">
-        <div class="review-flag">🇪🇨</div>
-        <h3>María José P.</h3>
-        <span>Ecuador · NQ Futures</span>
-        <p class="es-text">"Al principio dudé muchísimo. Hoy siento que 499 USD fue una entrada pequeña para una herramienta que me ordenó completamente la operativa."</p>
-        <p class="en-text">"At first I had a lot of doubts. Now I feel $499 was a small entry price for a tool that fully organized my trading execution."</p>
-        <button class="stream-pill">Review 6</button>
-      </article><article class="apple-card review-slide">
-        <div class="review-flag">🇩🇴</div>
-        <h3>Javier A.</h3>
-        <span>República Dominicana · Apex</span>
-        <p class="es-text">"Venía de quemar cuentas por sobreoperar. Este bot me obligó a respetar una lógica y eso cambió todo."</p>
-        <p class="en-text">"I used to blow accounts from overtrading. This bot forced me to respect one logic, and that changed everything."</p>
-        <button class="stream-pill">Review 7</button>
-      </article><article class="apple-card review-slide">
-        <div class="review-flag">🇧🇷</div>
-        <h3>Lucas M.</h3>
-        <span>Brasil · ES Futures</span>
-        <p class="es-text">"Usé ES porque quería algo menos agresivo. Me gustó que cada mercado tenga comportamiento distinto, no una estrategia genérica."</p>
-        <p class="en-text">"I used ES because I wanted something less aggressive. I liked that each market has a different behavior, not a generic strategy."</p>
-        <button class="stream-pill">Review 8</button>
+        <div class="review-flag">🇺🇸</div>
+        <h3>Jayvian C.</h3>
+        <span>Tradeify · Funded Trader</span>
+        <div class="review-proof"><img src="./review_jayvian_tradeify.png?v=3" alt="Jayvian C. proof"></div>
+        <p class="es-text">"Creí que iba a ser humo como muchos bots, pero fue claro y ordenado. Me gustó que no promete magia: te da una estructura para ejecutar mejor."</p>
+        <p class="en-text">"I thought it would be hype like many bots, but it was clear and organized. I liked that it does not promise magic: it gives you structure to execute better."</p>
       </article><article class="apple-card review-slide">
         <div class="review-flag">🇨🇴</div>
-        <h3>Andrés F.</h3>
-        <span>Colombia · NQ/MNQ</span>
-        <p class="es-text">"Pensé que era demasiado barato para funcionar. Después entendí que el valor está en la ejecución y en no tocar todo manualmente."</p>
-        <p class="en-text">"I thought it was too cheap to work. Then I understood that the value is in the execution and in not touching everything manually."</p>
-        <button class="stream-pill">Review 9</button>
+        <h3>Pedro José S.</h3>
+        <span>Apex · 50K Tradovate EOD</span>
+        <div class="review-proof"><img src="./review_pedro_apex.png?v=3" alt="Pedro José S. proof"></div>
+        <p class="es-text">"La cuenta fondeada me confirmó que valía la pena. Si alguien lo usa con disciplina, 499 USD se siente muy bajo frente al potencial."</p>
+        <p class="en-text">"The funded account confirmed it was worth it. If someone uses it with discipline, $499 feels very low compared with the potential."</p>
       </article><article class="apple-card review-slide">
-        <div class="review-flag">🇺🇾</div>
-        <h3>Sofía R.</h3>
-        <span>Uruguay · Evaluation</span>
-        <p class="es-text">"No quería comprar otro bot más. Pero este se siente más como un sistema de reglas que como una promesa vacía."</p>
-        <p class="en-text">"I did not want to buy another bot. But this feels more like a rule-based system than an empty promise."</p>
-        <button class="stream-pill">Review 10</button>
+        <div class="review-flag">🇹🇷</div>
+        <h3>Caner</h3>
+        <span>Apex · Rewards $1,213</span>
+        <div class="review-proof"><img src="./review_caner_1213.jpeg?v=3" alt="Caner proof"></div>
+        <p class="es-text">"Después de ver el reward aprobado, dejé de pensar que era caro. El bot cuesta menos que muchos cursos que no enseñan nada práctico."</p>
+        <p class="en-text">"After seeing the approved reward, I stopped thinking it was expensive. The bot costs less than many courses that teach nothing practical."</p>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇹🇷</div>
+        <h3>Caner</h3>
+        <span>Apex · Rewards $558</span>
+        <div class="review-proof"><img src="./review_caner_558.jpeg?v=3" alt="Caner proof"></div>
+        <p class="es-text">"Lo que más me gustó fue que pude repetir el proceso con reglas. No se sintió como suerte, sino como una operación más controlada."</p>
+        <p class="en-text">"What I liked most was being able to repeat the process with rules. It did not feel like luck, but like more controlled execution."</p>
       </article><article class="apple-card review-slide">
         <div class="review-flag">🇵🇦</div>
         <h3>Luis G.</h3>
-        <span>Panamá · Funded Account</span>
-        <p class="es-text">"Después de pasar la cuenta, entendí que el precio era bajo. Solo evitar una cuenta quemada ya vale más que eso."</p>
-        <p class="en-text">"After passing the account, I understood the price was low. Avoiding just one blown account is already worth more than that."</p>
-        <button class="stream-pill">Review 11</button>
+        <span>Lucid · Payout $502.50</span>
+        <div class="review-proof"><img src="./review_lucid_502.jpeg?v=3" alt="Luis G. proof"></div>
+        <p class="es-text">"Al inicio pensé que era una estafa por el precio, pero el payout aprobado me hizo cambiar de opinión. Ahora lo veo como una inversión."</p>
+        <p class="en-text">"At first I thought it was a scam because of the price, but the approved payout changed my opinion. Now I see it as an investment."</p>
       </article><article class="apple-card review-slide">
-        <div class="review-flag">🇨🇷</div>
-        <h3>Daniela V.</h3>
-        <span>Costa Rica · NinjaTrader 8</span>
-        <p class="es-text">"Me gustó que el soporte fuera directo y que el sistema no intentara venderme una fantasía. Es una herramienta seria."</p>
-        <p class="en-text">"I liked that support was direct and the system did not try to sell me a fantasy. It is a serious tool."</p>
-        <button class="stream-pill">Review 12</button>
+        <div class="review-flag">🇺🇸</div>
+        <h3>Raymond</h3>
+        <span>Apex · Rewards $512</span>
+        <div class="review-proof"><img src="./review_raymond_apex.png?v=3" alt="Raymond proof"></div>
+        <p class="es-text">"Una sola cuenta buena puede pagar varias veces el bot. Me gustó que el sistema sea directo y que no dependa de estar pegado a la pantalla todo el día."</p>
+        <p class="en-text">"One good account can pay for the bot several times over. I liked that the system is direct and does not require staring at the screen all day."</p>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇲🇽</div>
+        <h3>Diego R.</h3>
+        <span>Tradeify · Live cockpit</span>
+        <div class="review-proof"><img src="./review_tradesyncer.png?v=3" alt="Diego R. proof"></div>
+        <p class="es-text">"La primera vez pensé que no iba a funcionar. Después de ver resultados reales en la cuenta, entendí que el valor está en la ejecución automática."</p>
+        <p class="en-text">"The first time I thought it would not work. After seeing real account results, I understood the value is in automated execution."</p>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇨🇱</div>
+        <h3>Mateo G.</h3>
+        <span>Prop Firm · NQ/ES</span>
+        
+        <p class="es-text">"No es magia, es disciplina automatizada. Me hizo volver a confiar porque trabaja con reglas claras y no con promesas exageradas."</p>
+        <p class="en-text">"It is not magic; it is automated discipline. It made me trust again because it works with clear rules, not exaggerated promises."</p>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇵🇪</div>
+        <h3>Rodrigo T.</h3>
+        <span>NQ/MNQ · Evaluation</span>
+        
+        <p class="es-text">"Lo compré pensando que era barato sospechoso. La verdad terminó siendo una de las compras más útiles para dejar de sobreoperar."</p>
+        <p class="en-text">"I bought it thinking it was suspiciously cheap. Honestly, it became one of the most useful purchases to stop overtrading."</p>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇪🇨</div>
+        <h3>María José P.</h3>
+        <span>NinjaTrader 8 · Evaluation</span>
+        
+        <p class="es-text">"Me gustó porque no vende una fantasía. Te da reglas, parámetros y una forma más clara de trabajar las evaluaciones."</p>
+        <p class="en-text">"I liked it because it does not sell a fantasy. It gives you rules, parameters and a clearer way to work through evaluations."</p>
       </article>
     </div>
     <div class="apple-dots" data-dots="reviews" aria-label="Reviews carousel navigation"></div>
   </div>
 </section>
+
 
 
 
@@ -2849,6 +3013,44 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  const oldOpen = window.openModal;
+  const oldClose = window.closeModal;
+
+  window.openModal = function(){
+    document.body.classList.add('modal-open');
+    if(typeof oldOpen === 'function') return oldOpen.apply(this, arguments);
+    const modal = document.getElementById('checkoutModal') || document.querySelector('.modal');
+    if(modal) modal.classList.add('active');
+  };
+
+  window.closeModal = function(){
+    document.body.classList.remove('modal-open');
+    if(typeof oldClose === 'function') return oldClose.apply(this, arguments);
+    const modal = document.getElementById('checkoutModal') || document.querySelector('.modal');
+    if(modal) modal.classList.remove('active');
+  };
+
+  function syncModalState(){
+    const modal = document.getElementById('checkoutModal') || document.querySelector('.modal');
+    if(!modal) return;
+    const active = modal.classList.contains('active') || modal.style.display === 'block' || modal.getAttribute('aria-hidden') === 'false';
+    document.body.classList.toggle('modal-open', active);
+  }
+
+  document.addEventListener('click', function(e){
+    setTimeout(syncModalState, 60);
+  }, true);
+
+  const modal = document.getElementById('checkoutModal') || document.querySelector('.modal');
+  if(modal){
+    new MutationObserver(syncModalState).observe(modal, {attributes:true, attributeFilter:['class','style','aria-hidden']});
+  }
 })();
 </script>
 
