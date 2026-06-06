@@ -1433,6 +1433,207 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   .review-track .apple-card{flex-basis:86vw;}
 }
 
+
+/* === FINAL POLISH PATCH — NEXUS === */
+
+/* reveal animation on scroll */
+.reveal, .reveal-left, .reveal-right, .apple-card, .ninja-card, .price-card-main, .secure-pay, .faq-item{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.visible, .reveal-left.visible, .reveal-right.visible, .apple-card.visible, .ninja-card.visible, .price-card-main.visible, .secure-pay.visible, .faq-item.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* NinjaTrader transparent/logo blend */
+.ninja-transparent-logo{
+  width:min(340px,82vw)!important;
+  height:auto!important;
+  display:block!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  box-shadow:none!important;
+  margin:0 0 22px 0!important;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 0 18px rgba(0,255,106,.28)) brightness(1.05) contrast(1.08);
+}
+.ninja-logo-fallback{display:none!important;}
+.ninja-card .corner-deco{display:none!important;}
+
+/* subtle bottom glow cards */
+.apple-card, .ninja-card, .price-card-main, .secure-pay{
+  border:1px solid rgba(91,255,128,.22)!important;
+  box-shadow:
+    inset 0 -34px 70px rgba(0,255,106,.075),
+    inset 0 0 0 1px rgba(255,255,255,.025),
+    0 28px 90px rgba(0,0,0,.38),
+    0 18px 42px rgba(0,255,106,.07)!important;
+}
+.apple-card::before, .ninja-card::before, .price-card-main::before, .secure-pay::before{
+  content:"";
+  position:absolute;
+  left:10%;
+  right:10%;
+  bottom:-1px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, rgba(117,255,139,.78), transparent);
+  filter:blur(.5px);
+  pointer-events:none;
+}
+.apple-corner{display:none!important;}
+
+/* bot cards: smaller bottom button, no text overlap */
+.bot-slide{
+  min-height:560px!important;
+  padding-bottom:86px!important;
+}
+.bot-copy{
+  padding-bottom:12px!important;
+  color:rgba(246,255,248,.82)!important;
+}
+.bot-pill,.stream-pill{
+  left:30px!important;
+  bottom:26px!important;
+  padding:8px 16px!important;
+  min-width:auto!important;
+  font-size:10px!important;
+  letter-spacing:1.8px!important;
+  border-radius:999px!important;
+  background:rgba(245,255,247,.92)!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.18)!important;
+}
+
+/* smaller, less intrusive floating offer */
+.countdown-banner{
+  width:min(88vw,420px)!important;
+  bottom:18px!important;
+  padding:9px 12px!important;
+  gap:6px 9px!important;
+  border-radius:18px!important;
+  background:rgba(0,16,6,.48)!important;
+  backdrop-filter:blur(16px) saturate(150%)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(150%)!important;
+}
+.countdown-banner .cd-label{
+  width:100%!important;
+  font-size:7px!important;
+  letter-spacing:1.8px!important;
+  text-align:center!important;
+  color:rgba(235,255,239,.68)!important;
+}
+.countdown-banner .cd-block{
+  min-width:34px!important;
+  padding:3px 5px!important;
+}
+.countdown-banner .cd-num{font-size:13px!important;}
+.countdown-banner .cd-unit{font-size:6px!important;letter-spacing:1px!important;}
+.countdown-banner .cd-sep{font-size:12px!important;}
+.countdown-banner .cd-price-old{
+  display:inline-block!important;
+  font-size:11px!important;
+  color:rgba(245,255,248,.68)!important;
+  opacity:1!important;
+  text-decoration-color:rgba(255,80,90,.9)!important;
+  text-decoration-thickness:2px!important;
+}
+.countdown-banner .cd-price-new{
+  font-size:13px!important;
+  color:var(--g3)!important;
+}
+.countdown-banner .cd-cta{
+  padding:7px 14px!important;
+  font-size:8px!important;
+  letter-spacing:1.6px!important;
+}
+
+/* make all old price $2499 readable */
+.old-price, .price-old, .hpb-old, .cd-price-old, del, s{
+  color:rgba(245,255,248,.70)!important;
+  opacity:1!important;
+  text-decoration-color:rgba(255,80,90,.9)!important;
+  text-decoration-thickness:2px!important;
+}
+
+/* Telegram real icon + position */
+.wa-float{
+  bottom:106px!important;
+  background:#24A1DE!important;
+  box-shadow:0 6px 24px rgba(36,161,222,.44)!important;
+  overflow:hidden!important;
+  z-index:2850!important;
+}
+.telegram-svg{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+}
+
+/* reviews: flags instead of initials */
+.review-flag{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  background:rgba(0,255,106,.08);
+  border:1px solid rgba(0,255,106,.22);
+  box-shadow:inset 0 -12px 26px rgba(0,255,106,.06);
+  margin-bottom:26px;
+}
+
+/* safer mobile text */
+@media(max-width:700px){
+  .hero-title{font-size:clamp(30px,9.5vw,42px)!important;line-height:1.1!important;letter-spacing:-.3px!important;}
+  .section-title{font-size:clamp(25px,7.5vw,34px)!important;line-height:1.16!important;letter-spacing:-.2px!important;}
+  .bot-title{font-size:clamp(30px,9vw,40px)!important;line-height:1.04!important;}
+  .section-desc,.hero-sub,.bot-copy,.metric-copy,.review-slide p,.ninja-features li{
+    font-size:13.5px!important;
+    line-height:1.62!important;
+  }
+  .apple-card{
+    min-height:520px!important;
+    padding:28px 24px 82px!important;
+  }
+  .review-track .apple-card{
+    min-height:470px!important;
+  }
+  .countdown-banner{
+    width:calc(100vw - 38px)!important;
+    bottom:14px!important;
+    transform:translateX(-50%) scale(.92)!important;
+    transform-origin:center bottom!important;
+  }
+  .wa-float{
+    bottom:110px!important;
+    right:20px!important;
+    width:56px!important;
+    height:56px!important;
+  }
+  .ninja-transparent-logo{
+    margin-left:auto!important;
+    margin-right:auto!important;
+    width:min(300px,78vw)!important;
+  }
+}
+@media(max-width:420px){
+  .nav-cta{max-width:41vw!important;font-size:9px!important;padding-left:12px!important;padding-right:12px!important;}
+  .nav-logo{max-width:30vw!important;}
+  .bot-slide{min-height:555px!important;}
+  .countdown-banner{
+    width:calc(100vw - 32px)!important;
+    padding:8px 10px!important;
+  }
+  .countdown-banner .cd-label{font-size:6.5px!important;}
+  .countdown-banner .cd-block{min-width:32px!important;}
+  .countdown-banner .cd-num{font-size:12px!important;}
+}
+
 </style>
 
 <style>
@@ -1453,7 +1654,10 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
 
 <!-- TELEGRAM FLOAT -->
 <a href="https://t.me/nexus_tradingbott" target="_blank" class="wa-float" aria-label="Contactar por Telegram">
-  <span class="tg-icon">✈</span>
+  <svg class="telegram-svg" viewBox="0 0 240 240" aria-hidden="true">
+  <circle cx="120" cy="120" r="120" fill="#24A1DE"/>
+  <path fill="#fff" d="M183.9 67.8 159 185.1c-1.9 8.3-6.8 10.4-13.7 6.5l-38-28-18.3 17.6c-2 2-3.7 3.7-7.6 3.7l2.7-38.7 70.4-63.6c3.1-2.7-.7-4.2-4.8-1.5l-87 54.8-37.5-11.7c-8.2-2.6-8.3-8.2 1.7-12.1L174 55.4c6.8-2.5 12.7 1.6 9.9 12.4z"/>
+</svg>
   <div class="wa-tooltip">Telegram @nexus_tradingbott</div>
 </a>
 
@@ -1647,7 +1851,7 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
       <div class="ninja-card">
         <div class="corner-deco corner-tl"></div><div class="corner-deco corner-tr"></div>
         <div class="corner-deco corner-bl"></div><div class="corner-deco corner-br"></div>
-        <img class="ninja-logo-big" src="./ninjatrader-logo.png" alt="NinjaTrader 8 logo" onerror="this.style.display=\'none\';document.querySelector(\'.ninja-logo-fallback\').style.display=\'block\';"><div class="ninja-logo-fallback" style="display:none;font-size:52px;font-weight:800;color:#ff4b16;letter-spacing:-2px;">NinjaTrader</div>
+        <img class="ninja-logo-big ninja-transparent-logo" src="./IMG_1678.png?v=21" alt="NinjaTrader 8 logo">
         <div class="ninja-card-title">NinjaTrader 8</div>
         <div class="ninja-card-sub es-text">Plataforma líder mundial para trading de futuros. Descarga gratuita en ninjatrader.com</div>
         <div class="ninja-card-sub en-text">The world's leading platform for futures trading. Free download at ninjatrader.com</div>
@@ -1856,41 +2060,95 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   <div class="apple-carousel review-carousel" data-carousel="reviews">
     <div class="apple-track review-track">
       <article class="apple-card review-slide">
-        <div class="review-avatar">CM</div>
+        <div class="review-flag">🇨🇴</div>
         <h3>Carlos M.</h3>
-        <span>Apex Evaluation · NQ</span>
-        <p class="es-text">"No confiaba mucho porque hay demasiados gurús vendiendo humo. Lo probé en una cuenta pequeña primero y me gustó que fuera claro, medible y sin promesas raras."</p>
-        <p class="en-text">"I did not trust trading bots much because there are too many fake gurus selling hype. I tested it on a small account first and liked that it was clear, measurable and without strange promises."</p>
+        <span>Colombia · Apex 50K</span>
+        <p class="es-text">"No confiaba mucho porque hay demasiados gurús vendiendo humo. Lo probé en una cuenta pequeña primero y terminó siendo la compra más seria que he hecho para mi operativa."</p>
+        <p class="en-text">"I did not trust it much because there are too many fake gurus selling hype. I tried it first on a small account and it ended up being the most serious purchase I have made for my trading."</p>
         <button class="stream-pill">Review 1</button>
-      </article>
-      <article class="apple-card review-slide">
-        <div class="review-avatar">DR</div>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇲🇽</div>
         <h3>Diego R.</h3>
-        <span>Topstep · MNQ</span>
-        <p class="es-text">"Lo que más me gustó fue que no opera todo el día. Espera condiciones específicas y eso me ayudó a no sobreoperar."</p>
-        <p class="en-text">"What I liked most is that it does not trade all day. It waits for specific conditions, and that helped me avoid overtrading."</p>
+        <span>México · Topstep</span>
+        <p class="es-text">"Pensé que podía ser otra estafa, pero el sistema fue claro desde el primer día. Pagar 499 USD me pareció barato comparado con lo que pude recuperar después."</p>
+        <p class="en-text">"I thought it could be another scam, but the system was clear from day one. Paying $499 felt cheap compared with what I was able to recover later."</p>
         <button class="stream-pill">Review 2</button>
-      </article>
-      <article class="apple-card review-slide">
-        <div class="review-avatar">VK</div>
-        <h3>Valentina K.</h3>
-        <span>Tradeify · Evaluation</span>
-        <p class="es-text">"Ya había fallado por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara."</p>
-        <p class="en-text">"I had failed before because I traded emotionally. With FastPass I used conservative parameters and let the bot execute."</p>
-        <button class="stream-pill">Review 3</button>
-      </article>
-      <article class="apple-card review-slide">
-        <div class="review-avatar">MG</div>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇨🇱</div>
         <h3>Mateo G.</h3>
-        <span>Prop Firm · ES/NQ</span>
-        <p class="es-text">"No es magia, es disciplina automatizada. Me hizo volver a confiar porque el sistema trabaja con reglas claras."</p>
-        <p class="en-text">"It is not magic; it is automated discipline. It made me trust again because the system works with clear rules."</p>
+        <span>Chile · Prop Firm</span>
+        <p class="es-text">"No es magia, es disciplina automatizada. Me hizo volver a confiar porque trabaja con reglas claras y no con promesas exageradas."</p>
+        <p class="en-text">"It is not magic; it is automated discipline. It made me trust again because it works with clear rules, not exaggerated promises."</p>
+        <button class="stream-pill">Review 3</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇦🇷</div>
+        <h3>Valentina K.</h3>
+        <span>Argentina · Tradeify</span>
+        <p class="es-text">"Ya había fallado por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara. La diferencia se notó rápido."</p>
+        <p class="en-text">"I had failed before because I traded emotionally. With FastPass I used conservative parameters and let the bot execute. The difference showed quickly."</p>
         <button class="stream-pill">Review 4</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇵🇪</div>
+        <h3>Rodrigo T.</h3>
+        <span>Perú · Lucid</span>
+        <p class="es-text">"Lo que más me gustó es que no fuerza operaciones. Espera condiciones y eso me ayudó a no entrar por ansiedad."</p>
+        <p class="en-text">"What I liked most is that it does not force trades. It waits for conditions, and that helped me stop entering out of anxiety."</p>
+        <button class="stream-pill">Review 5</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇪🇨</div>
+        <h3>María José P.</h3>
+        <span>Ecuador · NQ Futures</span>
+        <p class="es-text">"Al principio dudé muchísimo. Hoy siento que 499 USD fue una entrada pequeña para una herramienta que me ordenó completamente la operativa."</p>
+        <p class="en-text">"At first I had a lot of doubts. Now I feel $499 was a small entry price for a tool that fully organized my trading execution."</p>
+        <button class="stream-pill">Review 6</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇩🇴</div>
+        <h3>Javier A.</h3>
+        <span>República Dominicana · Apex</span>
+        <p class="es-text">"Venía de quemar cuentas por sobreoperar. Este bot me obligó a respetar una lógica y eso cambió todo."</p>
+        <p class="en-text">"I used to blow accounts from overtrading. This bot forced me to respect one logic, and that changed everything."</p>
+        <button class="stream-pill">Review 7</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇧🇷</div>
+        <h3>Lucas M.</h3>
+        <span>Brasil · ES Futures</span>
+        <p class="es-text">"Usé ES porque quería algo menos agresivo. Me gustó que cada mercado tenga comportamiento distinto, no una estrategia genérica."</p>
+        <p class="en-text">"I used ES because I wanted something less aggressive. I liked that each market has a different behavior, not a generic strategy."</p>
+        <button class="stream-pill">Review 8</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇨🇴</div>
+        <h3>Andrés F.</h3>
+        <span>Colombia · NQ/MNQ</span>
+        <p class="es-text">"Pensé que era demasiado barato para funcionar. Después entendí que el valor está en la ejecución y en no tocar todo manualmente."</p>
+        <p class="en-text">"I thought it was too cheap to work. Then I understood that the value is in the execution and in not touching everything manually."</p>
+        <button class="stream-pill">Review 9</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇺🇾</div>
+        <h3>Sofía R.</h3>
+        <span>Uruguay · Evaluation</span>
+        <p class="es-text">"No quería comprar otro bot más. Pero este se siente más como un sistema de reglas que como una promesa vacía."</p>
+        <p class="en-text">"I did not want to buy another bot. But this feels more like a rule-based system than an empty promise."</p>
+        <button class="stream-pill">Review 10</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇵🇦</div>
+        <h3>Luis G.</h3>
+        <span>Panamá · Funded Account</span>
+        <p class="es-text">"Después de pasar la cuenta, entendí que el precio era bajo. Solo evitar una cuenta quemada ya vale más que eso."</p>
+        <p class="en-text">"After passing the account, I understood the price was low. Avoiding just one blown account is already worth more than that."</p>
+        <button class="stream-pill">Review 11</button>
+      </article><article class="apple-card review-slide">
+        <div class="review-flag">🇨🇷</div>
+        <h3>Daniela V.</h3>
+        <span>Costa Rica · NinjaTrader 8</span>
+        <p class="es-text">"Me gustó que el soporte fuera directo y que el sistema no intentara venderme una fantasía. Es una herramienta seria."</p>
+        <p class="en-text">"I liked that support was direct and the system did not try to sell me a fantasy. It is a serious tool."</p>
+        <button class="stream-pill">Review 12</button>
       </article>
     </div>
     <div class="apple-dots" data-dots="reviews" aria-label="Reviews carousel navigation"></div>
   </div>
 </section>
+
 
 
 
@@ -2216,6 +2474,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 </script>
 
+
+
+
 <script>
 (function(){
   function setupAppleCarousel(root){
@@ -2244,14 +2505,43 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       dots.forEach((d,i)=>d.classList.toggle('active', i===best));
     };
     track.addEventListener('scroll',()=>requestAnimationFrame(update), {passive:true});
-    window.addEventListener('resize',update);
     update();
   }
-  function initCarousels(){
-    document.querySelectorAll('.apple-carousel').forEach(setupAppleCarousel);
+
+  function revealOnScroll(){
+    const els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.apple-card,.ninja-card,.price-card-main,.secure-pay,.faq-item');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(el=>obs.observe(el));
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initCarousels);
-  else initCarousels();
+
+  function fixNinjaLogo(){
+    const img = document.querySelector('.ninja-transparent-logo');
+    if(!img) return;
+    img.addEventListener('error', function(){
+      if(!img.dataset.retry){
+        img.dataset.retry = '1';
+        img.src = '/IMG_1678.png?v=21';
+      } else {
+        img.remove();
+      }
+    });
+  }
+
+  function init(){
+    document.querySelectorAll('.apple-carousel').forEach(setupAppleCarousel);
+    revealOnScroll();
+    fixNinjaLogo();
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
 </script>
 
