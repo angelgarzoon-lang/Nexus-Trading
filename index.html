@@ -1249,6 +1249,240 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   margin-left:auto;
 }
 
+
+/* === NEXUS FINAL PATCH: transparent NinjaTrader logo, Telegram SVG, bot icons, mobile text safety === */
+html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+*, *::before, *::after{
+  box-sizing:border-box;
+}
+
+img, svg, video, canvas{
+  max-width:100%;
+  height:auto;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,a,li,div{
+  overflow-wrap:break-word;
+}
+
+.hero-title,
+.section-title,
+.ninja-card-title,
+.strat-name,
+.price-main-amount{
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+  hyphens:none !important;
+  max-width:100% !important;
+}
+
+.section-title,
+.hero-title{
+  white-space:normal !important;
+  text-wrap:balance;
+}
+
+p,
+.section-desc,
+.hero-sub,
+.chat-text,
+.ninja-card-sub,
+.ninja-features li,
+.price-features-main li,
+.refund-features li,
+.faq-a{
+  word-break:normal !important;
+  overflow-wrap:anywhere !important;
+  max-width:100% !important;
+}
+
+.platform-logo{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  width:100% !important;
+  margin:0 0 28px 0 !important;
+  background:transparent !important;
+}
+
+.platform-logo img{
+  width:min(360px, 82vw) !important;
+  height:auto !important;
+  display:block !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  box-shadow:none !important;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 0 18px rgba(0,255,106,.35)) brightness(1.08) contrast(1.05);
+}
+
+.ninja-logo-big{
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  box-shadow:none !important;
+}
+
+.wa-float{
+  background:#24A1DE !important;
+  overflow:hidden !important;
+}
+
+.telegram-svg{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+}
+
+.bot-icon{
+  width:54px !important;
+  height:54px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin-bottom:26px !important;
+}
+
+.bot-icon-svg{
+  width:54px !important;
+  height:54px !important;
+  filter:drop-shadow(0 0 14px rgba(0,255,106,.35));
+}
+
+.strat-icon{
+  font-size:0 !important;
+}
+
+@media(max-width:700px){
+  body{
+    min-width:0 !important;
+  }
+
+  section,
+  .hero,
+  .ninja-section,
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  footer{
+    width:100% !important;
+    max-width:100vw !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
+    overflow:hidden !important;
+  }
+
+  .hero-content,
+  .ninja-layout,
+  .perf-layout,
+  .refund-layout,
+  .footer-grid,
+  .price-center,
+  .faq-list,
+  .reviews-masonry,
+  .ninja-card,
+  .strat-card,
+  .chat-card,
+  .price-card-main,
+  .secure-pay{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .hero-title{
+    font-size:clamp(36px, 12vw, 54px) !important;
+    line-height:1.04 !important;
+    letter-spacing:-.6px !important;
+  }
+
+  .section-title{
+    font-size:clamp(28px, 8.6vw, 40px) !important;
+    line-height:1.14 !important;
+    letter-spacing:-.4px !important;
+  }
+
+  .ninja-card-title{
+    font-size:clamp(28px, 9vw, 42px) !important;
+    line-height:1.08 !important;
+    letter-spacing:-.8px !important;
+  }
+
+  .platform-logo{
+    justify-content:center !important;
+    margin-bottom:22px !important;
+  }
+
+  .platform-logo img{
+    width:min(300px, 82vw) !important;
+  }
+
+  .ninja-card{
+    padding:34px 22px !important;
+  }
+
+  .ninja-features li,
+  .price-features-main li,
+  .refund-features li{
+    align-items:flex-start !important;
+    line-height:1.55 !important;
+  }
+
+  .countdown-banner{
+    width:calc(100vw - 24px) !important;
+    left:50% !important;
+    right:auto !important;
+  }
+
+  .wa-float{
+    width:58px !important;
+    height:58px !important;
+  }
+}
+
+@media(max-width:420px){
+  section,
+  .hero,
+  .ninja-section,
+  .strategies,
+  .performance,
+  .reviews,
+  .pricing,
+  .refund,
+  .faq,
+  footer{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  .hero-title{
+    font-size:clamp(34px, 11.8vw, 50px) !important;
+  }
+
+  .section-title{
+    font-size:clamp(27px, 8.4vw, 37px) !important;
+  }
+
+  .nav-cta{
+    max-width:42vw !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+}
+
 </style>
 
 <style>
@@ -1269,7 +1503,10 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
 
 <!-- TELEGRAM FLOAT -->
 <a href="https://t.me/nexus_tradingbott" target="_blank" class="wa-float" aria-label="Contactar por Telegram">
-  <span class="tg-icon">✈</span>
+  <svg class="telegram-svg" viewBox="0 0 240 240" aria-hidden="true">
+  <circle cx="120" cy="120" r="120" fill="#24A1DE"/>
+  <path fill="#fff" d="M183.9 67.8 159 185.1c-1.9 8.3-6.8 10.4-13.7 6.5l-38-28-18.3 17.6c-2 2-3.7 3.7-7.6 3.7l2.7-38.7 70.4-63.6c3.1-2.7-.7-4.2-4.8-1.5l-87 54.8-37.5-11.7c-8.2-2.6-8.3-8.2 1.7-12.1L174 55.4c6.8-2.5 12.7 1.6 9.9 12.4z"/>
+</svg>
   <div class="wa-tooltip">Telegram @nexus_tradingbott</div>
 </a>
 
@@ -1463,7 +1700,7 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
       <div class="ninja-card">
         <div class="corner-deco corner-tl"></div><div class="corner-deco corner-tr"></div>
         <div class="corner-deco corner-bl"></div><div class="corner-deco corner-br"></div>
-        <img class="ninja-logo-big" src="./IMG_1678.png" alt="NinjaTrader 8 logo" onerror="this.style.display=\'none\';document.querySelector(\'.ninja-logo-fallback\').style.display=\'block\';"><div class="ninja-logo-fallback" style="display:none;font-size:52px;font-weight:800;color:#ff4b16;letter-spacing:-2px;">NinjaTrader</div>
+        <div class="platform-logo"><img src="./IMG_1678.png?v=12" alt="NinjaTrader 8"></div>
         <div class="ninja-card-title">NinjaTrader 8</div>
         <div class="ninja-card-sub es-text">Plataforma líder mundial para trading de futuros. Descarga gratuita en ninjatrader.com</div>
         <div class="ninja-card-sub en-text">The world's leading platform for futures trading. Free download at ninjatrader.com</div>
@@ -1494,7 +1731,21 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
   <div class="strat-grid">
     <div class="strat-card reveal d1">
       <div class="strat-num">01</div>
-      <span class="strat-icon"></span>
+      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
+  <defs>
+    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6ff00"/>
+      <stop offset="1" stop-color="#00ff6a"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
+  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
+  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
+  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
+  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+</svg></span>
       <div class="strat-name">Algoritmo 01</div>
       <p class="strat-desc es-text">Diseñado para movimientos rápidos y condiciones de alta energía. Se usa cuando el mercado muestra impulso claro y liquidez suficiente.</p>
       <p class="strat-desc en-text">Designed for fast moves and high-energy conditions. Used when the market shows clear momentum and enough liquidity.</p>
@@ -1502,7 +1753,21 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
     </div>
     <div class="strat-card reveal d2" style="transform:translateY(-20px)">
       <div class="strat-num">02</div>
-      <span class="strat-icon">🎯</span>
+      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
+  <defs>
+    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6ff00"/>
+      <stop offset="1" stop-color="#00ff6a"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
+  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
+  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
+  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
+  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+</svg></span>
       <div class="strat-name">Algoritmo 02</div>
       <p class="strat-desc es-text">Optimizado para condiciones más controladas. Busca entradas con mejor estructura y parámetros más conservadores para evaluaciones.</p>
       <p class="strat-desc en-text">Optimized for more controlled conditions. Looks for structured entries and more conservative parameters for evaluations.</p>
@@ -1510,7 +1775,21 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
     </div>
     <div class="strat-card reveal d3">
       <div class="strat-num">03</div>
-      <span class="strat-icon">🧠</span>
+      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
+  <defs>
+    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6ff00"/>
+      <stop offset="1" stop-color="#00ff6a"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
+  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
+  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
+  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
+  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+</svg></span>
       <div class="strat-name">Algoritmo 03</div>
       <p class="strat-desc es-text">Trabaja con filtros de mercado para evitar operar cuando las condiciones no favorecen al sistema. No todos los días son días para operar.</p>
       <p class="strat-desc en-text">Uses market filters to avoid trading when conditions are not favorable. Not every day is a day to trade.</p>
@@ -1518,7 +1797,21 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
     </div>
     <div class="strat-card reveal d4">
       <div class="strat-num">04</div>
-      <span class="strat-icon">🛡️</span>
+      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
+  <defs>
+    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6ff00"/>
+      <stop offset="1" stop-color="#00ff6a"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
+  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
+  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
+  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
+  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
+</svg></span>
       <div class="strat-name">Algoritmo 04</div>
       <p class="strat-desc es-text">Pensado para adaptar riesgo, tamaño y comportamiento según NQ, MNQ, ES o MES. Nasdaq y S&P500 no se operan igual.</p>
       <p class="strat-desc en-text">Built to adapt risk, size and behavior across NQ, MNQ, ES or MES. Nasdaq and S&P500 are not traded the same way.</p>
@@ -2052,5 +2345,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
 });
 </script>
+
+<script>
+(function(){
+  function fixNinjaLogo(){
+    var img = document.querySelector('.platform-logo img');
+    if(!img) return;
+    img.addEventListener('error', function(){
+      if(!img.dataset.retry){
+        img.dataset.retry = '1';
+        img.src = '/IMG_1678.png?v=12';
+      } else {
+        var parent = img.parentNode;
+        img.remove();
+        var fallback = document.createElement('div');
+        fallback.className = 'ninja-card-title';
+        fallback.textContent = 'NinjaTrader 8';
+        parent.appendChild(fallback);
+      }
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', fixNinjaLogo);
+  } else {
+    fixNinjaLogo();
+  }
+})();
+</script>
+
 </body>
 </html>
