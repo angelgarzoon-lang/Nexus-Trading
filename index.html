@@ -1250,237 +1250,187 @@ body:not(.lang-en) .hero-title .en-text{display:none !important;}
 }
 
 
-/* === NEXUS FINAL PATCH: transparent NinjaTrader logo, Telegram SVG, bot icons, mobile text safety === */
-html, body{
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden !important;
-}
-
-*, *::before, *::after{
-  box-sizing:border-box;
-}
-
-img, svg, video, canvas{
-  max-width:100%;
-  height:auto;
-}
-
-h1,h2,h3,h4,h5,h6,p,span,a,li,div{
-  overflow-wrap:break-word;
-}
-
-.hero-title,
-.section-title,
-.ninja-card-title,
-.strat-name,
-.price-main-amount{
-  word-break:normal !important;
-  overflow-wrap:normal !important;
-  hyphens:none !important;
-  max-width:100% !important;
-}
-
-.section-title,
-.hero-title{
-  white-space:normal !important;
-  text-wrap:balance;
-}
-
-p,
-.section-desc,
-.hero-sub,
-.chat-text,
-.ninja-card-sub,
-.ninja-features li,
-.price-features-main li,
-.refund-features li,
-.faq-a{
-  word-break:normal !important;
-  overflow-wrap:anywhere !important;
-  max-width:100% !important;
-}
-
-.platform-logo{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:flex-start !important;
-  width:100% !important;
-  margin:0 0 28px 0 !important;
-  background:transparent !important;
-}
-
-.platform-logo img{
-  width:min(360px, 82vw) !important;
-  height:auto !important;
-  display:block !important;
-  object-fit:contain !important;
-  background:transparent !important;
-  border:0 !important;
-  border-radius:0 !important;
-  padding:0 !important;
-  box-shadow:none !important;
-  mix-blend-mode:screen;
-  filter:drop-shadow(0 0 18px rgba(0,255,106,.35)) brightness(1.08) contrast(1.05);
-}
-
-.ninja-logo-big{
-  background:transparent !important;
-  border:0 !important;
-  padding:0 !important;
-  box-shadow:none !important;
-}
-
-.wa-float{
-  background:#24A1DE !important;
-  overflow:hidden !important;
-}
-
-.telegram-svg{
-  width:100% !important;
-  height:100% !important;
-  display:block !important;
-}
-
-.bot-icon{
-  width:54px !important;
-  height:54px !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  margin-bottom:26px !important;
-}
-
-.bot-icon-svg{
-  width:54px !important;
-  height:54px !important;
-  filter:drop-shadow(0 0 14px rgba(0,255,106,.35));
-}
-
-.strat-icon{
-  font-size:0 !important;
-}
-
+/* === APPLE-STYLE CAROUSEL + MOBILE TYPOGRAPHY FINAL === */
 @media(max-width:700px){
-  body{
-    min-width:0 !important;
-  }
-
-  section,
-  .hero,
-  .ninja-section,
-  .strategies,
-  .performance,
-  .reviews,
-  .pricing,
-  .refund,
-  .faq,
-  footer{
-    width:100% !important;
-    max-width:100vw !important;
-    padding-left:18px !important;
-    padding-right:18px !important;
-    overflow:hidden !important;
-  }
-
-  .hero-content,
-  .ninja-layout,
-  .perf-layout,
-  .refund-layout,
-  .footer-grid,
-  .price-center,
-  .faq-list,
-  .reviews-masonry,
-  .ninja-card,
-  .strat-card,
-  .chat-card,
-  .price-card-main,
-  .secure-pay{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-  }
-
-  .hero-title{
-    font-size:clamp(36px, 12vw, 54px) !important;
-    line-height:1.04 !important;
-    letter-spacing:-.6px !important;
-  }
-
-  .section-title{
-    font-size:clamp(28px, 8.6vw, 40px) !important;
-    line-height:1.14 !important;
-    letter-spacing:-.4px !important;
-  }
-
-  .ninja-card-title{
-    font-size:clamp(28px, 9vw, 42px) !important;
-    line-height:1.08 !important;
-    letter-spacing:-.8px !important;
-  }
-
-  .platform-logo{
-    justify-content:center !important;
-    margin-bottom:22px !important;
-  }
-
-  .platform-logo img{
-    width:min(300px, 82vw) !important;
-  }
-
-  .ninja-card{
-    padding:34px 22px !important;
-  }
-
-  .ninja-features li,
-  .price-features-main li,
-  .refund-features li{
-    align-items:flex-start !important;
-    line-height:1.55 !important;
-  }
-
-  .countdown-banner{
-    width:calc(100vw - 24px) !important;
-    left:50% !important;
-    right:auto !important;
-  }
-
-  .wa-float{
-    width:58px !important;
-    height:58px !important;
-  }
+  .hero-title{font-size:clamp(30px,10vw,44px)!important;line-height:1.08!important;letter-spacing:-.4px!important;}
+  .section-title{font-size:clamp(26px,8vw,36px)!important;line-height:1.14!important;letter-spacing:-.3px!important;}
+  .section-desc,.hero-sub,.bot-copy,.metric-copy,.review-slide p{font-size:14px!important;line-height:1.65!important;}
+  .ninja-card-title{font-size:clamp(28px,8vw,36px)!important;}
 }
-
-@media(max-width:420px){
-  section,
-  .hero,
-  .ninja-section,
-  .strategies,
-  .performance,
-  .reviews,
-  .pricing,
-  .refund,
-  .faq,
-  footer{
-    padding-left:16px !important;
-    padding-right:16px !important;
+.apple-section-head{
+  text-align:left;
+  max-width:900px;
+  margin:0 auto 48px;
+}
+.apple-section-head .section-desc{
+  max-width:720px;
+}
+.apple-carousel{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  position:relative;
+}
+.apple-track{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:6px 4px 18px;
+  scrollbar-width:none;
+}
+.apple-track::-webkit-scrollbar{display:none;}
+.apple-card{
+  scroll-snap-align:center;
+  flex:0 0 min(78vw,520px);
+  min-height:520px;
+  border-radius:34px;
+  border:1px solid rgba(0,255,106,.20);
+  background:
+    radial-gradient(circle at 30% 18%, rgba(0,255,106,.16), transparent 34%),
+    linear-gradient(145deg, rgba(1,26,8,.92), rgba(0,10,3,.94));
+  box-shadow:0 24px 80px rgba(0,0,0,.36), inset 0 0 0 1px rgba(255,255,255,.025);
+  padding:38px;
+  position:relative;
+  overflow:hidden;
+}
+.apple-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.06), transparent 32%, rgba(0,255,106,.06));
+  pointer-events:none;
+}
+.apple-corner{
+  position:absolute;
+  width:42px;
+  height:42px;
+  border-color:rgba(0,255,106,.75);
+  z-index:2;
+}
+.apple-corner.c1{top:22px;left:22px;border-top:2px solid;border-left:2px solid;}
+.apple-corner.c2{bottom:22px;right:22px;border-bottom:2px solid;border-right:2px solid;}
+.apple-dots{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin:18px auto 0;
+}
+.apple-dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  border:0;
+  background:rgba(240,255,245,.35);
+  cursor:pointer!important;
+  transition:all .25s ease;
+}
+.apple-dot.active{
+  width:34px;
+  background:var(--g3);
+  box-shadow:0 0 18px rgba(0,255,106,.45);
+}
+.bot-visual{
+  width:86px;
+  height:86px;
+  margin-bottom:30px;
+  filter:drop-shadow(0 0 22px rgba(0,255,106,.28));
+}
+.bot-card-icon-svg{width:86px;height:86px;}
+.bot-kicker{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:rgba(240,255,245,.68);
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.bot-title{
+  font-size:clamp(34px,5vw,58px);
+  line-height:.98;
+  letter-spacing:-1.2px;
+  margin-bottom:22px;
+}
+.bot-title span{color:var(--g3);}
+.bot-copy{
+  font-size:15px;
+  line-height:1.75;
+  color:rgba(240,255,245,.78);
+  max-width:440px;
+}
+.bot-pill,.stream-pill{
+  position:absolute;
+  left:38px;
+  bottom:34px;
+  background:rgba(240,255,245,.95);
+  color:#08110b;
+  border:0;
+  border-radius:999px;
+  padding:12px 24px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.metric-slide{
+  min-height:430px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.metric-big{
+  font-family:'Space Mono',monospace;
+  font-size:clamp(54px,11vw,96px);
+  color:var(--g3);
+  text-shadow:var(--glow);
+  font-weight:700;
+  line-height:1;
+}
+.metric-small{
+  margin-top:14px;
+  font-size:14px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:rgba(240,255,245,.72)!important;
+}
+.metric-copy{
+  margin-top:28px;
+  max-width:430px;
+  color:rgba(240,255,245,.76)!important;
+  line-height:1.75;
+}
+.review-track .apple-card{
+  flex-basis:min(78vw,420px);
+  min-height:470px;
+}
+.review-avatar{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,255,106,.12);
+  border:1px solid rgba(0,255,106,.28);
+  color:var(--g3);
+  font-weight:800;
+  margin-bottom:26px;
+}
+.review-slide h3{font-size:28px;margin-bottom:6px;}
+.review-slide span{display:block;color:rgba(240,255,245,.58);font-size:13px;margin-bottom:24px;}
+.review-slide p{font-size:15px;line-height:1.75;color:rgba(240,255,245,.78)!important;}
+@media(max-width:700px){
+  .apple-section-head{text-align:left;margin-bottom:28px;}
+  .apple-card{
+    flex-basis:86vw;
+    min-height:500px;
+    padding:30px 26px;
+    border-radius:28px;
   }
-
-  .hero-title{
-    font-size:clamp(34px, 11.8vw, 50px) !important;
-  }
-
-  .section-title{
-    font-size:clamp(27px, 8.4vw, 37px) !important;
-  }
-
-  .nav-cta{
-    max-width:42vw !important;
-    white-space:nowrap !important;
-    overflow:hidden !important;
-    text-overflow:ellipsis !important;
-  }
+  .bot-title{font-size:clamp(32px,10vw,44px);}
+  .bot-pill,.stream-pill{left:26px;bottom:26px;padding:11px 20px;}
+  .metric-slide{min-height:360px;}
+  .review-track .apple-card{flex-basis:86vw;}
 }
 
 </style>
@@ -1503,10 +1453,7 @@ p,
 
 <!-- TELEGRAM FLOAT -->
 <a href="https://t.me/nexus_tradingbott" target="_blank" class="wa-float" aria-label="Contactar por Telegram">
-  <svg class="telegram-svg" viewBox="0 0 240 240" aria-hidden="true">
-  <circle cx="120" cy="120" r="120" fill="#24A1DE"/>
-  <path fill="#fff" d="M183.9 67.8 159 185.1c-1.9 8.3-6.8 10.4-13.7 6.5l-38-28-18.3 17.6c-2 2-3.7 3.7-7.6 3.7l2.7-38.7 70.4-63.6c3.1-2.7-.7-4.2-4.8-1.5l-87 54.8-37.5-11.7c-8.2-2.6-8.3-8.2 1.7-12.1L174 55.4c6.8-2.5 12.7 1.6 9.9 12.4z"/>
-</svg>
+  <span class="tg-icon">✈</span>
   <div class="wa-tooltip">Telegram @nexus_tradingbott</div>
 </a>
 
@@ -1700,7 +1647,7 @@ p,
       <div class="ninja-card">
         <div class="corner-deco corner-tl"></div><div class="corner-deco corner-tr"></div>
         <div class="corner-deco corner-bl"></div><div class="corner-deco corner-br"></div>
-        <div class="platform-logo"><img src="./IMG_1678.png?v=12" alt="NinjaTrader 8"></div>
+        <img class="ninja-logo-big" src="./ninjatrader-logo.png" alt="NinjaTrader 8 logo" onerror="this.style.display=\'none\';document.querySelector(\'.ninja-logo-fallback\').style.display=\'block\';"><div class="ninja-logo-fallback" style="display:none;font-size:52px;font-weight:800;color:#ff4b16;letter-spacing:-2px;">NinjaTrader</div>
         <div class="ninja-card-title">NinjaTrader 8</div>
         <div class="ninja-card-sub es-text">Plataforma líder mundial para trading de futuros. Descarga gratuita en ninjatrader.com</div>
         <div class="ninja-card-sub en-text">The world's leading platform for futures trading. Free download at ninjatrader.com</div>
@@ -1720,308 +1667,231 @@ p,
 
 <!-- STRATEGIES -->
 <section class="strategies" id="estrategias">
-  <div class="reveal">
+  <div class="reveal apple-section-head">
     <div class="section-tag es-text">// 戦略 · SISTEMA MULTI-ALGORITMO</div>
     <div class="section-tag en-text">// 戦略 · MULTI-ALGORITHM SYSTEM</div>
-    <h2 class="section-title es-text">Más de 3 estrategias.<br><span class="green">4 algoritmos independientes.</span></h2>
-    <h2 class="section-title en-text">More than 3 strategies.<br><span class="green">4 independent algorithms.</span></h2>
-    <p class="section-desc es-text">El sistema no depende de una sola lógica. Incluye 4 algoritmos que pueden activarse de forma individual según mercado, horario, reglas de fondeo y nivel de riesgo. La idea es buscar setups altamente rentables, manteniendo la expectativa objetivo del 80–90% cuando se usa con disciplina y parámetros adecuados.</p>
-    <p class="section-desc en-text">The system does not rely on a single logic. It includes 4 algorithms that can be activated individually depending on market, session, funding rules and risk level. The goal is to target highly profitable setups while maintaining the 80–90% performance objective when used with discipline and proper parameters.</p>
+    <h2 class="section-title es-text">Cuatro bots.<br><span class="green">Cuatro formas de operar.</span></h2>
+    <h2 class="section-title en-text">Four bots.<br><span class="green">Four execution modes.</span></h2>
+    <p class="section-desc es-text">Cada bot está diseñado para una función distinta: evaluaciones rápidas, entradas precisas en NQ/MNQ, selección de días con mejor calidad y operación avanzada para cuentas grandes o dinero real.</p>
+    <p class="section-desc en-text">Each bot is designed for a different purpose: fast evaluations, precise NQ/MNQ entries, better-day selection and advanced execution for larger accounts or live capital.</p>
   </div>
-  <div class="strat-grid">
-    <div class="strat-card reveal d1">
-      <div class="strat-num">01</div>
-      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
-  <defs>
-    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#c6ff00"/>
-      <stop offset="1" stop-color="#00ff6a"/>
-    </linearGradient>
-  </defs>
-  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
-  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
-  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
-  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
-  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-</svg></span>
-      <div class="strat-name">Algoritmo 01</div>
-      <p class="strat-desc es-text">Diseñado para movimientos rápidos y condiciones de alta energía. Se usa cuando el mercado muestra impulso claro y liquidez suficiente.</p>
-      <p class="strat-desc en-text">Designed for fast moves and high-energy conditions. Used when the market shows clear momentum and enough liquidity.</p>
-      <div class="strat-badge es-text">Activación individual</div><div class="strat-badge en-text">Individual activation</div>
+
+  <div class="apple-carousel bot-carousel" data-carousel="bots">
+    <div class="apple-track bot-track">
+      <article class="apple-card bot-slide bot-one">
+        <div class="apple-corner c1"></div><div class="apple-corner c2"></div>
+        <div class="bot-visual"><svg class="bot-card-icon-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="botCardGrad1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c6ff00"/>
+          <stop offset=".55" stop-color="#00ff6a"/>
+          <stop offset="1" stop-color="#39ff9a"/>
+        </linearGradient>
+        <filter id="botGlow1" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect x="18" y="26" width="84" height="70" rx="24" fill="rgba(0,255,106,.07)" stroke="url(#botCardGrad1)" stroke-width="3"/>
+      <path d="M60 13v13" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="12" r="6" fill="#c6ff00" filter="url(#botGlow1)"/>
+      <circle cx="46" cy="58" r="6" fill="#00ff6a"/>
+      <circle cx="74" cy="58" r="6" fill="#00ff6a"/>
+      <path d="M43 76c11 8 23 8 34 0" stroke="#c6ff00" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M18 55H6M114 55h-12" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+        <div class="bot-kicker es-text">FASTPASS EVALUATIONS</div>
+        <div class="bot-kicker en-text">FASTPASS EVALUATIONS</div>
+        <h3 class="bot-title es-text">Bot 1<br><span>Pasa cuentas rápido</span></h3>
+        <h3 class="bot-title en-text">Bot 1<br><span>Fast evaluation pass</span></h3>
+        <p class="bot-copy es-text">Diseñado para intentar pasar cuentas de fondeo en aproximadamente 2 días. Tiene una probabilidad estimada del 78%, dependiendo del tamaño de cuenta, límites permitidos por la prop firm y configuración de riesgo.</p>
+        <p class="bot-copy en-text">Designed to target funded evaluation completion in around 2 days. It has an estimated 78% probability, depending on account size, prop firm limits and risk configuration.</p>
+        <span class="bot-pill">BOT 1</span>
+      </article>
+
+      <article class="apple-card bot-slide bot-two">
+        <div class="apple-corner c1"></div><div class="apple-corner c2"></div>
+        <div class="bot-visual"><svg class="bot-card-icon-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="botCardGrad2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c6ff00"/>
+          <stop offset=".55" stop-color="#00ff6a"/>
+          <stop offset="1" stop-color="#39ff9a"/>
+        </linearGradient>
+        <filter id="botGlow2" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect x="18" y="26" width="84" height="70" rx="24" fill="rgba(0,255,106,.07)" stroke="url(#botCardGrad2)" stroke-width="3"/>
+      <path d="M60 13v13" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="12" r="6" fill="#c6ff00" filter="url(#botGlow2)"/>
+      <circle cx="46" cy="58" r="6" fill="#00ff6a"/>
+      <circle cx="74" cy="58" r="6" fill="#00ff6a"/>
+      <path d="M43 76c11 8 23 8 34 0" stroke="#c6ff00" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M18 55H6M114 55h-12" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+        <div class="bot-kicker">NQ/MNQ · 30 SEC</div>
+        <h3 class="bot-title es-text">Bot 2<br><span>Una entrada al día</span></h3>
+        <h3 class="bot-title en-text">Bot 2<br><span>One trade per day</span></h3>
+        <p class="bot-copy es-text">Opera NQ/MNQ en temporalidad de 30 segundos, una vez al día, tomando como referencia la sesión de New York. Es el modelo más preciso para aceleración controlada, con una probabilidad estimada del 85–95% cuando las condiciones acompañan.</p>
+        <p class="bot-copy en-text">Trades NQ/MNQ on a 30-second model, once per day, based around the New York session. It is the most precise acceleration model, with an estimated 85–95% probability when conditions align.</p>
+        <span class="bot-pill">BOT 2</span>
+      </article>
+
+      <article class="apple-card bot-slide bot-three">
+        <div class="apple-corner c1"></div><div class="apple-corner c2"></div>
+        <div class="bot-visual"><svg class="bot-card-icon-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="botCardGrad3" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c6ff00"/>
+          <stop offset=".55" stop-color="#00ff6a"/>
+          <stop offset="1" stop-color="#39ff9a"/>
+        </linearGradient>
+        <filter id="botGlow3" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect x="18" y="26" width="84" height="70" rx="24" fill="rgba(0,255,106,.07)" stroke="url(#botCardGrad3)" stroke-width="3"/>
+      <path d="M60 13v13" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="12" r="6" fill="#c6ff00" filter="url(#botGlow3)"/>
+      <circle cx="46" cy="58" r="6" fill="#00ff6a"/>
+      <circle cx="74" cy="58" r="6" fill="#00ff6a"/>
+      <path d="M43 76c11 8 23 8 34 0" stroke="#c6ff00" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M18 55H6M114 55h-12" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+        <div class="bot-kicker">NQ/MNQ · 3 MIN</div>
+        <h3 class="bot-title es-text">Bot 3<br><span>Filtro de mejores días</span></h3>
+        <h3 class="bot-title en-text">Bot 3<br><span>Best-day filter</span></h3>
+        <p class="bot-copy es-text">También opera NQ/MNQ, pero en 3 minutos. No fuerza operaciones todos los días: durante la semana busca seleccionar los mejores días de mercado para ejecutar con mayor claridad.</p>
+        <p class="bot-copy en-text">Also trades NQ/MNQ, but on a 3-minute model. It does not force trades every day: during the week it looks for the highest-quality market days to execute with more clarity.</p>
+        <span class="bot-pill">BOT 3</span>
+      </article>
+
+      <article class="apple-card bot-slide bot-four">
+        <div class="apple-corner c1"></div><div class="apple-corner c2"></div>
+        <div class="bot-visual"><svg class="bot-card-icon-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="botCardGrad4" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c6ff00"/>
+          <stop offset=".55" stop-color="#00ff6a"/>
+          <stop offset="1" stop-color="#39ff9a"/>
+        </linearGradient>
+        <filter id="botGlow4" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect x="18" y="26" width="84" height="70" rx="24" fill="rgba(0,255,106,.07)" stroke="url(#botCardGrad4)" stroke-width="3"/>
+      <path d="M60 13v13" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="12" r="6" fill="#c6ff00" filter="url(#botGlow4)"/>
+      <circle cx="46" cy="58" r="6" fill="#00ff6a"/>
+      <circle cx="74" cy="58" r="6" fill="#00ff6a"/>
+      <path d="M43 76c11 8 23 8 34 0" stroke="#c6ff00" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M18 55H6M114 55h-12" stroke="#00ff6a" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+        <div class="bot-kicker">LIVE MODE · 1 MIN / 3 MIN</div>
+        <h3 class="bot-title es-text">Bot 4<br><span>Para cuentas grandes</span></h3>
+        <h3 class="bot-title en-text">Bot 4<br><span>For larger accounts</span></h3>
+        <p class="bot-copy es-text">Incluye dos variantes: una de 1 minuto y otra de 3 minutos. Está pensado para cuentas más grandes, con capacidad de operar múltiples veces. Es principalmente para después de pasar evaluaciones y trabajar con dinero real/live.</p>
+        <p class="bot-copy en-text">Includes two variants: one on 1 minute and one on 3 minutes. It is intended for larger accounts with multiple execution opportunities, mainly after passing evaluations and moving into real/live capital.</p>
+        <span class="bot-pill">BOT 4</span>
+      </article>
     </div>
-    <div class="strat-card reveal d2" style="transform:translateY(-20px)">
-      <div class="strat-num">02</div>
-      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
-  <defs>
-    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#c6ff00"/>
-      <stop offset="1" stop-color="#00ff6a"/>
-    </linearGradient>
-  </defs>
-  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
-  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
-  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
-  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
-  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-</svg></span>
-      <div class="strat-name">Algoritmo 02</div>
-      <p class="strat-desc es-text">Optimizado para condiciones más controladas. Busca entradas con mejor estructura y parámetros más conservadores para evaluaciones.</p>
-      <p class="strat-desc en-text">Optimized for more controlled conditions. Looks for structured entries and more conservative parameters for evaluations.</p>
-      <div class="strat-badge es-text">Modo evaluación</div><div class="strat-badge en-text">Evaluation mode</div>
-    </div>
-    <div class="strat-card reveal d3">
-      <div class="strat-num">03</div>
-      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
-  <defs>
-    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#c6ff00"/>
-      <stop offset="1" stop-color="#00ff6a"/>
-    </linearGradient>
-  </defs>
-  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
-  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
-  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
-  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
-  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-</svg></span>
-      <div class="strat-name">Algoritmo 03</div>
-      <p class="strat-desc es-text">Trabaja con filtros de mercado para evitar operar cuando las condiciones no favorecen al sistema. No todos los días son días para operar.</p>
-      <p class="strat-desc en-text">Uses market filters to avoid trading when conditions are not favorable. Not every day is a day to trade.</p>
-      <div class="strat-badge es-text">Filtro de mercado</div><div class="strat-badge en-text">Market filter</div>
-    </div>
-    <div class="strat-card reveal d4">
-      <div class="strat-num">04</div>
-      <span class="strat-icon bot-icon"><svg class="bot-icon-svg" viewBox="0 0 96 96" aria-hidden="true">
-  <defs>
-    <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#c6ff00"/>
-      <stop offset="1" stop-color="#00ff6a"/>
-    </linearGradient>
-  </defs>
-  <rect x="18" y="24" width="60" height="50" rx="14" fill="rgba(0,255,106,.10)" stroke="url(#botGrad)" stroke-width="3"/>
-  <path d="M48 14v10" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="48" cy="12" r="5" fill="#c6ff00"/>
-  <circle cx="38" cy="48" r="5" fill="#00ff6a"/>
-  <circle cx="58" cy="48" r="5" fill="#00ff6a"/>
-  <path d="M36 61c8 6 16 6 24 0" stroke="#c6ff00" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M18 42H8M88 42H78" stroke="#00ff6a" stroke-width="4" stroke-linecap="round"/>
-</svg></span>
-      <div class="strat-name">Algoritmo 04</div>
-      <p class="strat-desc es-text">Pensado para adaptar riesgo, tamaño y comportamiento según NQ, MNQ, ES o MES. Nasdaq y S&P500 no se operan igual.</p>
-      <p class="strat-desc en-text">Built to adapt risk, size and behavior across NQ, MNQ, ES or MES. Nasdaq and S&P500 are not traded the same way.</p>
-      <div class="strat-badge es-text">Control de riesgo</div><div class="strat-badge en-text">Risk control</div>
-    </div>
+    <div class="apple-dots" data-dots="bots" aria-label="Bot carousel navigation"></div>
   </div>
 </section>
+
 
 <!-- PERFORMANCE -->
 <section class="performance" id="rendimiento">
-  <div class="perf-layout">
-    <div class="reveal-left">
-      <div class="section-tag es-text">// パフォーマンス · RENDIMIENTO VERIFICADO</div>
-      <div class="section-tag en-text">// パフォーマンス · VERIFIED PERFORMANCE</div>
-      <h2 class="section-title es-text">Resultados<br><span class="green">Reales.</span></h2>
-      <h2 class="section-title en-text">Real<br><span class="green">Results.</span></h2>
-      <p class="section-desc es-text" style="margin-bottom:40px;">Sistema pensado para trading de futuros y evaluaciones de fondeo. La meta no es prometer ganancias fijas, sino usar reglas automáticas, parámetros por mercado y control de riesgo para buscar cuentas aprobadas en días y una rentabilidad objetivo del 80–90% cuando las condiciones acompañan.</p>
-      <p class="section-desc en-text" style="margin-bottom:40px;">Built for futures trading and funded evaluations. The goal is not to promise fixed profits, but to use automated rules, market-specific parameters and risk controls to target passed accounts in days and an 80–90% performance objective when conditions align.</p>
-      <div class="perf-metrics">
-        <div class="metric"><div class="metric-val">87.3%</div><div class="metric-label es-text">Objetivo</div><div class="metric-label en-text">Target</div></div>
-        <div class="metric"><div class="metric-val">1.8</div><div class="metric-label">Risk Metric</div></div>
-        <div class="metric"><div class="metric-val">-12%</div><div class="metric-label">Risk Control</div></div>
-        <div class="metric"><div class="metric-val">80%</div><div class="metric-label">Eval Focus</div></div>
-      </div>
+  <div class="reveal apple-section-head">
+    <div class="section-tag es-text">// パフォーマンス · RENDIMIENTO</div>
+    <div class="section-tag en-text">// パフォーマンス · PERFORMANCE</div>
+    <h2 class="section-title es-text">Rendimiento claro.<br><span class="green">Sin promesas vacías.</span></h2>
+    <h2 class="section-title en-text">Clear performance.<br><span class="green">No empty promises.</span></h2>
+    <p class="section-desc es-text">Métricas explicadas de forma simple para que el cliente entienda qué está comprando, cómo se usa y qué variables influyen en los resultados.</p>
+    <p class="section-desc en-text">Simple metrics so customers understand what they are buying, how it is used and what variables affect results.</p>
+  </div>
+
+  <div class="apple-carousel metric-carousel" data-carousel="metrics">
+    <div class="apple-track metric-track">
+      <article class="apple-card metric-slide">
+        <span class="metric-big">80–90%</span>
+        <span class="metric-small es-text">rentabilidad objetivo</span>
+        <span class="metric-small en-text">target performance</span>
+        <p class="metric-copy es-text">Objetivo de rendimiento cuando el bot se usa con parámetros adecuados, control de riesgo y condiciones de mercado favorables.</p>
+        <p class="metric-copy en-text">Performance objective when the bot is used with proper parameters, risk control and favorable market conditions.</p>
+      </article>
+      <article class="apple-card metric-slide">
+        <span class="metric-big">4</span>
+        <span class="metric-small es-text">bots especializados</span>
+        <span class="metric-small en-text">specialized bots</span>
+        <p class="metric-copy es-text">No depende de una sola lógica. Cada bot cumple una función distinta según el mercado, el tamaño de cuenta y el nivel de riesgo.</p>
+        <p class="metric-copy en-text">It does not rely on a single logic. Each bot serves a different function depending on market, account size and risk level.</p>
+      </article>
+      <article class="apple-card metric-slide">
+        <span class="metric-big">PROP</span>
+        <span class="metric-small es-text">modo fondeo</span>
+        <span class="metric-small en-text">funding mode</span>
+        <p class="metric-copy es-text">Diseñado para evaluaciones de fondeo compatibles, respetando límites, horarios y reglas de riesgo de cada cuenta.</p>
+        <p class="metric-copy en-text">Designed for compatible funded evaluations, respecting limits, session timing and account risk rules.</p>
+      </article>
     </div>
-    <div class="reveal-right">
-      <div class="chart-bg">
-        <div class="corner-deco corner-tl"></div><div class="corner-deco corner-br"></div>
-        <div class="chart-label">▶ NEXUS BOT — NQ FUTURES EQUITY CURVE 2024</div>
-        <canvas id="perfCanvas"></canvas>
-        <div class="chart-footer">
-          <span class="chart-foot-item">ENE</span><span class="chart-foot-item">MAR</span>
-          <span class="chart-foot-item">MAY</span><span class="chart-foot-item">JUL</span>
-          <span class="chart-foot-item">SEP</span><span class="chart-foot-item">NOV</span>
-          <span class="chart-foot-item">DIC</span>
-        </div>
-      </div>
-    </div>
+    <div class="apple-dots" data-dots="metrics" aria-label="Performance carousel navigation"></div>
   </div>
 </section>
+
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
-  <div class="reveal" style="text-align:center;">
-    <div class="section-tag es-text" style="display:block;">// レビュー · FASTPASS EVALUATIONS</div>
-    <div class="section-tag en-text" style="display:block;">// REVIEWS · FASTPASS EVALUATIONS</div>
-    <h2 class="section-title es-text">Traders que usaron<br><span class="green">FastPass Evaluations</span></h2>
-    <h2 class="section-title en-text">Traders using<br><span class="green">FastPass Evaluations</span></h2>
+  <div class="reveal apple-section-head">
+    <div class="section-tag es-text">// レビュー · COMUNIDAD</div>
+    <div class="section-tag en-text">// REVIEWS · COMMUNITY</div>
+    <h2 class="section-title es-text">Lo que dicen<br><span class="green">los usuarios.</span></h2>
+    <h2 class="section-title en-text">What users<br><span class="green">are saying.</span></h2>
   </div>
 
-  <div class="reviews-masonry">
-
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇴</div>
-        <div><div class="chat-username">Carlos M. <span class="chat-verified">✓</span></div><div class="chat-handle">Colombia · Apex Evaluation</div></div>
-        <div class="chat-profit-badge">Passed</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Usé FastPass Evaluations en NQ y pasé mi cuenta de fondeo en pocos días. Lo que más me gustó es que no es un solo bot: son varios algoritmos y cada uno se activa según el mercado."</p>
-        <p class="chat-text en-text">"I used FastPass Evaluations on NQ and passed my funded account in just a few days. What I liked most is that it is not a single bot: it includes multiple algorithms and each one activates depending on market conditions."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 3 días</span><span class="chat-date en-text">3 days ago</span><span class="chat-platform">NQ FUTURES</span></div>
+  <div class="apple-carousel review-carousel" data-carousel="reviews">
+    <div class="apple-track review-track">
+      <article class="apple-card review-slide">
+        <div class="review-avatar">CM</div>
+        <h3>Carlos M.</h3>
+        <span>Apex Evaluation · NQ</span>
+        <p class="es-text">"No confiaba mucho porque hay demasiados gurús vendiendo humo. Lo probé en una cuenta pequeña primero y me gustó que fuera claro, medible y sin promesas raras."</p>
+        <p class="en-text">"I did not trust trading bots much because there are too many fake gurus selling hype. I tested it on a small account first and liked that it was clear, measurable and without strange promises."</p>
+        <button class="stream-pill">Review 1</button>
+      </article>
+      <article class="apple-card review-slide">
+        <div class="review-avatar">DR</div>
+        <h3>Diego R.</h3>
+        <span>Topstep · MNQ</span>
+        <p class="es-text">"Lo que más me gustó fue que no opera todo el día. Espera condiciones específicas y eso me ayudó a no sobreoperar."</p>
+        <p class="en-text">"What I liked most is that it does not trade all day. It waits for specific conditions, and that helped me avoid overtrading."</p>
+        <button class="stream-pill">Review 2</button>
+      </article>
+      <article class="apple-card review-slide">
+        <div class="review-avatar">VK</div>
+        <h3>Valentina K.</h3>
+        <span>Tradeify · Evaluation</span>
+        <p class="es-text">"Ya había fallado por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara."</p>
+        <p class="en-text">"I had failed before because I traded emotionally. With FastPass I used conservative parameters and let the bot execute."</p>
+        <button class="stream-pill">Review 3</button>
+      </article>
+      <article class="apple-card review-slide">
+        <div class="review-avatar">MG</div>
+        <h3>Mateo G.</h3>
+        <span>Prop Firm · ES/NQ</span>
+        <p class="es-text">"No es magia, es disciplina automatizada. Me hizo volver a confiar porque el sistema trabaja con reglas claras."</p>
+        <p class="en-text">"It is not magic; it is automated discipline. It made me trust again because the system works with clear rules."</p>
+        <button class="stream-pill">Review 4</button>
+      </article>
     </div>
-
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇲🇽</div>
-        <div><div class="chat-username">Diego R. <span class="chat-verified">✓</span></div><div class="chat-handle">México · Topstep Combine</div></div>
-        <div class="chat-profit-badge es-text">4 días</div><div class="chat-profit-badge en-text">4 days</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Lo probé en modo evaluación y pasé mucho más rápido de lo que esperaba. NQ se comporta muy diferente a ES, y tener configuraciones separadas ayuda muchísimo."</p>
-        <p class="chat-text en-text">"I tested it in evaluation mode and passed much faster than I expected. NQ behaves very differently from ES, and having separate configurations helps a lot."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 1 semana</span><span class="chat-date en-text">1 week ago</span><span class="chat-platform">TOPSTEP</span></div>
-    </div>
-
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇦🇷</div>
-        <div><div class="chat-username">Valentina K. <span class="chat-verified">✓</span></div><div class="chat-handle">Argentina · Tradeify</div></div>
-        <div class="chat-profit-badge">Passed</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Ya había fallado varias evaluaciones por operar emocionalmente. Con FastPass usé parámetros conservadores y dejé que el bot ejecutara. Pasé la evaluación en días, no meses."</p>
-        <p class="chat-text en-text">"I had failed several evaluations because I traded emotionally. With FastPass, I used conservative parameters and let the bot execute. I passed the evaluation in days, not months."</p>
-        <div class="chat-img-preview"><span class="chat-img-label">📊 FUNDED EVALUATION SUMMARY</span><div class="mini-chart" id="mc1"></div><div style="display:flex;justify-content:space-between;margin-top:6px;"><span style="color:var(--g3);">STATUS: PASSED</span><span style="color:rgba(0,255,106,.4);">RISK: CONTROLLED</span></div></div>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 2 semanas</span><span class="chat-date en-text">2 weeks ago</span><span class="chat-platform">EVALUATION BOT</span></div>
-    </div>
-
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇱</div>
-        <div><div class="chat-username">Andrés F. <span class="chat-verified">✓</span></div><div class="chat-handle">Chile · Apex Trader</div></div>
-        <div class="chat-profit-badge">NQ + ES</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"La diferencia clave fue entender que Nasdaq y ES no se operan igual. Activé algoritmos distintos para cada mercado y el bot respetó los parámetros de riesgo de la prop firm."</p>
-        <p class="chat-text en-text">"The key difference was understanding that Nasdaq and ES do not trade the same way. I activated different algorithms for each market, and the bot respected the prop firm risk parameters."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 5 días</span><span class="chat-date en-text">5 days ago</span><span class="chat-platform">APEX</span></div>
-    </div>
-
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇵🇪</div>
-        <div><div class="chat-username">Rodrigo T. <span class="chat-verified">✓</span></div><div class="chat-handle">Perú · Lucid Trader</div></div>
-        <div class="chat-profit-badge es-text">5 días</div><div class="chat-profit-badge en-text">5 days</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Lo usé con una evaluación pequeña primero. Me gustó que pude activar solo el algoritmo que quería y no dejar todo corriendo sin control. Pasé la cuenta en menos de una semana."</p>
-        <p class="chat-text en-text">"I used it with a small evaluation first. I liked that I could activate only the algorithm I wanted instead of leaving everything running without control. I passed the account in less than a week."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 3 semanas</span><span class="chat-date en-text">3 weeks ago</span><span class="chat-platform">LUCID</span></div>
-    </div>
-
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇪🇨</div>
-        <div><div class="chat-username">María José P. <span class="chat-verified">✓</span></div><div class="chat-handle">Ecuador · NQ Futures</div></div>
-        <div class="chat-profit-badge">80–90%</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"No lo veo como magia, sino como disciplina automatizada. Los algoritmos son bastante profitables cuando se usan en las condiciones correctas y con reglas claras."</p>
-        <p class="chat-text en-text">"I do not see it as magic, but as automated discipline. The algorithms are highly profitable when used under the right conditions and with clear rules."</p>
-        <div class="chat-img-preview"><span class="chat-img-label">📋 FASTPASS SETTINGS</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;"><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">4</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">ALGOS</div></div><div style="text-align:center;padding:6px;background:rgba(0,255,106,.05);"><div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--g3);">NQ/ES</div><div style="font-size:9px;color:rgba(0,255,106,.4);letter-spacing:1px;">MARKETS</div></div></div></div>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 9 días</span><span class="chat-date en-text">9 days ago</span><span class="chat-platform">NINJATRADER 8</span></div>
-    </div>
-
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇩🇴</div>
-        <div><div class="chat-username">Javier A. <span class="chat-verified">✓</span></div><div class="chat-handle">República Dominicana · Prop Firm</div></div>
-        <div class="chat-profit-badge">Passed</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Venía de sobreoperar y quemar cuentas. Con este sistema me concentré en una configuración, un mercado y una regla de riesgo. La evaluación salió mucho más limpia."</p>
-        <p class="chat-text en-text">"I used to overtrade and blow accounts. With this system, I focused on one setup, one market and one risk rule. The evaluation was much cleaner."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 2 semanas</span><span class="chat-date en-text">2 weeks ago</span><span class="chat-platform">FUNDED ACCOUNT</span></div>
-    </div>
-
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇧🇷</div>
-        <div><div class="chat-username">Lucas M. <span class="chat-verified">✓</span></div><div class="chat-handle">Brasil · ES Futures</div></div>
-        <div class="chat-profit-badge">MES/ES</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Usé el bot en ES porque quería algo menos agresivo que NQ. La separación por mercado tiene sentido: ES necesita otro ritmo, otro stop y otro comportamiento."</p>
-        <p class="chat-text en-text">"I used the bot on ES because I wanted something less aggressive than NQ. Separating by market makes sense: ES needs a different rhythm, stop and behavior."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 2 semanas</span><span class="chat-date en-text">2 weeks ago</span><span class="chat-platform">ES FUTURES</span></div>
-    </div>
-
-    <div class="chat-card reveal d1">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇴</div>
-        <div><div class="chat-username">Daniel R. <span class="chat-verified">✓</span></div><div class="chat-handle">Colombia · Apex 50K</div></div>
-        <div class="chat-profit-badge es-text">8 días</div><div class="chat-profit-badge en-text">8 days</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"No confiaba mucho porque hoy hay demasiados gurús vendiendo humo. Probé FastPass en una cuenta pequeña primero y me sorprendió que el sistema fuera claro, medible y sin promesas raras. Pasé la evaluación en 8 días."</p>
-        <p class="chat-text en-text">"I did not trust trading bots much because there are too many fake gurus selling hype today. I tried FastPass on a small account first, and I was surprised that the system was clear, measurable and without strange promises. I passed the evaluation in 8 days."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 4 días</span><span class="chat-date en-text">4 days ago</span><span class="chat-platform">APEX</span></div>
-    </div>
-
-    <div class="chat-card reveal d2">
-      <div class="chat-header">
-        <div class="chat-avatar">🇲🇽</div>
-        <div><div class="chat-username">Sebastián L. <span class="chat-verified">✓</span></div><div class="chat-handle">México · Topstep</div></div>
-        <div class="chat-profit-badge">Passed</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Al principio pensé que era otro bot más de internet. Lo que me hizo confiar fue ver que no intentaba operar todo el día: espera condiciones específicas, respeta el riesgo y trabaja diferente NQ y ES."</p>
-        <p class="chat-text en-text">"At first I thought it was just another internet bot. What made me trust it was seeing that it does not try to trade all day: it waits for specific conditions, respects risk and treats NQ and ES differently."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 6 días</span><span class="chat-date en-text">6 days ago</span><span class="chat-platform">TOPSTEP</span></div>
-    </div>
-
-    <div class="chat-card reveal d3">
-      <div class="chat-header">
-        <div class="chat-avatar">🇨🇱</div>
-        <div><div class="chat-username">Mateo G. <span class="chat-verified">✓</span></div><div class="chat-handle">Chile · Funded Evaluation</div></div>
-        <div class="chat-profit-badge es-text">6 días</div><div class="chat-profit-badge en-text">6 days</div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-stars">★★★★★</div>
-        <p class="chat-text es-text">"Venía muy desconfiado por tantas promesas falsas en trading. Este sistema me hizo volver a confiar porque es simple: parámetros, disciplina y ejecución. No es magia, pero sí me ayudó a pasar una cuenta en días."</p>
-        <p class="chat-text en-text">"I was very skeptical because of so many false promises in trading. This system made me trust again because it is simple: parameters, discipline and execution. It is not magic, but it did help me pass an account in days."</p>
-      </div>
-      <div class="chat-footer"><span class="chat-date es-text">hace 1 semana</span><span class="chat-date en-text">1 week ago</span><span class="chat-platform">PROP FIRM</span></div>
-    </div>
-
+    <div class="apple-dots" data-dots="reviews" aria-label="Reviews carousel navigation"></div>
   </div>
 </section>
+
 
 
 <!-- PRICING -->
@@ -2348,28 +2218,40 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 <script>
 (function(){
-  function fixNinjaLogo(){
-    var img = document.querySelector('.platform-logo img');
-    if(!img) return;
-    img.addEventListener('error', function(){
-      if(!img.dataset.retry){
-        img.dataset.retry = '1';
-        img.src = '/IMG_1678.png?v=12';
-      } else {
-        var parent = img.parentNode;
-        img.remove();
-        var fallback = document.createElement('div');
-        fallback.className = 'ninja-card-title';
-        fallback.textContent = 'NinjaTrader 8';
-        parent.appendChild(fallback);
-      }
+  function setupAppleCarousel(root){
+    const track = root.querySelector('.apple-track');
+    const dotsWrap = root.querySelector('.apple-dots');
+    if(!track || !dotsWrap) return;
+    const slides = Array.from(track.children);
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i)=>{
+      const b=document.createElement('button');
+      b.className='apple-dot' + (i===0?' active':'');
+      b.type='button';
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click',()=>slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));
+      dotsWrap.appendChild(b);
     });
+    const dots = Array.from(dotsWrap.children);
+    const update=()=>{
+      const center = track.scrollLeft + track.clientWidth/2;
+      let best=0, dist=Infinity;
+      slides.forEach((s,i)=>{
+        const c=s.offsetLeft + s.offsetWidth/2;
+        const d=Math.abs(c-center);
+        if(d<dist){dist=d;best=i;}
+      });
+      dots.forEach((d,i)=>d.classList.toggle('active', i===best));
+    };
+    track.addEventListener('scroll',()=>requestAnimationFrame(update), {passive:true});
+    window.addEventListener('resize',update);
+    update();
   }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', fixNinjaLogo);
-  } else {
-    fixNinjaLogo();
+  function initCarousels(){
+    document.querySelectorAll('.apple-carousel').forEach(setupAppleCarousel);
   }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initCarousels);
+  else initCarousels();
 })();
 </script>
 
